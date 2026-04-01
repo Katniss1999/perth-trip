@@ -1245,31 +1245,32 @@ var map = L.map('map', {
   attributionControl: false
 }).setView([-30.0, 115.2], 7);
 
-// Tile provider cascade — China domestic CDN first for guaranteed speed
+// Tile provider cascade — self-hosted proxy first for guaranteed China speed + rich data
+var selfOrigin = window.location.origin;
 var tileSources = [
-  // 1. Amap (高德) — domestic CDN, instant loading in China, global coverage
+  // 1. Self-hosted Cloudflare proxy — same domain, CF edge cache, OSM data (best combo)
   {
-    url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
-    opts: { subdomains: '1234', maxZoom: 18 },
-    attr: 'AutoNavi'
+    url: selfOrigin + '/tile/{z}/{x}/{y}.png',
+    opts: { maxZoom: 19 },
+    attr: 'OSM via CF'
   },
-  // 2. Amap style 7 as backup
+  // 2. ArcGIS World Street Map — rich global data, Esri has China CDN nodes
   {
-    url: 'https://wprd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}',
-    opts: { subdomains: '1234', maxZoom: 18 },
-    attr: 'AutoNavi'
+    url: 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+    opts: { maxZoom: 19 },
+    attr: 'Esri'
   },
-  // 3. OSM France HOT as overseas fallback
+  // 3. OSM France HOT — sometimes works from China
   {
     url: 'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     opts: { subdomains: 'abc', maxZoom: 19 },
     attr: 'OSM FR'
   },
-  // 4. OSM standard as last resort
+  // 4. Amap (高德) — instant in China but poor overseas detail (last resort)
   {
-    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    opts: { maxZoom: 19 },
-    attr: 'OSM'
+    url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+    opts: { subdomains: '1234', maxZoom: 18 },
+    attr: 'AutoNavi'
   }
 ];
 
@@ -1295,12 +1296,12 @@ function loadTiles(idx) {
       loadTiles(currentTileIdx + 1);
     }
   });
-  // Timeout fallback: if no tile loaded within 4s, try next source
+  // Timeout fallback: if no tile loaded within 6s, try next source (CF cold start may need extra time)
   fallbackTimer = setTimeout(function() {
     if (successCount === 0 && currentTileIdx < tileSources.length - 1) {
       loadTiles(currentTileIdx + 1);
     }
-  }, 4000);
+  }, 6000);
 }
 
 loadTiles(0);
