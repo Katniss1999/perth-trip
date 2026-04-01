@@ -4,11 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>五一西澳珀斯 · 路线地图</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
     --bg-base: #ffffff;
@@ -578,19 +575,19 @@ var map = L.map('map', {
   attributionControl: false
 }).setView([-30.0, 115.2], 7);
 
-// Tile provider cascade — try multiple sources until one works
+// Tile provider cascade — prioritize China-accessible sources
 var tileSources = [
-  // 1. CARTO Positron (light, clean) — most reliable for CORS
+  // 1. CARTO via jsdelivr CDN proxy (China-accessible)
+  {
+    url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png',
+    opts: { subdomains: 'abcd', maxZoom: 19 },
+    attr: 'CARTO'
+  },
+  // 2. CARTO Positron direct
   {
     url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
     opts: { subdomains: 'abcd', maxZoom: 19 },
     attr: 'CARTO'
-  },
-  // 2. OpenTopoMap — no referer check
-  {
-    url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-    opts: { subdomains: 'abc', maxZoom: 17 },
-    attr: 'OpenTopoMap'
   },
   // 3. OSM standard as last resort
   {
@@ -602,22 +599,32 @@ var tileSources = [
 
 var currentTileIdx = 0;
 var errorCount = 0;
+var successCount = 0;
 var currentTileLayer = null;
+var fallbackTimer = null;
 
 function loadTiles(idx) {
   if (idx >= tileSources.length) return;
   currentTileIdx = idx;
   errorCount = 0;
+  successCount = 0;
   var src = tileSources[idx];
   if (currentTileLayer) map.removeLayer(currentTileLayer);
+  if (fallbackTimer) clearTimeout(fallbackTimer);
   currentTileLayer = L.tileLayer(src.url, src.opts).addTo(map);
+  currentTileLayer.on('tileload', function() { successCount++; if (fallbackTimer) { clearTimeout(fallbackTimer); fallbackTimer = null; } });
   currentTileLayer.on('tileerror', function() {
     errorCount++;
-    // If too many errors, switch to next source
-    if (errorCount > 5 && currentTileIdx < tileSources.length - 1) {
+    if (errorCount >= 3 && successCount === 0 && currentTileIdx < tileSources.length - 1) {
       loadTiles(currentTileIdx + 1);
     }
   });
+  // Timeout fallback: if no tile loaded within 4s, try next source
+  fallbackTimer = setTimeout(function() {
+    if (successCount === 0 && currentTileIdx < tileSources.length - 1) {
+      loadTiles(currentTileIdx + 1);
+    }
+  }, 4000);
 }
 
 loadTiles(0);
