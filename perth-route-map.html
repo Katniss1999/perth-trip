@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五一西澳珀斯 · 路线地图</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<style>
+  :root {
+    --bg-base: #ffffff;
+    --bg-raised: #f8f9fa;
+    --bg-surface: #f1f3f5;
+    --bg-hover: #e9ecef;
+    --border-subtle: #e9ecef;
+    --border-default: #dee2e6;
+    --text-primary: #212529;
+    --text-secondary: #495057;
+    --text-muted: #868e96;
+    --day1: #0ca678;
+    --day2: #e67700;
+    --day3: #d6336c;
+    --day4: #1098ad;
+    --day5: #7048e8;
+    --day6: #868e96;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
+    --font: 'Inter', -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font);
+    background: var(--bg-base);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HEADER ─── */
+  .header {
+    height: 52px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: var(--bg-base);
+    border-bottom: 1px solid var(--border-subtle);
+    z-index: 100;
+  }
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .header-icon {
+    font-size: 20px;
+  }
+  .header-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+  .header-sub {
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 4px;
+  }
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .header-badge {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 20px;
+    background: var(--bg-surface);
+    color: var(--text-secondary);
+  }
+
+  /* ─── MAIN LAYOUT ─── */
+  .main {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+
+  /* ─── SIDEBAR ─── */
+  .sidebar {
+    width: 320px;
+    flex-shrink: 0;
+    background: var(--bg-base);
+    border-right: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .day-filters {
+    padding: 12px 16px 10px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .day-pill {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 10px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-base);
+    color: var(--text-muted);
+    transition: all 0.15s ease;
+    user-select: none;
+  }
+  .day-pill:hover { background: var(--bg-surface); }
+  .day-pill.active {
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border-color: var(--border-default);
+  }
+  .day-pill .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Spot list */
+  .spot-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 4px 0;
+  }
+  .spot-list::-webkit-scrollbar { width: 3px; }
+  .spot-list::-webkit-scrollbar-track { background: transparent; }
+  .spot-list::-webkit-scrollbar-thumb { background: var(--border-default); border-radius: 3px; }
+
+  .day-group { margin-bottom: 2px; }
+  .day-group-header {
+    padding: 10px 16px 5px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .day-group-header::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-subtle);
+  }
+
+  .spot-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 16px;
+    cursor: pointer;
+    transition: background 0.12s ease;
+    border-left: 3px solid transparent;
+  }
+  .spot-item:hover { background: var(--bg-raised); }
+  .spot-item.highlighted {
+    background: var(--bg-surface);
+    border-left-color: currentColor;
+  }
+
+  .spot-num {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .spot-info { flex: 1; min-width: 0; }
+  .spot-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+  }
+  .spot-en {
+    font-size: 11px;
+    color: var(--text-muted);
+    line-height: 1.3;
+    margin-bottom: 3px;
+  }
+  .spot-stars {
+    color: #f59f00;
+    font-size: 10px;
+    letter-spacing: 0.5px;
+  }
+  .spot-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-top: 2px;
+  }
+
+  /* ─── MAP ─── */
+  .map-wrapper {
+    flex: 1;
+    position: relative;
+    background: #f1f3f5;
+  }
+  #map {
+    width: 100%;
+    height: 100%;
+    background: #f1f3f5;
+  }
+
+  /* Leaflet overrides for light theme */
+  .leaflet-control-zoom {
+    border: 1px solid var(--border-default) !important;
+    border-radius: var(--radius-sm) !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+    overflow: hidden;
+  }
+  .leaflet-control-zoom a {
+    background: #fff !important;
+    color: var(--text-primary) !important;
+    border-color: var(--border-subtle) !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    font-size: 15px !important;
+  }
+  .leaflet-control-zoom a:hover {
+    background: var(--bg-raised) !important;
+  }
+
+  /* Popup — light */
+  .light-popup .leaflet-popup-content-wrapper {
+    background: #fff;
+    color: var(--text-primary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-default);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    padding: 0;
+  }
+  .light-popup .leaflet-popup-tip {
+    background: #fff;
+    border: 1px solid var(--border-default);
+    border-top: none;
+    border-right: none;
+  }
+  .light-popup .leaflet-popup-content { margin: 0; }
+  .light-popup .leaflet-popup-close-btn {
+    color: var(--text-muted) !important;
+    font-size: 16px !important;
+    top: 6px !important;
+    right: 8px !important;
+  }
+
+  .popup-inner { padding: 14px 16px 12px; max-width: 280px; }
+  .popup-day-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+    color: #fff;
+  }
+  .popup-name {
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 1px;
+    color: var(--text-primary);
+  }
+  .popup-en {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+  }
+  .popup-stars {
+    color: #f59f00;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .popup-desc {
+    font-size: 12px;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  /* Map label — clean white chip, NO text-shadow */
+  .map-label {
+    background: none !important;
+    border: none !important;
+    font-family: var(--font);
+    pointer-events: none !important;
+  }
+  .label-chip {
+    display: inline-block;
+    padding: 2px 7px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    background: rgba(255,255,255,0.92);
+    border: 1px solid rgba(0,0,0,0.08);
+    color: #212529;
+    letter-spacing: 0.01em;
+  }
+
+  /* Numbered marker */
+  .map-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease;
+    font-family: var(--font);
+  }
+  .map-marker.pulse {
+    animation: marker-pulse 1s ease-out;
+  }
+  @keyframes marker-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(0,0,0,0.15); }
+    100% { box-shadow: 0 0 0 14px rgba(0,0,0,0); }
+  }
+
+  /* ─── OVERVIEW CARD ─── */
+  .overview-card {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    z-index: 800;
+    background: #fff;
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-md);
+    padding: 14px 16px;
+    max-width: 240px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  }
+  .overview-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 8px;
+  }
+  .overview-row {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 2px 0;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+  .overview-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .overview-day-label {
+    font-weight: 600;
+    min-width: 22px;
+  }
+  .overview-footer {
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid var(--border-subtle);
+    font-size: 10px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .sidebar { display: none; }
+    .header-title { font-size: 14px; }
+    .overview-card { bottom: 10px; right: 10px; max-width: 200px; padding: 10px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-left">
+    <span class="header-icon">🗺️</span>
+    <h1 class="header-title">五一西澳珀斯<span class="header-sub">路线地图</span></h1>
+  </div>
+  <div class="header-right">
+    <span class="header-badge">5人 · 6天5晚</span>
+    <span class="header-badge">2026.05.01 — 05.06</span>
+  </div>
+</header>
+
+<div class="main">
+  <aside class="sidebar">
+    <div class="day-filters" id="dayFilters"></div>
+    <div class="spot-list" id="spotList"></div>
+  </aside>
+
+  <div class="map-wrapper">
+    <div id="map"></div>
+    <div class="overview-card">
+      <div class="overview-title">行程概览</div>
+      <div id="overviewRows"></div>
+      <div class="overview-footer">
+        点击左侧景点定位到地图<br>
+        顶部标签切换天数显示
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════
+var COLORS = {
+  1: '#0ca678',
+  2: '#e67700',
+  3: '#d6336c',
+  4: '#1098ad',
+  5: '#7048e8',
+  6: '#868e96'
+};
+
+var days = [
+  { id: 1, label: 'D1', name: '珀斯 + 弗里曼特尔', date: '5.1 周五' },
+  { id: 2, label: 'D2', name: '北线 · 兰斯林→杰拉尔顿', date: '5.2 周六' },
+  { id: 3, label: 'D3', name: '北线 · 粉红湖→卡尔巴里', date: '5.3 周日' },
+  { id: 4, label: 'D4', name: '罗特尼斯岛', date: '5.4 周一' },
+  { id: 5, label: 'D5', name: '天鹅河谷 + 告别聚餐', date: '5.5 周二' },
+  { id: 6, label: 'D6', name: 'B队 · 市区深度游', date: '5.6 周三' }
+];
+
+var spots = [
+  { day:1, seq:1,  name:'国王公园',        en:'Kings Park',              lat:-31.9629, lng:115.8325, stars:4, desc:'珀斯最大城市公园，俯瞰天鹅河与城市天际线' },
+  { day:1, seq:2,  name:'弗里曼特尔',       en:'Fremantle',               lat:-32.0569, lng:115.7480, stars:4, desc:'维多利亚港口小城，渔人码头炸鱼薯条' },
+  { day:1, seq:3,  name:'北桥美食区',       en:'Northbridge',             lat:-31.9462, lng:115.8600, stars:3, desc:'珀斯亚洲美食聚集区' },
+  { day:2, seq:4,  name:'兰斯林沙丘',       en:'Lancelin Sand Dunes',     lat:-31.0208, lng:115.3309, stars:4, desc:'西澳最大白色沙丘群，滑沙体验' },
+  { day:2, seq:5,  name:'龙虾工厂',        en:'Lobster Shack',           lat:-30.4983, lng:115.0668, stars:3, desc:'岩龙虾加工厂参观 + 品尝' },
+  { day:2, seq:6,  name:'尖峰石阵',        en:'The Pinnacles',           lat:-30.5998, lng:115.1580, stars:5, desc:'石灰岩柱如外星球，西澳标志景观' },
+  { day:2, seq:7,  name:'朱里恩湾',        en:'Jurien Bay',              lat:-30.3058, lng:115.0385, stars:3, desc:'美丽海湾小镇，途经休息点' },
+  { day:2, seq:8,  name:'杰拉尔顿',        en:'Geraldton',               lat:-28.7745, lng:114.6150, stars:3, desc:'北线过夜城市，海鲜晚餐' },
+  { day:3, seq:9,  name:'粉红湖',         en:'Hutt Lagoon',             lat:-28.1903, lng:114.2291, stars:5, desc:'世界最大粉红湖之一，梦幻粉红色' },
+  { day:3, seq:10, name:'自然之窗',        en:"Nature's Window",         lat:-27.6856, lng:114.4636, stars:5, desc:'天然砂岩拱窗，西澳出镜率最高' },
+  { day:3, seq:11, name:'天空之桥',        en:'Kalbarri Skywalk',        lat:-27.6970, lng:114.4810, stars:4, desc:'悬空玻璃观景台，百米高空' },
+  { day:3, seq:12, name:'卡尔巴里小镇',     en:'Kalbarri Town',           lat:-27.7139, lng:114.1652, stars:3, desc:'午餐补给 + 海岸红崖观景' },
+  { day:4, seq:13, name:'Barrack St 码头', en:'Barrack St Jetty',       lat:-31.9580, lng:115.8590, stars:3, desc:'渡轮出发码头' },
+  { day:4, seq:14, name:'罗特尼斯岛',       en:'Rottnest Island',         lat:-32.0067, lng:115.5180, stars:5, desc:'Quokka 短尾矮袋鼠之岛，骑车环岛' },
+  { day:5, seq:15, name:'Caversham 动物园', en:'Caversham Wildlife Park', lat:-31.8500, lng:116.0353, stars:4, desc:'喂袋鼠、抱考拉、200+ 种动物' },
+  { day:5, seq:16, name:'Sandalford 酒庄', en:'Sandalford Winery',       lat:-31.8306, lng:116.0600, stars:4, desc:'最古老葡萄酒产区，品酒体验' },
+  { day:6, seq:17, name:'西澳博物馆',       en:'WA Museum',               lat:-31.9480, lng:115.8618, stars:3, desc:'2020 新开州立博物馆，免费' },
+  { day:6, seq:18, name:'科特斯洛海滩',      en:'Cottesloe Beach',         lat:-31.9940, lng:115.7520, stars:4, desc:'珀斯最美城市海滩，印度洋日落' }
+];
+
+var routes = {
+  1: [[-31.9629,115.8325],[-31.9462,115.8600],[-32.0569,115.7480]],
+  2: [[-31.9500,115.8600],[-31.0208,115.3309],[-30.5998,115.1580],[-30.4983,115.0668],[-30.3058,115.0385],[-28.7745,114.6150]],
+  3: [[-28.7745,114.6150],[-28.1903,114.2291],[-27.7139,114.1652],[-27.6856,114.4636],[-27.6970,114.4810],[-27.7139,114.1652],[-31.9500,115.8600]],
+  4: [[-31.9580,115.8590],[-32.0067,115.5180],[-31.9580,115.8590]],
+  5: [[-31.9500,115.8600],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9500,115.8600]],
+  6: [[-31.9480,115.8618],[-31.9940,115.7520]]
+};
+
+// ═══════════════════════════════════════
+// MAP INIT
+// ═══════════════════════════════════════
+var map = L.map('map', {
+  zoomControl: true,
+  attributionControl: false
+}).setView([-30.0, 115.2], 7);
+
+// Tile provider cascade — try multiple sources until one works
+var tileSources = [
+  // 1. CARTO Positron (light, clean) — most reliable for CORS
+  {
+    url: 'https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png',
+    opts: { subdomains: 'abcd', maxZoom: 19 },
+    attr: 'CARTO'
+  },
+  // 2. OpenTopoMap — no referer check
+  {
+    url: 'https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
+    opts: { subdomains: 'abc', maxZoom: 17 },
+    attr: 'OpenTopoMap'
+  },
+  // 3. OSM standard as last resort
+  {
+    url: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+    opts: { maxZoom: 19 },
+    attr: 'OSM'
+  }
+];
+
+var currentTileIdx = 0;
+var errorCount = 0;
+var currentTileLayer = null;
+
+function loadTiles(idx) {
+  if (idx >= tileSources.length) return;
+  currentTileIdx = idx;
+  errorCount = 0;
+  var src = tileSources[idx];
+  if (currentTileLayer) map.removeLayer(currentTileLayer);
+  currentTileLayer = L.tileLayer(src.url, src.opts).addTo(map);
+  currentTileLayer.on('tileerror', function() {
+    errorCount++;
+    // If too many errors, switch to next source
+    if (errorCount > 5 && currentTileIdx < tileSources.length - 1) {
+      loadTiles(currentTileIdx + 1);
+    }
+  });
+}
+
+loadTiles(0);
+
+L.control.attribution({ position: 'bottomleft', prefix: false })
+  .addAttribution('<span style="color:#aaa;font-size:10px">&copy; OpenStreetMap contributors</span>')
+  .addTo(map);
+
+// ═══════════════════════════════════════
+// LAYERS
+// ═══════════════════════════════════════
+var markerLayers = {};
+var routeLayers = {};
+var labelLayers = {};
+var markerRefs = {};
+
+days.forEach(function(d) {
+  markerLayers[d.id] = L.layerGroup().addTo(map);
+  routeLayers[d.id] = L.layerGroup().addTo(map);
+  labelLayers[d.id] = L.layerGroup().addTo(map);
+});
+
+// ═══════════════════════════════════════
+// MARKERS + LABELS
+// ═══════════════════════════════════════
+spots.forEach(function(s) {
+  var color = COLORS[s.day];
+  var day = days.find(function(d) { return d.id === s.day; });
+  var starStr = '';
+  for (var i = 0; i < s.stars; i++) starStr += '★';
+  for (var j = s.stars; j < 5; j++) starStr += '☆';
+
+  // Numbered circle marker
+  var icon = L.divIcon({
+    className: '',
+    html: '<div class="map-marker" style="background:' + color + '">' + s.seq + '</div>',
+    iconSize: [30, 30],
+    iconAnchor: [15, 15],
+    popupAnchor: [0, -18]
+  });
+
+  var marker = L.marker([s.lat, s.lng], { icon: icon });
+  marker.bindPopup(
+    '<div class="popup-inner">' +
+      '<div class="popup-day-badge" style="background:' + color + '">' + day.label + ' · ' + day.date + '</div>' +
+      '<div class="popup-name">' + s.name + '</div>' +
+      '<div class="popup-en">' + s.en + '</div>' +
+      '<div class="popup-stars">' + starStr + '</div>' +
+      '<div class="popup-desc">' + s.desc + '</div>' +
+    '</div>',
+    { className: 'light-popup', maxWidth: 300 }
+  );
+  marker.addTo(markerLayers[s.day]);
+  markerRefs[s.seq] = marker;
+
+  // Clean text label — white chip, no shadow
+  var lbl = L.divIcon({
+    className: 'map-label',
+    html: '<span class="label-chip" style="color:' + color + '">' + s.name + '</span>',
+    iconSize: [120, 20],
+    iconAnchor: [-18, 10]
+  });
+  L.marker([s.lat, s.lng], { icon: lbl, interactive: false }).addTo(labelLayers[s.day]);
+});
+
+// ═══════════════════════════════════════
+// ROUTES
+// ═══════════════════════════════════════
+Object.keys(routes).forEach(function(key) {
+  var dayId = parseInt(key);
+  var coords = routes[key];
+  var color = COLORS[dayId];
+
+  // Soft glow
+  L.polyline(coords, {
+    color: color, weight: 6, opacity: 0.12,
+    lineCap: 'round', lineJoin: 'round'
+  }).addTo(routeLayers[dayId]);
+
+  // Main line
+  L.polyline(coords, {
+    color: color, weight: 2, opacity: 0.5,
+    dashArray: '8,5', lineCap: 'round', lineJoin: 'round'
+  }).addTo(routeLayers[dayId]);
+});
+
+// ═══════════════════════════════════════
+// FIT BOUNDS
+// ═══════════════════════════════════════
+var allCoords = spots.map(function(s) { return [s.lat, s.lng]; });
+map.fitBounds(allCoords, { padding: [40, 40] });
+
+// ═══════════════════════════════════════
+// SIDEBAR — Day filters
+// ═══════════════════════════════════════
+var filtersEl = document.getElementById('dayFilters');
+var activeState = {};
+
+days.forEach(function(d) {
+  activeState[d.id] = true;
+  var pill = document.createElement('button');
+  pill.className = 'day-pill active';
+  pill.innerHTML = '<span class="dot" style="background:' + COLORS[d.id] + '"></span>' + d.label;
+  pill.dataset.dayId = d.id;
+  pill.addEventListener('click', function() {
+    activeState[d.id] = !activeState[d.id];
+    toggleDay(d.id, activeState[d.id]);
+    pill.classList.toggle('active', activeState[d.id]);
+    renderSpotList();
+  });
+  filtersEl.appendChild(pill);
+});
+
+function toggleDay(dayId, show) {
+  [markerLayers, routeLayers, labelLayers].forEach(function(layers) {
+    if (show) map.addLayer(layers[dayId]);
+    else map.removeLayer(layers[dayId]);
+  });
+}
+
+// ═══════════════════════════════════════
+// SIDEBAR — Spot list
+// ═══════════════════════════════════════
+var spotListEl = document.getElementById('spotList');
+var highlightedSeq = null;
+
+function renderSpotList() {
+  spotListEl.innerHTML = '';
+  days.forEach(function(d) {
+    if (!activeState[d.id]) return;
+    var daySpots = spots.filter(function(s) { return s.day === d.id; });
+    if (!daySpots.length) return;
+
+    var group = document.createElement('div');
+    group.className = 'day-group';
+
+    var header = document.createElement('div');
+    header.className = 'day-group-header';
+    header.innerHTML = '<span style="color:' + COLORS[d.id] + ';font-weight:700">' + d.label + '</span> ' + d.name + ' · ' + d.date;
+    group.appendChild(header);
+
+    daySpots.forEach(function(s) {
+      var starStr = '';
+      for (var i = 0; i < s.stars; i++) starStr += '★';
+      for (var j = s.stars; j < 5; j++) starStr += '☆';
+
+      var item = document.createElement('div');
+      item.className = 'spot-item' + (highlightedSeq === s.seq ? ' highlighted' : '');
+      if (highlightedSeq === s.seq) item.style.borderLeftColor = COLORS[d.id];
+      item.innerHTML =
+        '<div class="spot-num" style="background:' + COLORS[d.id] + '">' + s.seq + '</div>' +
+        '<div class="spot-info">' +
+          '<div class="spot-name">' + s.name + '</div>' +
+          '<div class="spot-en">' + s.en + '</div>' +
+          '<div class="spot-stars">' + starStr + '</div>' +
+          '<div class="spot-desc">' + s.desc + '</div>' +
+        '</div>';
+
+      item.addEventListener('click', function() {
+        highlightedSeq = s.seq;
+        renderSpotList();
+        map.flyTo([s.lat, s.lng], 12, { duration: 0.7 });
+        setTimeout(function() {
+          markerRefs[s.seq].openPopup();
+          var el = markerRefs[s.seq].getElement();
+          if (el) {
+            var md = el.querySelector('.map-marker');
+            if (md) { md.classList.remove('pulse'); void md.offsetWidth; md.classList.add('pulse'); }
+          }
+        }, 750);
+      });
+
+      group.appendChild(item);
+    });
+
+    spotListEl.appendChild(group);
+  });
+}
+
+renderSpotList();
+
+// ═══════════════════════════════════════
+// OVERVIEW CARD
+// ═══════════════════════════════════════
+var overviewEl = document.getElementById('overviewRows');
+days.forEach(function(d) {
+  var row = document.createElement('div');
+  row.className = 'overview-row';
+  row.innerHTML = '<span class="overview-dot" style="background:' + COLORS[d.id] + '"></span>' +
+    '<span class="overview-day-label" style="color:' + COLORS[d.id] + '">' + d.label + '</span> ' + d.name;
+  overviewEl.appendChild(row);
+});
+</script>
+</body>
+</html>

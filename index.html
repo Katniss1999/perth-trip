@@ -1,0 +1,1147 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Perth 2026 — 五一西澳行程手册</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700;900&family=Noto+Sans+SC:wght@300;400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+/* ===== DESIGN TOKENS — Desert Dusk ===== */
+:root {
+  /* Base */
+  --c-bg: #F9F6F1;
+  --c-white: #FFFFFF;
+  --c-cream: #F0EBE3;
+  --c-warm: #E8E0D4;
+
+  /* Primary — Deep Smoky Brown */
+  --c-primary: #3D3229;
+  --c-primary-deep: #2A211A;
+  --c-primary-muted: #6B5D52;
+
+  /* Accent — Terracotta */
+  --c-accent: #C67B4F;
+  --c-accent-soft: rgba(198,123,79,.08);
+  --c-accent-light: #D4956E;
+
+  /* Supporting — Sand Gold */
+  --c-sand: #B69E7D;
+  --c-sand-light: #CDB99A;
+
+  /* Pop — Rose Pink (粉红湖) */
+  --c-rose: #D4918E;
+  --c-rose-soft: rgba(212,145,142,.1);
+
+  /* Text — warm tones, never pure black */
+  --c-text: #2C2420;
+  --c-text-2: #5A4E46;
+  --c-text-3: #8C7F74;
+  --c-text-4: #B5A99D;
+
+  /* Borders */
+  --c-border: rgba(61,50,41,.06);
+  --c-border-2: rgba(61,50,41,.12);
+
+  /* Typography */
+  --font-body: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-cn-display: 'Noto Serif SC', 'Songti SC', 'STSong', serif;
+
+  /* Spacing */
+  --space-section: 112px;
+  --space-group: 64px;
+  --space-element: 24px;
+
+  /* Radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Motion */
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+/* ===== RESET ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-body);
+  color: var(--c-text-2);
+  background: var(--c-bg);
+  line-height: 1.8;
+  font-size: 15px;
+  overflow-x: hidden;
+}
+h1,h2,h3,h4,h5 { color: var(--c-text); line-height: 1.2; font-weight: 700; }
+a { color: var(--c-accent); text-decoration: none; }
+.container { max-width: 1080px; margin: 0 auto; padding: 0 2rem; }
+
+/* ===== NAV ===== */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center;
+  transition: all .4s var(--ease);
+}
+.nav.scrolled {
+  background: rgba(249,246,241,.95); backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--c-border);
+}
+.nav-brand {
+  font-family: var(--font-display); font-size: 1.1rem; color: var(--c-text);
+  letter-spacing: .02em; font-weight: 700;
+}
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--c-text-3);
+  transition: color .3s; letter-spacing: .04em;
+}
+.nav-links a:hover { color: var(--c-text); }
+.nav-links a.active { color: var(--c-accent); }
+.nav-links a::after {
+  content: ''; display: block; width: 0; height: 1.5px; background: var(--c-accent);
+  margin-top: 2px; transition: width .3s var(--ease);
+}
+.nav-links a.active::after { width: 100%; }
+
+/* ===== STICKY SECTION INDICATOR ===== */
+.section-indicator {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 99;
+  padding: .45rem 2rem; display: flex; align-items: center; gap: .75rem;
+  background: rgba(249,246,241,.92); backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--c-border);
+  transform: translateY(-100%); opacity: 0;
+  transition: transform .4s var(--ease), opacity .4s var(--ease);
+  pointer-events: none;
+}
+.section-indicator.show {
+  transform: translateY(52px); opacity: 1; pointer-events: auto;
+}
+.section-indicator .si-num {
+  font-family: var(--font-display); font-size: 1rem; color: var(--c-accent);
+  font-weight: 700; opacity: .6;
+}
+.section-indicator .si-title {
+  font-family: var(--font-cn-display); font-size: 14px;
+  font-weight: 600; color: var(--c-text); letter-spacing: .02em;
+}
+.section-indicator .si-progress {
+  position: absolute; bottom: 0; left: 0; height: 2px;
+  background: var(--c-accent); transition: width .15s linear;
+}
+
+/* ===== HERO — Editorial, warm palette ===== */
+.hero {
+  min-height: 100vh; display: flex; align-items: flex-end;
+  padding: 0 0 var(--space-section) 0;
+  background:
+    radial-gradient(ellipse 120% 80% at 10% 90%, rgba(198,123,79,.13) 0%, transparent 60%),
+    radial-gradient(ellipse 90% 70% at 80% 20%, rgba(212,145,142,.08) 0%, transparent 50%),
+    linear-gradient(165deg, #342A22 0%, var(--c-primary-deep) 55%, #221A14 100%);
+  position: relative; overflow: hidden;
+  scroll-snap-align: start;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 30%, rgba(198,123,79,.15), transparent),
+    radial-gradient(ellipse 50% 50% at 20% 80%, rgba(212,145,142,.08), transparent);
+}
+.hero-inner {
+  position: relative; z-index: 2; width: 100%; max-width: 1080px;
+  margin: 0 auto; padding: 0 2rem;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: .35em;
+  text-transform: uppercase; color: var(--c-sand);
+  margin-bottom: 2rem;
+  opacity: 0; animation: fadeIn .8s .2s var(--ease) forwards;
+}
+.hero-title {
+  font-family: var(--font-cn-display); font-size: clamp(3rem, 7.5vw, 5.5rem);
+  font-weight: 700; color: #FFFFFF; line-height: 1.05;
+  letter-spacing: .03em; margin-bottom: 1.5rem;
+  opacity: 0; animation: fadeIn .8s .4s var(--ease) forwards;
+}
+.hero-title em {
+  font-family: var(--font-display); font-style: italic;
+  font-weight: 400; color: var(--c-accent-light);
+  display: block; font-size: .65em; margin-top: .3em;
+}
+.hero-sub {
+  font-size: 16px; color: rgba(255,255,255,.5); font-weight: 400;
+  max-width: 480px; line-height: 1.8;
+  opacity: 0; animation: fadeIn .8s .6s var(--ease) forwards;
+}
+.hero-stats {
+  display: flex; gap: 3.5rem; margin-top: 3.5rem;
+  opacity: 0; animation: fadeIn .8s .8s var(--ease) forwards;
+}
+.hero-stat .val {
+  font-family: var(--font-display); font-size: 2rem; color: #FFFFFF;
+  font-weight: 700;
+}
+.hero-stat .lbl {
+  font-size: 11px; color: rgba(255,255,255,.35); font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase; margin-top: .25rem;
+}
+@keyframes fadeIn { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+
+/* ===== EXPORT BTN ===== */
+.export-btn {
+  position: fixed; bottom: 2rem; right: 2rem; z-index: 1000;
+  display: flex; align-items: center; gap: .5rem;
+  padding: .75rem 1.5rem; background: var(--c-primary); color: #fff;
+  border: none; border-radius: 100px;
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; box-shadow: 0 4px 24px rgba(61,50,41,.2);
+  transition: all .25s;
+}
+.export-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 32px rgba(61,50,41,.25); }
+.export-btn svg { width: 16px; height: 16px; }
+
+/* ===== SECTION ===== */
+.sec { padding: var(--space-section) 0; }
+.sec-alt { background: var(--c-cream); }
+.sec-white { background: var(--c-white); }
+
+/* Section Header — Editorial */
+.sh { margin-bottom: var(--space-group); }
+.sh-num {
+  font-family: var(--font-display); font-size: 4rem; font-weight: 400;
+  color: var(--c-warm); line-height: 1; margin-bottom: .5rem;
+}
+.sh-title {
+  font-family: var(--font-cn-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem); font-weight: 700;
+  letter-spacing: .02em; color: var(--c-text);
+}
+.sh-sub {
+  font-size: 15px; color: var(--c-text-3); margin-top: .5rem;
+  max-width: 480px;
+}
+.sh-line {
+  width: 48px; height: 2px; background: var(--c-accent); margin-top: 1.25rem;
+}
+
+/* ===== TEAM GRID ===== */
+.team-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+  background: var(--c-border-2); border-radius: var(--radius-lg); overflow: hidden;
+}
+.team-card {
+  background: var(--c-white); padding: 2rem;
+  transition: background .25s;
+}
+.team-card:hover { background: var(--c-bg); }
+.team-card .label {
+  font-size: 11px; font-weight: 700; letter-spacing: .15em;
+  text-transform: uppercase; color: var(--c-text-4);
+}
+.team-card .value {
+  font-size: 1.25rem; font-weight: 700; color: var(--c-text);
+  margin-top: .35rem;
+}
+.team-card .note {
+  font-size: 13px; color: var(--c-text-3); margin-top: .25rem;
+}
+
+/* ===== TRANSPORT ===== */
+.transport-block {
+  background: var(--c-white); border-radius: var(--radius-lg);
+  padding: 3rem; border: 1px solid var(--c-border);
+}
+.transport-block h3 {
+  font-size: 1.15rem; font-weight: 700; color: var(--c-text); margin-bottom: .5rem;
+}
+.transport-block > p { color: var(--c-text-3); font-size: 14px; }
+.t-numbers {
+  display: flex; gap: 3.5rem; margin-top: 2rem; padding-top: 2rem;
+  border-top: 1px solid var(--c-border);
+}
+.t-num .n {
+  font-family: var(--font-display); font-size: 2.25rem; color: var(--c-accent);
+  font-weight: 700;
+}
+.t-num .u {
+  font-size: 11px; color: var(--c-text-4); font-weight: 600;
+  letter-spacing: .1em; text-transform: uppercase; margin-top: .15rem;
+}
+.route-cards {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 2rem;
+}
+.route-card {
+  padding: 1rem 1.25rem; background: var(--c-bg); border-radius: var(--radius-md);
+  font-size: 14px; color: var(--c-text-2); border-left: 2px solid var(--c-accent);
+}
+.route-card strong { color: var(--c-accent); font-weight: 600; }
+
+/* ===== DAY CARDS ===== */
+.day { margin-bottom: 0; padding: var(--space-element) 0 var(--space-group) 0; border-bottom: 1px solid var(--c-border); position: relative; }
+.day:last-child { border-bottom: none; }
+.day-head { position: relative; margin-bottom: 1.25rem; }
+.day-num {
+  position: absolute; right: 0; top: -.25rem;
+  font-family: var(--font-display); font-size: 4.5rem; line-height: 1;
+  color: var(--c-warm); font-weight: 400; opacity: .12;
+  pointer-events: none; user-select: none;
+}
+.day-date {
+  font-size: 12px; color: var(--c-text-4); font-weight: 600;
+  letter-spacing: .15em; text-transform: uppercase;
+}
+.day-title {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem); font-weight: 700;
+  margin-top: .25rem;
+}
+.day-tags { display: flex; gap: .5rem; margin-top: .75rem; flex-wrap: wrap; }
+.dtag {
+  font-size: 11px; font-weight: 700; letter-spacing: .08em;
+  padding: .3rem .75rem; border-radius: 100px;
+}
+.dtag-crew { background: var(--c-primary); color: #fff; }
+.dtag-transport { background: var(--c-cream); color: var(--c-text-3); }
+.dtag-highlight { background: var(--c-rose); color: #fff; }
+
+/* Featured Day — only left accent line, same bg as others */
+.day.featured {
+  border-bottom: 1px solid var(--c-border);
+}
+.day.featured .day-num { color: var(--c-rose); opacity: .08; }
+.day.featured .day-title { color: var(--c-text); }
+.day.featured .dtag-highlight { background: var(--c-rose); color: #fff; }
+
+/* Timeline — Linear with Inline Time (grid row) */
+.timeline { position: relative; padding-left: 2rem; }
+.tl-line {
+  position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px;
+  background: var(--c-border-2);
+}
+.tl-item { position: relative; padding-bottom: 1.35rem; }
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -2rem; top: .55rem; width: 9px; height: 9px;
+  border-radius: 50%; background: var(--c-bg); border: 2px solid var(--c-text-4);
+  z-index: 1;
+}
+.tl-dot.active {
+  border-color: var(--c-accent); background: var(--c-accent);
+  box-shadow: 0 0 0 3px rgba(198,123,79,.12);
+}
+.day.featured .tl-dot.active {
+  border-color: var(--c-rose); background: var(--c-rose);
+  box-shadow: 0 0 0 3px rgba(212,145,142,.15);
+}
+/* Content grid: fixed-width time column + title/desc/subs aligned */
+.tl-content {
+  display: grid; grid-template-columns: auto 1fr; align-items: baseline; gap: 0 .6rem;
+}
+.tl-time {
+  grid-column: 1; grid-row: 1;
+  font-size: 11px; font-weight: 700; color: var(--c-accent);
+  letter-spacing: .06em;
+  padding: .12rem .5rem; border-radius: 100px;
+  background: rgba(198,123,79,.08);
+  white-space: nowrap; text-align: center;
+  align-self: baseline;
+}
+.day.featured .tl-time { color: var(--c-rose); background: rgba(212,145,142,.08); }
+.tl-title {
+  grid-column: 2; grid-row: 1;
+  font-size: 14px; font-weight: 700; color: var(--c-text); line-height: 1.4;
+}
+.tl-desc {
+  grid-column: 2;
+  font-size: 12.5px; color: var(--c-text-3); margin-top: .1rem; line-height: 1.45;
+}
+.tl-sub {
+  grid-column: 2;
+  margin-top: .3rem; padding-left: 0;
+  border-left: none;
+  display: flex; flex-wrap: wrap; gap: .3rem;
+}
+.tl-sub-item {
+  font-size: 12px; color: var(--c-text-3); padding: .15rem .55rem;
+  background: var(--c-cream); border-radius: 100px;
+}
+.tl-sub-item strong { color: var(--c-accent); font-weight: 600; }
+.day.featured .tl-sub-item strong { color: var(--c-rose); font-weight: 600; }
+
+.day-tip {
+  margin-top: 1rem; padding: .75rem 1.15rem;
+  background: var(--c-white); border: 1px solid var(--c-border);
+  border-radius: var(--radius-md); font-size: 13px;
+}
+.day-tip strong { color: var(--c-accent); }
+.day-tip span { color: var(--c-text-3); }
+
+/* ===== ACCOMMODATION ===== */
+.accom-overview {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px;
+  background: var(--c-border-2); border-radius: var(--radius-lg); overflow: hidden;
+  margin-bottom: var(--space-group);
+}
+.accom-day {
+  background: var(--c-white); padding: 1.5rem; text-align: center;
+}
+.accom-day .d {
+  font-size: 11px; font-weight: 700; color: var(--c-text-4);
+  letter-spacing: .12em; text-transform: uppercase;
+}
+.accom-day .loc { font-size: 15px; font-weight: 700; color: var(--c-text); margin-top: .4rem; }
+.accom-day .pr { font-size: 13px; color: var(--c-text-3); margin-top: .2rem; }
+
+.hotel-section-title {
+  font-size: 1.1rem; font-weight: 700; color: var(--c-text);
+  margin: var(--space-group) 0 1.5rem; padding-bottom: .75rem;
+  border-bottom: 1px solid var(--c-border);
+}
+.hotels {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+}
+.hotel {
+  padding: 1.5rem; background: var(--c-white); border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border); transition: all .25s var(--ease);
+}
+.hotel:hover { border-color: var(--c-border-2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,50,41,.04); }
+.hotel .name { font-size: 15px; font-weight: 700; color: var(--c-text); }
+.hotel .stars { color: var(--c-sand); font-size: 13px; margin: .25rem 0; }
+.hotel .price { font-size: 14px; color: var(--c-accent); font-weight: 700; }
+.hotel .desc { font-size: 13px; color: var(--c-text-3); margin-top: .25rem; }
+
+.room-options {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin-top: 1.5rem;
+}
+.room-opt {
+  padding: 1.5rem; border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg); background: var(--c-white);
+}
+.room-opt.rec {
+  border-color: var(--c-accent); background: var(--c-accent-soft);
+  position: relative;
+}
+.room-opt.rec::after {
+  content: '推荐'; position: absolute; top: 1rem; right: 1rem;
+  padding: .2rem .6rem; background: var(--c-accent); color: #fff;
+  font-size: 11px; font-weight: 700; border-radius: 100px;
+}
+.room-opt h4 { font-size: 15px; margin-bottom: .35rem; }
+.room-opt p { font-size: 13px; color: var(--c-text-3); }
+.room-opt .price {
+  font-family: var(--font-display); font-size: 1.5rem; color: var(--c-accent);
+  margin-top: .75rem;
+}
+.room-opt .price-unit { font-size: 12px; color: var(--c-text-4); font-family: var(--font-body); }
+
+/* ===== COST ===== */
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+.cost-card {
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--c-white); border: 1px solid var(--c-border);
+  display: flex; flex-direction: column;
+}
+.cost-header { padding: 2rem; }
+.cost-header.a { background: var(--c-primary-deep); }
+.cost-header.b { background: var(--c-accent); }
+.cost-header h3 { font-size: 1.25rem; color: #fff; margin-bottom: .15rem; }
+.cost-header .sub { font-size: 13px; color: rgba(255,255,255,.6); }
+.cost-body { padding: 1.5rem 2rem; flex: 1; }
+.cost-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: .65rem 0; border-bottom: 1px solid var(--c-border);
+  font-size: 14px;
+}
+.cost-row:last-child { border-bottom: none; }
+.cost-row .item { color: var(--c-text-3); }
+.cost-row .amount { font-weight: 700; color: var(--c-text); font-variant-numeric: tabular-nums; }
+.cost-total {
+  padding: 1.5rem 2rem; background: var(--c-white);
+  border-top: 2px solid var(--c-accent);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cost-total .label { font-weight: 700; color: var(--c-text); }
+.cost-total .total-right { text-align: right; }
+.cost-total .aud {
+  font-family: var(--font-display); font-size: 1.35rem; color: var(--c-accent);
+  font-weight: 700;
+}
+.cost-total .cny { font-size: 13px; color: var(--c-text-4); }
+
+/* ===== ATTRACTIONS ===== */
+.attr-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem;
+}
+.attr-card {
+  background: var(--c-white); border-radius: var(--radius-lg); overflow: hidden;
+  border: 1px solid var(--c-border); transition: all .25s var(--ease);
+}
+.attr-card:hover { border-color: var(--c-border-2); transform: translateY(-3px); box-shadow: 0 12px 40px rgba(61,50,41,.05); }
+.attr-bar { height: 2px; }
+.attr-body { padding: 1.5rem; }
+.attr-num {
+  font-family: var(--font-display); font-size: 2.5rem; color: var(--c-warm);
+  line-height: 1;
+}
+.attr-name { font-size: 1rem; font-weight: 700; color: var(--c-text); margin-top: .25rem; }
+.attr-en { font-size: 12px; color: var(--c-text-4); font-style: italic; }
+.attr-day {
+  display: inline-block; padding: .2rem .6rem; background: var(--c-bg);
+  border-radius: 100px; font-size: 11px; font-weight: 700;
+  color: var(--c-text-3); margin: .5rem 0;
+}
+.attr-rating { font-size: 13px; color: var(--c-sand); margin: .15rem 0; }
+.attr-desc { font-size: 13px; color: var(--c-text-3); margin-top: .25rem; line-height: 1.7; }
+.attr-teams { display: flex; gap: .4rem; margin-top: .75rem; }
+.attr-team {
+  padding: .2rem .5rem; border-radius: 100px; font-size: 11px; font-weight: 700;
+}
+.attr-team.a { background: rgba(61,50,41,.06); color: var(--c-primary-muted); }
+.attr-team.b { background: var(--c-accent-soft); color: var(--c-accent); }
+
+/* ===== TIPS ===== */
+.tips-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem;
+}
+.tip-card {
+  padding: 1.5rem; background: var(--c-white);
+  border-radius: var(--radius-lg); border: 1px solid var(--c-border);
+  transition: all .25s var(--ease);
+}
+.tip-card:hover { border-color: var(--c-border-2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(61,50,41,.04); }
+.tip-card .tip-title { font-size: 15px; font-weight: 700; color: var(--c-text); margin-bottom: .25rem; }
+.tip-card .tip-text { font-size: 13px; color: var(--c-text-3); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: var(--c-primary-deep); color: rgba(255,255,255,.35);
+  padding: 3rem 2rem; text-align: center; font-size: 13px;
+}
+.footer strong { color: rgba(255,255,255,.6); font-weight: 500; }
+
+/* ===== INFO BOX ===== */
+.info-box {
+  background: var(--c-white); border: 1px solid var(--c-border);
+  border-left: 2px solid var(--c-accent); border-radius: var(--radius-md);
+  padding: 1rem 1.25rem; font-size: 13px; margin-top: 1.5rem;
+}
+.info-box strong { color: var(--c-accent); }
+.info-box span { color: var(--c-text-3); }
+
+/* ===== REVEAL ANIMATION — Enhanced ===== */
+.rv {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .8s var(--ease), transform .8s var(--ease);
+}
+.rv.vis { opacity: 1; transform: translateY(0); }
+
+/* Stagger delays for children */
+.rv-stagger > * { opacity: 0; transform: translateY(20px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+.rv-stagger.vis > * { opacity: 1; transform: translateY(0); }
+.rv-stagger.vis > *:nth-child(1) { transition-delay: 0s; }
+.rv-stagger.vis > *:nth-child(2) { transition-delay: .07s; }
+.rv-stagger.vis > *:nth-child(3) { transition-delay: .14s; }
+.rv-stagger.vis > *:nth-child(4) { transition-delay: .21s; }
+.rv-stagger.vis > *:nth-child(5) { transition-delay: .28s; }
+.rv-stagger.vis > *:nth-child(6) { transition-delay: .35s; }
+.rv-stagger.vis > *:nth-child(7) { transition-delay: .42s; }
+.rv-stagger.vis > *:nth-child(8) { transition-delay: .49s; }
+.rv-stagger.vis > *:nth-child(9) { transition-delay: .56s; }
+.rv-stagger.vis > *:nth-child(10) { transition-delay: .63s; }
+.rv-stagger.vis > *:nth-child(11) { transition-delay: .7s; }
+.rv-stagger.vis > *:nth-child(12) { transition-delay: .77s; }
+.rv-stagger.vis > *:nth-child(13) { transition-delay: .84s; }
+
+/* Scale-up for cards */
+.rv-scale {
+  opacity: 0; transform: scale(.92) translateY(16px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.rv-scale.vis { opacity: 1; transform: scale(1) translateY(0); }
+
+/* Slide-in from left */
+.rv-left {
+  opacity: 0; transform: translateX(-32px);
+  transition: opacity .7s var(--ease), transform .7s var(--ease);
+}
+.rv-left.vis { opacity: 1; transform: translateX(0); }
+
+/* Timeline items stagger */
+.timeline .tl-item {
+  opacity: 0; transform: translateX(-12px);
+  transition: opacity .4s var(--ease), transform .4s var(--ease);
+}
+.timeline.vis .tl-item { opacity: 1; transform: translateX(0); }
+.timeline.vis .tl-item:nth-child(1) { transition-delay: .03s; }
+.timeline.vis .tl-item:nth-child(2) { transition-delay: .06s; }
+.timeline.vis .tl-item:nth-child(3) { transition-delay: .09s; }
+.timeline.vis .tl-item:nth-child(4) { transition-delay: .12s; }
+.timeline.vis .tl-item:nth-child(5) { transition-delay: .15s; }
+.timeline.vis .tl-item:nth-child(6) { transition-delay: .18s; }
+.timeline.vis .tl-item:nth-child(7) { transition-delay: .21s; }
+.timeline.vis .tl-item:nth-child(8) { transition-delay: .24s; }
+.timeline.vis .tl-item:nth-child(9) { transition-delay: .27s; }
+.timeline.vis .tl-item:nth-child(10) { transition-delay: .3s; }
+
+/* Section header parts stagger */
+.sh .sh-num { opacity: 0; transform: translateY(12px); transition: opacity .5s var(--ease), transform .5s var(--ease); }
+.sh .sh-title { opacity: 0; transform: translateY(12px); transition: opacity .5s .1s var(--ease), transform .5s .1s var(--ease); }
+.sh .sh-sub { opacity: 0; transform: translateY(12px); transition: opacity .5s .2s var(--ease), transform .5s .2s var(--ease); }
+.sh .sh-line { opacity: 0; width: 0; transition: opacity .5s .3s var(--ease), width .5s .3s var(--ease); }
+.sh.vis .sh-num, .sh.vis .sh-title, .sh.vis .sh-sub { opacity: 1; transform: translateY(0); }
+.sh.vis .sh-line { opacity: 1; width: 48px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .cost-grid { grid-template-columns: 1fr; }
+  .accom-overview { grid-template-columns: repeat(3, 1fr); }
+  .room-options { grid-template-columns: 1fr; }
+  .route-cards { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  :root { --space-section: 72px; --space-group: 40px; }
+  .hero { min-height: 90vh; }
+  .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
+  .hero-stats { gap: 2rem; flex-wrap: wrap; }
+  .team-grid { grid-template-columns: 1fr; }
+  .accom-overview { grid-template-columns: 1fr 1fr; }
+  .day-num { font-size: 3rem; }
+  .attr-grid { grid-template-columns: 1fr; }
+  .hotels { grid-template-columns: 1fr; }
+  .tips-grid { grid-template-columns: 1fr; }
+  .t-numbers { flex-wrap: wrap; gap: 2rem; }
+}
+
+/* ===== PRINT ===== */
+@media print {
+  .export-btn, .nav, .section-indicator { display: none !important; }
+  body { background: #fff; color: #333; font-size: 10pt; }
+  .hero { min-height: auto; padding: 3rem 2rem; }
+  .sec { padding: 2rem 0; }
+  .day.featured { background: none; }
+  .rv, .rv-scale, .rv-left, .rv-stagger > *, .timeline .tl-item,
+  .sh .sh-num, .sh .sh-title, .sh .sh-sub, .sh .sh-line {
+    opacity: 1 !important; transform: none !important; width: auto !important;
+  }
+  .timeline { display: block !important; }
+  .tl-item { margin-bottom: 4px !important; break-inside: avoid; }
+  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-brand">Perth '26</div>
+  <ul class="nav-links">
+    <li><a href="#team">团队</a></li>
+    <li><a href="#itinerary">行程</a></li>
+    <li><a href="#accommodation">住宿</a></li>
+    <li><a href="#cost">费用</a></li>
+    <li><a href="#attractions">景点</a></li>
+    <li><a href="#tips">贴士</a></li>
+  </ul>
+</nav>
+
+<!-- SECTION INDICATOR -->
+<div class="section-indicator" id="secInd">
+  <span class="si-num" id="siNum">01</span>
+  <span class="si-title" id="siTitle">团队信息</span>
+  <div class="si-progress" id="siProg"></div>
+</div>
+
+<!-- EXPORT -->
+<button class="export-btn" onclick="window.print()">
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+  导出
+</button>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">2026 Labour Day Holiday</div>
+    <h1 class="hero-title">
+      西澳珀斯
+      <em>Travel Guide</em>
+    </h1>
+    <p class="hero-sub">5 人团队 · 6 天 5 夜<br>粉红湖、自然之窗、罗特尼斯岛——一网打尽西澳精华</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="val">5</div><div class="lbl">Travelers</div></div>
+      <div class="hero-stat"><div class="val">6</div><div class="lbl">Days</div></div>
+      <div class="hero-stat"><div class="val">20°</div><div class="lbl">Autumn</div></div>
+      <div class="hero-stat"><div class="val">±0</div><div class="lbl">Time Zone</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec" id="team">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">01</div>
+      <h2 class="sh-title">团队信息</h2>
+      <p class="sh-sub">全员 5 月 1 日凌晨 4 点落地，分两批返程</p>
+      <div class="sh-line"></div>
+    </div>
+    <div class="team-grid rv-stagger">
+      <div class="team-card"><div class="label">抵达</div><div class="value">5.1 04:00</div><div class="note">全员 5 人落地</div></div>
+      <div class="team-card"><div class="label">A 队 · 2 人</div><div class="value">5.6 01:35</div><div class="note">凌晨航班离开</div></div>
+      <div class="team-card"><div class="label">B 队 · 3 人</div><div class="value">5.6 20:50</div><div class="note">晚班航班离开</div></div>
+      <div class="team-card"><div class="label">气候</div><div class="value">20–22°C</div><div class="note">夜间 10°C · 日落 17:20</div></div>
+      <div class="team-card"><div class="label">时差</div><div class="value">零时差</div><div class="note">与中国完全同步</div></div>
+      <div class="team-card"><div class="label">季节</div><div class="value">南半球秋季</div><div class="note">气候舒适宜人</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSPORT -->
+<section class="sec sec-alt">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">02</div>
+      <h2 class="sh-title">交通方案</h2>
+      <p class="sh-sub">包车 2 天走北线 + 其余天公共交通与跟团</p>
+      <div class="sh-line"></div>
+    </div>
+    <div class="transport-block rv-left">
+      <h3>7 座包车 · 北线 2 日</h3>
+      <p>兰斯林 → 尖峰石阵 → 杰拉尔顿过夜 → 粉红湖 → 卡尔巴里 → 返珀斯</p>
+      <div class="t-numbers">
+        <div class="t-num"><div class="n">2</div><div class="u">包车天数</div></div>
+        <div class="t-num"><div class="n">7</div><div class="u">座车型</div></div>
+        <div class="t-num"><div class="n">1,400–2,000</div><div class="u">整车 AUD</div></div>
+        <div class="t-num"><div class="n">280–400</div><div class="u">人均 AUD</div></div>
+      </div>
+    </div>
+    <div class="route-cards rv-stagger" style="margin-top:1.5rem">
+      <div class="route-card">粉红湖 + 卡尔巴里 + 尖峰石阵全在北线，<strong>2 天往返覆盖全部精华</strong></div>
+      <div class="route-card">罗特尼斯岛靠渡轮，<strong>不需要车</strong></div>
+      <div class="route-card">天鹅河谷有一日团（约 AUD 150/人），<strong>比包车划算</strong></div>
+      <div class="route-card">市区有免费 CAT 巴士 + 火车，<strong>无需自驾</strong></div>
+    </div>
+  </div>
+</section>
+
+<!-- ITINERARY -->
+<section class="sec" id="itinerary">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">03</div>
+      <h2 class="sh-title">逐日行程</h2>
+      <p class="sh-sub">6 天 5 夜，精心安排每一天</p>
+      <div class="sh-line"></div>
+    </div>
+    <div id="days"></div>
+  </div>
+</section>
+
+<!-- ACCOMMODATION -->
+<section class="sec sec-white" id="accommodation">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">04</div>
+      <h2 class="sh-title">住宿安排</h2>
+      <p class="sh-sub">珀斯市区连住 + 杰拉尔顿过夜一晚</p>
+      <div class="sh-line"></div>
+    </div>
+    <div id="accom"></div>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="sec sec-alt" id="cost">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">05</div>
+      <h2 class="sh-title">费用汇总</h2>
+      <p class="sh-sub">透明预算，人均万元以下搞定西澳精华</p>
+      <div class="sh-line"></div>
+    </div>
+    <div id="cost-content"></div>
+  </div>
+</section>
+
+<!-- ATTRACTIONS -->
+<section class="sec" id="attractions">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">06</div>
+      <h2 class="sh-title">精华景点</h2>
+      <p class="sh-sub">13 个必游景点速览</p>
+      <div class="sh-line"></div>
+    </div>
+    <div id="attr"></div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="sec sec-alt" id="tips">
+  <div class="container">
+    <div class="sh rv">
+      <div class="sh-num">07</div>
+      <h2 class="sh-title">实用贴士</h2>
+      <div class="sh-line"></div>
+    </div>
+    <div id="tips-content"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p><strong>2026 西澳珀斯行程手册</strong> · 祝旅途愉快</p>
+</footer>
+
+<script>
+// NAV scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 80));
+
+// Reveal observer — handles .rv, .rv-scale, .rv-left, .rv-stagger, .sh, .timeline
+const revealSelectors = '.rv, .rv-scale, .rv-left, .rv-stagger, .sh, .timeline';
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('vis'); obs.unobserve(e.target); }
+  });
+}, { threshold: .06 });
+
+// Section indicator + nav active link
+const secInd = document.getElementById('secInd');
+const siNum = document.getElementById('siNum');
+const siTitle = document.getElementById('siTitle');
+const siProg = document.getElementById('siProg');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+const sectionMeta = {
+  team: { num: '01', title: '团队信息' },
+  itinerary: { num: '03', title: '逐日行程' },
+  accommodation: { num: '04', title: '住宿安排' },
+  cost: { num: '05', title: '费用汇总' },
+  attractions: { num: '06', title: '精华景点' },
+  tips: { num: '07', title: '实用贴士' }
+};
+
+function updateIndicator() {
+  const scrollY = window.scrollY;
+  const heroH = document.querySelector('.hero').offsetHeight;
+
+  // Hide when in hero area
+  if (scrollY < heroH * 0.7) {
+    secInd.classList.remove('show');
+    navLinks.forEach(a => a.classList.remove('active'));
+    return;
+  }
+
+  secInd.classList.add('show');
+
+  // Find current section
+  let current = null;
+  const sections = document.querySelectorAll('.sec[id]');
+  sections.forEach(sec => {
+    const top = sec.offsetTop - 120;
+    const bottom = top + sec.offsetHeight;
+    if (scrollY >= top && scrollY < bottom) current = sec;
+  });
+
+  if (current) {
+    const id = current.id;
+    const meta = sectionMeta[id];
+    if (meta) {
+      siNum.textContent = meta.num;
+      siTitle.textContent = meta.title;
+    }
+    // Progress within section
+    const secTop = current.offsetTop - 120;
+    const progress = Math.min(1, Math.max(0, (scrollY - secTop) / current.offsetHeight));
+    siProg.style.width = (progress * 100) + '%';
+
+    // Nav active link
+    navLinks.forEach(a => {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + id);
+    });
+  }
+}
+
+// Also handle the transport section (no id matching nav)
+let ticking = false;
+window.addEventListener('scroll', () => {
+  if (!ticking) { requestAnimationFrame(() => { updateIndicator(); ticking = false; }); ticking = true; }
+});
+
+// Initial observe — defer to after content injection
+function initObservers() {
+  document.querySelectorAll(revealSelectors).forEach(el => obs.observe(el));
+}
+</script>
+
+<!-- ITINERARY DATA -->
+<script>
+function tlItem(time, title, desc, subs, active) {
+  let html = '<div class="tl-item"><div class="tl-dot' + (active ? ' active' : '') + '"></div>';
+  html += '<div class="tl-content">';
+  html += '<span class="tl-time">' + time + '</span>';
+  html += '<span class="tl-title">' + title + '</span>';
+  if (desc) html += '<div class="tl-desc">' + desc + '</div>';
+  if (subs && subs.length) {
+    html += '<div class="tl-sub">';
+    subs.forEach(s => html += '<div class="tl-sub-item">' + s + '</div>');
+    html += '</div>';
+  }
+  html += '</div></div>';
+  return html;
+}
+
+const days = [
+  {
+    num: '01', date: '5 月 1 日 · 周五', title: '抵达 + 珀斯市区 + 弗里曼特尔',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'公共交通',c:'transport'}],
+    items: [
+      {time:'04:00',title:'全员落地珀斯机场'},
+      {time:'04:30',title:'打车到酒店',desc:'Uber 约 AUD 30–50'},
+      {time:'05:00–10:00',title:'酒店休息补觉'},
+      {time:'10:00–12:00',title:'国王公园 Kings Park',desc:'俯瞰天鹅河 + 城市天际线，免费入园',active:true},
+      {time:'12:00–13:00',title:'午餐 Elizabeth Quay 河畔'},
+      {time:'13:30–17:00',title:'弗里曼特尔 Fremantle',desc:'火车 30 分钟直达',active:true,
+        subs:['弗里曼特尔市场（周五开放）','渔人码头 — 必吃炸鱼薯条（推荐 Cicerello\'s）','卡布奇诺街 — 咖啡 + 街头艺人','圆屋 Round House — 西澳最古老建筑']},
+      {time:'17:00',title:'Bathers Beach 看日落'},
+      {time:'18:00',title:'火车返回珀斯 CBD'},
+      {time:'晚上',title:'北桥 Northbridge 晚餐',desc:'亚洲美食聚集区'},
+    ],
+    tip: {label:'交通费',text:'SmartRider 卡 + 火车，约 AUD 5–7/人往返'}
+  },
+  {
+    num: '02', date: '5 月 2 日 · 周六', title: '北线包车 Day 1：兰斯林→尖峰石阵→杰拉尔顿',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车',c:'transport'}],
+    items: [
+      {time:'07:00',title:'中文司导酒店接人出发（7 座车）'},
+      {time:'09:00–10:00',title:'兰斯林白沙丘 Lancelin Sand Dunes',desc:'西澳最大白色沙丘，体验滑沙',active:true},
+      {time:'10:30–11:30',title:'龙虾工厂 Lobster Shack',desc:'参观 + 品尝新鲜龙虾午餐',active:true},
+      {time:'12:00–13:00',title:'尖峰石阵 The Pinnacles',desc:'南邦国家公园，数千座石灰岩柱，如外星球般壮观',active:true},
+      {time:'13:30',title:'途经朱里恩湾休息'},
+      {time:'14:00–17:30',title:'驱车北上杰拉尔顿（约 3 小时）'},
+      {time:'18:00',title:'抵达杰拉尔顿入住'},
+      {time:'晚上',title:'杰拉尔顿海鲜晚餐'},
+    ],
+    tip: {label:'住宿',text:'推荐 Best Western / Nesuto Geraldton · 司机住宿补贴约 AUD 100–150（5 人分摊）'}
+  },
+  {
+    num: '03', date: '5 月 3 日 · 周日', title: '北线包车 Day 2：粉红湖→卡尔巴里→返珀斯',
+    featured: true,
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车',c:'transport'},{t:'全程最精华',c:'highlight'}],
+    items: [
+      {time:'07:00',title:'酒店出发'},
+      {time:'09:00–09:45',title:'粉红湖 Hutt Lagoon',desc:'湖水因藻类呈粉红色，超级梦幻！停留 45 分钟拍照',active:true,
+        subs:['可选：小飞机空中巡游 AUD 260–330/人','穿白色衣服最出片！中午光线最好']},
+      {time:'10:30–12:30',title:'卡尔巴里国家公园',active:true,
+        subs:['<strong>自然之窗 Nature\'s Window</strong> — 西澳标志性地标','<strong>天空之桥 Skywalk</strong> — 悬空玻璃观景台']},
+      {time:'12:30–13:00',title:'海岸悬崖红崖区'},
+      {time:'13:00–13:30',title:'午餐（卡尔巴里小镇）'},
+      {time:'14:00–18:30',title:'返程珀斯（约 5 小时）'},
+      {time:'晚上',title:'庆祝晚餐！Elizabeth Quay 或北桥'},
+    ]
+  },
+  {
+    num: '04', date: '5 月 4 日 · 周一', title: '罗特尼斯岛一日游',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'渡轮自助游',c:'transport'}],
+    items: [
+      {time:'07:15',title:'Rottnest Express 渡轮出发',desc:'约 75 分钟到岛'},
+      {time:'08:45–15:30',title:'罗特尼斯岛全天游玩',active:true,
+        subs:['与 <strong>Quokka 短尾矮袋鼠</strong>合影 — 世界上最快乐的动物','租自行车环岛骑行（约 22km 环岛路）','<strong>The Basin</strong> — 岛上最美天然泳池沙滩','<strong>Pinky Beach</strong> — 梦幻粉色沙滩']},
+      {time:'15:30',title:'渡轮返程'},
+      {time:'晚上',title:'全员聚餐'},
+    ],
+    tip: {label:'费用',text:'往返 + 自行车约 AUD 100–130/人 · 提前预订 rottnestexpress.com.au'}
+  },
+  {
+    num: '05', date: '5 月 5 日 · 周二', title: '天鹅河谷 + A 队深夜送机',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'中文拼团',c:'transport'}],
+    items: [
+      {time:'08:00',title:'天鹅河谷一日游出发'},
+      {time:'09:00–10:30',title:'Caversham 野生动物园',desc:'喂袋鼠、抱考拉、看剪羊毛秀',active:true},
+      {time:'11:00–12:00',title:'Sandalford 酒庄品酒',active:true},
+      {time:'12:00–13:00',title:'巧克力 / 蜂蜜 / 牛轧糖工厂',desc:'免费试吃'},
+      {time:'17:00–18:00',title:'Murray Street Mall 购物扫货'},
+      {time:'18:30–20:30',title:'全员告别聚餐',active:true},
+      {time:'22:30',title:'A 队出发去机场'},
+      {time:'次日 01:35',title:'A 队起飞'},
+    ],
+    tip: {label:'航班优化',text:'A 队凌晨飞，全天不赶路！一日团约 AUD 150–200/人（含门票 + 午餐）'}
+  },
+  {
+    num: '06', date: '5 月 6 日 · 周三', title: 'B 队专属：市区深度 + 送机',
+    tags: [{t:'B 队 3 人',c:'highlight'},{t:'公共交通',c:'transport'}],
+    extra: true,
+    items_a: [
+      {time:'08:00',title:'Mary Street Bakery 精品早餐'},
+      {time:'09:30–11:30',title:'西澳博物馆 WA Museum Boola Bardip',desc:'2020 年新开，免费',active:true},
+      {time:'14:00–16:00',title:'科特斯洛海滩 Cottesloe Beach',desc:'珀斯最美城市海滩',active:true},
+      {time:'20:50',title:'B 队起飞'},
+    ],
+    items_b: [
+      {time:'09:00–14:00',title:'曼杜拉海豚游船',desc:'寻找野生瓶鼻海豚 + 巨人木雕',active:true},
+      {time:'20:50',title:'B 队起飞'},
+    ]
+  }
+];
+
+let daysHTML = '';
+days.forEach(d => {
+  const cls = d.featured ? ' featured' : '';
+  daysHTML += '<div class="day rv' + cls + '">';
+  daysHTML += '<div class="day-head"><div class="day-num">' + d.num + '</div>';
+  daysHTML += '<div class="day-date">' + d.date + '</div>';
+  daysHTML += '<h3 class="day-title">' + d.title + '</h3>';
+  daysHTML += '<div class="day-tags">';
+  d.tags.forEach(t => daysHTML += '<span class="dtag dtag-' + t.c + '">' + t.t + '</span>');
+  daysHTML += '</div></div>';
+
+  if (d.extra) {
+    daysHTML += '<h4 style="font-size:15px;margin:1.5rem 0 1rem;color:var(--c-accent);">方案 A：悠闲市区深度游（推荐）</h4>';
+    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
+    d.items_a.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
+    daysHTML += '</div>';
+    daysHTML += '<h4 style="font-size:15px;margin:2rem 0 1rem;color:var(--c-text-3);">方案 B：曼杜拉海豚游半日游</h4>';
+    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
+    d.items_b.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
+    daysHTML += '</div>';
+  } else {
+    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
+    d.items.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
+    daysHTML += '</div>';
+    if (d.tip) {
+      daysHTML += '<div class="day-tip"><strong>' + d.tip.label + '：</strong><span>' + d.tip.text + '</span></div>';
+    }
+  }
+  daysHTML += '</div>';
+});
+document.getElementById('days').innerHTML = daysHTML;
+</script>
+
+<!-- ACCOMMODATION DATA -->
+<script>
+document.getElementById('accom').innerHTML = `
+<div class="accom-overview rv-stagger">
+  <div class="accom-day"><div class="d">Day 1 · 5.1</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
+  <div class="accom-day"><div class="d">Day 2 · 5.2</div><div class="loc">杰拉尔顿</div><div class="pr">AUD 120–180/晚</div></div>
+  <div class="accom-day"><div class="d">Day 3 · 5.3</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
+  <div class="accom-day"><div class="d">Day 4 · 5.4</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
+  <div class="accom-day"><div class="d">Day 5 · 5.5</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
+</div>
+
+<div class="info-box rv"><strong>省钱建议：</strong><span>珀斯市区建议 Day 1、3、4、5 连住同一家。Day 2 出发前大件行李寄存。A 队 Day 5 行李寄存前台，深夜取完直奔机场。</span></div>
+
+<div class="hotel-section-title rv">珀斯 Elizabeth Quay / CBD 核心区</div>
+<div class="hotels rv-stagger">
+  <div class="hotel"><div class="name">DoubleTree by Hilton Perth Waterfront</div><div class="stars">★★★★</div><div class="price">AUD 180–250/晚</div><div class="desc">正对 Elizabeth Quay，河景房超美，离码头最近</div></div>
+  <div class="hotel"><div class="name">Adina Apartment Hotel Perth</div><div class="stars">★★★★</div><div class="price">AUD 160–220/晚</div><div class="desc">公寓式有厨房，5 人可订 2 间套房很划算</div></div>
+  <div class="hotel"><div class="name">Novotel Perth Langley</div><div class="stars">★★★★</div><div class="price">AUD 150–200/晚</div><div class="desc">CBD 核心，步行到火车站 5 分钟</div></div>
+  <div class="hotel"><div class="name">Pensione Hotel Perth</div><div class="stars">★★★</div><div class="price">AUD 100–150/晚</div><div class="desc">性价比之王，位置极佳</div></div>
+</div>
+
+<div class="hotel-section-title rv">杰拉尔顿住宿（Day 2 过夜）</div>
+<div class="hotels rv-stagger">
+  <div class="hotel"><div class="name">Nesuto Geraldton</div><div class="stars">★★★★</div><div class="price">AUD 140–180/晚</div><div class="desc">杰拉尔顿最好的酒店之一</div></div>
+  <div class="hotel"><div class="name">Best Western Hospitality Inn</div><div class="stars">★★★★</div><div class="price">AUD 120–160/晚</div><div class="desc">有泳池，靠近海边</div></div>
+  <div class="hotel"><div class="name">Ocean Centre Hotel</div><div class="stars">★★★</div><div class="price">AUD 90–130/晚</div><div class="desc">正对海滩，海景房性价比高</div></div>
+</div>
+
+<div class="hotel-section-title rv">房间分配建议</div>
+<div class="room-options rv-stagger">
+  <div class="room-opt"><h4>经济型</h4><p>1 间三人间 + 1 间双人间</p><div class="price">AUD 50–70 <span class="price-unit">/人/晚</span></div></div>
+  <div class="room-opt"><h4>舒适型</h4><p>2 间双人间 + 1 间单人间</p><div class="price">AUD 70–100 <span class="price-unit">/人/晚</span></div></div>
+  <div class="room-opt rec"><h4>公寓型</h4><p>1 间两卧公寓 + 1 间单人间<br>有客厅厨房，可以一起做早餐</p><div class="price">AUD 60–84 <span class="price-unit">/人/晚</span></div></div>
+</div>
+`;
+</script>
+
+<!-- COST DATA -->
+<script>
+document.getElementById('cost-content').innerHTML = `
+<div class="cost-grid rv-scale">
+  <div class="cost-card">
+    <div class="cost-header a"><h3>A 队</h3><div class="sub">2 人 · 5 天行程</div></div>
+    <div class="cost-body">
+      <div class="cost-row"><div class="item">包车 2 天（北线粉红湖）</div><div class="amount">280–400</div></div>
+      <div class="cost-row"><div class="item">罗特尼斯岛</div><div class="amount">110–130</div></div>
+      <div class="cost-row"><div class="item">天鹅河谷一日团</div><div class="amount">150–200</div></div>
+      <div class="cost-row"><div class="item">公共交通</div><div class="amount">30–50</div></div>
+      <div class="cost-row"><div class="item">机场往返</div><div class="amount">40–60</div></div>
+      <div class="cost-row"><div class="item">餐饮（5 天）</div><div class="amount">220–330</div></div>
+      <div class="cost-row"><div class="item">住宿（4 晚）</div><div class="amount">280–480</div></div>
+      <div class="cost-row"><div class="item">门票杂费</div><div class="amount">20–40</div></div>
+    </div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">AUD 1,130 – 1,690</div><div class="cny">约 ¥5,400 – ¥8,000</div></div></div>
+  </div>
+  <div class="cost-card">
+    <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程</div></div>
+    <div class="cost-body">
+      <div class="cost-row"><div class="item">A 队全部费用</div><div class="amount">1,130–1,690</div></div>
+      <div class="cost-row"><div class="item">Day 5 住宿</div><div class="amount">50–85</div></div>
+      <div class="cost-row"><div class="item">Day 6 住宿</div><div class="amount">50–85</div></div>
+      <div class="cost-row"><div class="item">Day 6 餐饮 + 交通</div><div class="amount">50–80</div></div>
+      <div class="cost-row"><div class="item">Day 6 活动</div><div class="amount">0–80</div></div>
+    </div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">AUD 1,280 – 1,920</div><div class="cny">约 ¥6,100 – ¥9,100</div></div></div>
+  </div>
+</div>
+`;
+</script>
+
+<!-- ATTRACTIONS DATA -->
+<script>
+const attrData = [
+  {n:'01',nm:'国王公园',en:'Kings Park',dy:'Day 1',r:'★★★★',d:'珀斯 Mount Eliza 山顶 400 公顷城市公园，俯瞰天鹅河和城市天际线。免费入园。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'02',nm:'弗里曼特尔',en:'Fremantle',dy:'Day 1',r:'★★★★',d:'维多利亚风格港口小城，周五市场热闹，渔人码头炸鱼薯条必吃。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'03',nm:'兰斯林沙丘',en:'Lancelin Sand Dunes',dy:'Day 2',r:'★★★★',d:'西澳最大白色沙丘群，纯白细沙闪烁如雪。租滑沙板从沙丘冲下！',a:true,b:true,c:'var(--c-sand)'},
+  {n:'04',nm:'尖峰石阵',en:'The Pinnacles',dy:'Day 2',r:'★★★★★',d:'数千根石灰岩柱从黄沙中拔地而起，宛如外星球表面。西澳标志景观。',a:true,b:true,c:'var(--c-sand)'},
+  {n:'05',nm:'龙虾工厂',en:'Lobster Shack',dy:'Day 2',r:'★★★',d:'Cervantes 小镇岩龙虾加工工厂，招牌半只烤龙虾 + 薯条，新鲜无敌。',a:true,b:true,c:'var(--c-sand)'},
+  {n:'06',nm:'粉红湖',en:'Hutt Lagoon',dy:'Day 3',r:'★★★★★',d:'世界最大粉红湖之一（14km），嗜盐藻类使湖水呈梦幻粉色。穿白衣最出片！',a:true,b:true,c:'var(--c-rose)'},
+  {n:'07',nm:'自然之窗',en:"Nature's Window",dy:'Day 3',r:'★★★★★',d:'天然红褐色砂岩拱窗，透过窗口见墨奇森河蜿蜒穿峡谷。西澳出镜率最高。',a:true,b:true,c:'var(--c-rose)'},
+  {n:'08',nm:'天空之桥',en:'Kalbarri Skywalk',dy:'Day 3',r:'★★★★',d:'悬空玻璃观景台，悬挑出峡谷边缘 100 米上方，360 度俯瞰红色峡谷。',a:true,b:true,c:'var(--c-rose)'},
+  {n:'09',nm:'罗特尼斯岛',en:'Rottnest Island',dy:'Day 4',r:'★★★★★',d:'A 级自然保护区海岛，Quokka 闻名全球。骑车环岛 22km，63 个白沙滩。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'10',nm:'Caversham 动物园',en:'Caversham Wildlife Park',dy:'Day 5',r:'★★★★',d:'亲手喂袋鼠、抱考拉拍照、看剪羊毛秀。200+ 种动物，互动性极强。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'11',nm:'天鹅河谷酒庄',en:'Swan Valley Wineries',dy:'Day 5',r:'★★★★',d:'澳洲最古老酒区之一（1829 年），品酒 + 巧克力 + 蜂蜜 + 牛轧糖免费试吃。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'12',nm:'西澳博物馆',en:'WA Museum Boola Bardip',dy:'Day 6',r:'★★★',d:'2020 年新开州立博物馆，西澳自然史 + 原住民文化 + 矿业历史。免费。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'13',nm:'科特斯洛海滩',en:'Cottesloe Beach',dy:'Day 6',r:'★★★★',d:'珀斯最美城市海滩，浅蓝海水 + 白沙 + Norfolk 松树，日落印度洋金光万丈。',a:false,b:true,c:'var(--c-primary-muted)'},
+];
+
+document.getElementById('attr').innerHTML = '<div class="attr-grid rv-stagger">' + attrData.map(a => `
+  <div class="attr-card"><div class="attr-bar" style="background:${a.c}"></div><div class="attr-body">
+    <div class="attr-num">${a.n}</div>
+    <div class="attr-name">${a.nm}</div>
+    <div class="attr-en">${a.en}</div>
+    <div class="attr-day">${a.dy}</div>
+    <div class="attr-rating">${a.r}</div>
+    <div class="attr-desc">${a.d}</div>
+    <div class="attr-teams">${a.a ? '<span class="attr-team a">A 队</span>' : ''}${a.b ? '<span class="attr-team b">B 队</span>' : ''}</div>
+  </div></div>
+`).join('') + '</div>';
+</script>
+
+<!-- TIPS DATA -->
+<script>
+const tips = [
+  {t:'零时差',d:'珀斯与中国没有时差，不用倒时差'},
+  {t:'穿衣指南',d:'白天短袖 + 薄外套，早晚加夹克 / 风衣，滑沙穿长裤'},
+  {t:'支付方式',d:'几乎全部可刷卡 / Apple Pay，不需现金'},
+  {t:'市区交通',d:'买 SmartRider 卡，免费 CAT 巴士（红蓝黄绿 4 线）覆盖所有市区景点'},
+  {t:'粉红湖拍照',d:'穿白色 / 浅色衣服最出片！中午光线最好'},
+  {t:'SIM 卡',d:'机场买 Optus 或 Telstra 旅游 SIM 卡，偏远地区 Telstra 信号更好'},
+  {t:'龙虾工厂',d:'可以自费加整只龙虾，非常新鲜'},
+  {t:'Quokka 合影',d:'不要主动触摸 / 喂食，罚款很重！等它自己靠近'},
+  {t:'住宿区域',d:'珀斯 CBD / Elizabeth Quay / 北桥，步行可达火车站和码头'},
+  {t:'提前预订',d:'包车、船票、一日团建议至少提前 2 周预订'},
+];
+
+document.getElementById('tips-content').innerHTML = '<div class="tips-grid rv-stagger">' + tips.map(t => `
+  <div class="tip-card"><div class="tip-title">${t.t}</div><div class="tip-text">${t.d}</div></div>
+`).join('') + '</div>';
+
+// Init all observers after dynamic content is injected
+initObservers();
+</script>
+</body>
+</html>
