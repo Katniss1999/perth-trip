@@ -411,10 +411,77 @@
     line-height: 1.5;
   }
 
+  /* ─── MOBILE DRAWER ─── */
+  .mobile-handle {
+    display: none;
+    width: 36px; height: 4px; border-radius: 2px;
+    background: var(--border-default);
+    margin: 8px auto 4px;
+    flex-shrink: 0;
+  }
+
   @media (max-width: 768px) {
-    .sidebar { display: none; }
-    .header-title { font-size: 14px; }
-    .overview-card { bottom: 10px; right: 10px; max-width: 200px; padding: 10px 12px; }
+    .header { height: 44px; padding: 0 12px; }
+    .header-title { font-size: 13px; }
+    .header-sub { display: none; }
+    .header-badge { font-size: 10px; padding: 3px 8px; }
+    .header-right .header-badge:first-child { display: none; }
+
+    .main { flex-direction: column; position: relative; }
+
+    /* Sidebar becomes bottom drawer */
+    .sidebar {
+      display: flex;
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      width: 100%; height: auto;
+      max-height: 70dvh;
+      border-right: none;
+      border-top: 1px solid var(--border-default);
+      border-radius: 14px 14px 0 0;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      z-index: 500;
+      transform: translateY(calc(100% - 110px));
+      transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      will-change: transform;
+      touch-action: none;
+    }
+    .sidebar.drawer-expanded {
+      transform: translateY(0);
+    }
+    .sidebar.drawer-hidden {
+      transform: translateY(calc(100% - 44px));
+    }
+
+    .mobile-handle { display: block; }
+
+    .day-filters {
+      padding: 6px 12px 8px;
+      gap: 4px;
+      border-bottom: 1px solid var(--border-subtle);
+      flex-shrink: 0;
+    }
+    .day-pill { padding: 4px 8px; font-size: 11px; }
+    .day-pill .dot { width: 6px; height: 6px; }
+
+    .spot-list { padding: 2px 0 20px; }
+    .spot-item { padding: 6px 12px; }
+    .spot-num { width: 22px; height: 22px; font-size: 10px; }
+    .spot-name { font-size: 12px; }
+    .spot-en { font-size: 10px; }
+    .spot-stars { font-size: 9px; }
+    .spot-desc { font-size: 10px; -webkit-line-clamp: 1; }
+    .day-group-header { padding: 8px 12px 4px; font-size: 10px; }
+
+    /* Map takes full space */
+    .map-wrapper { flex: 1; }
+
+    /* Overview card — hide on mobile, drawer replaces it */
+    .overview-card { display: none; }
+  }
+
+  @media (max-width: 380px) {
+    .day-pill { padding: 3px 6px; font-size: 10px; }
   }
 </style>
 </head>
@@ -432,7 +499,8 @@
 </header>
 
 <div class="main">
-  <aside class="sidebar">
+  <aside class="sidebar" id="sidebar">
+    <div class="mobile-handle" id="drawerHandle"></div>
     <div class="day-filters" id="dayFilters"></div>
     <div class="spot-list" id="spotList"></div>
   </aside>
@@ -730,6 +798,82 @@ function renderSpotList() {
 }
 
 renderSpotList();
+
+// ═══════════════════════════════════════
+// MOBILE DRAWER — drag to expand/collapse
+// ═══════════════════════════════════════
+(function() {
+  var sidebar = document.getElementById('sidebar');
+  var handle = document.getElementById('drawerHandle');
+  var startY = 0, startTranslate = 0, dragging = false;
+  var isMobile = function() { return window.innerWidth <= 768; };
+
+  // States: 'peek' (default, shows filters), 'expanded', 'hidden' (just handle)
+  var state = 'peek';
+
+  function getTranslateY() {
+    var st = window.getComputedStyle(sidebar);
+    var matrix = new DOMMatrix(st.transform);
+    return matrix.m42;
+  }
+
+  function setState(s) {
+    state = s;
+    sidebar.classList.remove('drawer-expanded', 'drawer-hidden');
+    if (s === 'expanded') sidebar.classList.add('drawer-expanded');
+    else if (s === 'hidden') sidebar.classList.add('drawer-hidden');
+    sidebar.style.transform = '';
+  }
+
+  handle.addEventListener('touchstart', function(e) {
+    if (!isMobile()) return;
+    dragging = true;
+    startY = e.touches[0].clientY;
+    startTranslate = getTranslateY();
+    sidebar.style.transition = 'none';
+  }, { passive: true });
+
+  document.addEventListener('touchmove', function(e) {
+    if (!dragging) return;
+    var dy = e.touches[0].clientY - startY;
+    var newY = Math.max(0, startTranslate + dy);
+    sidebar.style.transform = 'translateY(' + newY + 'px)';
+  }, { passive: true });
+
+  document.addEventListener('touchend', function() {
+    if (!dragging) return;
+    dragging = false;
+    sidebar.style.transition = '';
+    var currentY = getTranslateY();
+    var sidebarH = sidebar.offsetHeight;
+    var ratio = currentY / sidebarH;
+
+    if (ratio < 0.25) {
+      setState('expanded');
+    } else if (ratio > 0.75) {
+      setState('hidden');
+    } else {
+      setState('peek');
+    }
+  });
+
+  // Click handle to toggle
+  handle.addEventListener('click', function() {
+    if (!isMobile()) return;
+    if (state === 'peek') setState('expanded');
+    else if (state === 'expanded') setState('peek');
+    else setState('peek');
+  });
+
+  // When spot clicked on mobile, collapse drawer
+  spotListEl.addEventListener('click', function(e) {
+    if (!isMobile()) return;
+    var item = e.target.closest('.spot-item');
+    if (item) {
+      setTimeout(function() { setState('peek'); }, 100);
+    }
+  });
+})();
 
 // ═══════════════════════════════════════
 // OVERVIEW CARD
