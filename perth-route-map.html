@@ -1245,25 +1245,25 @@ var map = L.map('map', {
   attributionControl: false
 }).setView([-30.0, 115.2], 7);
 
-// Tile provider cascade — China-accessible sources first
+// Tile provider cascade — China domestic CDN first for guaranteed speed
 var tileSources = [
-  // 1. OSM France HOT — confirmed accessible in mainland China
+  // 1. Amap (高德) — domestic CDN, instant loading in China, global coverage
+  {
+    url: 'https://webrd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&scale=1&style=8&x={x}&y={y}&z={z}',
+    opts: { subdomains: '1234', maxZoom: 18 },
+    attr: 'AutoNavi'
+  },
+  // 2. Amap style 7 as backup
+  {
+    url: 'https://wprd0{s}.is.autonavi.com/appmaptile?lang=zh_cn&size=1&style=7&x={x}&y={y}&z={z}',
+    opts: { subdomains: '1234', maxZoom: 18 },
+    attr: 'AutoNavi'
+  },
+  // 3. OSM France HOT as overseas fallback
   {
     url: 'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
     opts: { subdomains: 'abc', maxZoom: 19 },
-    attr: 'OSM FR HOT'
-  },
-  // 2. OSM France standard
-  {
-    url: 'https://tile-{s}.openstreetmap.fr/osmfr/{z}/{x}/{y}.png',
-    opts: { subdomains: 'abc', maxZoom: 19 },
     attr: 'OSM FR'
-  },
-  // 3. CARTO Fastly CDN
-  {
-    url: 'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}{r}.png',
-    opts: { subdomains: 'abcd', maxZoom: 19 },
-    attr: 'CARTO'
   },
   // 4. OSM standard as last resort
   {
