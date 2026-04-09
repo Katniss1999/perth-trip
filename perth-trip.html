@@ -390,7 +390,7 @@ a { color: var(--c-accent); text-decoration: none; }
 
 /* ===== ACCOMMODATION ===== */
 .accom-overview {
-  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 0;
   border-radius: var(--radius-lg); overflow: hidden;
   margin-bottom: var(--space-group);
   border: 1px solid var(--c-border-2);
@@ -399,14 +399,13 @@ a { color: var(--c-accent); text-decoration: none; }
   background: var(--c-white); padding: 1.5rem; text-align: center;
   border-right: 1px solid var(--c-border-2);
 }
-/* Desktop 6-col: no bottom border (single row), remove right on last */
-.accom-day:nth-child(6n), .accom-day:last-child { border-right: none; }
+.accom-day:last-child, .accom-day:nth-child(2n) { border-right: none; }
 .accom-day .d {
   font-size: 11px; font-weight: 700; color: var(--c-text-4);
   letter-spacing: .12em; text-transform: uppercase;
 }
 .accom-day .loc { font-size: 15px; font-weight: 700; color: var(--c-text); margin-top: .4rem; }
-.accom-day .pr { font-size: 13px; color: var(--c-text-3); margin-top: .2rem; }
+.accom-day .pr { font-size: 13px; color: var(--c-text-3); margin-top: .2rem; line-height: 1.6; }
 
 .hotel-section-title {
   font-size: 1.1rem; font-weight: 700; color: var(--c-text);
@@ -620,11 +619,9 @@ a { color: var(--c-accent); text-decoration: none; }
   .team-card:nth-child(2n+1) { border-right: 1px solid var(--c-border-2); }
   .team-card:last-child { grid-column: 1 / -1; border-right: none; border-bottom: none; }
   .cost-grid { grid-template-columns: 1fr; }
-  .accom-overview { grid-template-columns: repeat(3, 1fr); }
-  .accom-day { border-bottom: 1px solid var(--c-border-2); }
-  .accom-day:nth-child(2n) { border-right: none; }
-  .accom-day:nth-child(2n+1) { border-right: 1px solid var(--c-border-2); }
-  .accom-day:last-child { grid-column: 1 / -1; border-right: none; border-bottom: none; }
+  .accom-overview { grid-template-columns: 1fr; }
+  .accom-day { border-right: none !important; border-bottom: 1px solid var(--c-border-2); }
+  .accom-day:last-child { border-bottom: none; }
   .room-options { grid-template-columns: 1fr; }
   .route-cards { grid-template-columns: 1fr; }
 }
@@ -1044,12 +1041,8 @@ document.getElementById('days').innerHTML = daysHTML;
 <script>
 document.getElementById('accom').innerHTML = `
 <div class="accom-overview rv-stagger">
-  <div class="accom-day"><div class="d">Day 1 · 5.1</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚</div></div>
-  <div class="accom-day"><div class="d">Day 2 · 5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman 连住 · ¥400/人/晚</div></div>
-  <div class="accom-day"><div class="d">Day 3 · 5.3</div><div class="loc">🏙 珀斯</div><div class="pr">Quest Mounts Bay Road · ¥310/人/晚</div></div>
-  <div class="accom-day"><div class="d">Day 4 · 5.4</div><div class="loc">🏙 珀斯</div><div class="pr">Quest 连住 · ¥310/人/晚</div></div>
-  <div class="accom-day"><div class="d">Day 5 · 5.5</div><div class="loc">🏙 珀斯</div><div class="pr">B队 Quest 第3晚 · ¥400/人/晚（预估，待订）</div></div>
-  <div class="accom-day"><div class="d">Day 6 · 5.6</div><div class="loc">—</div><div class="pr">不住（B队当晚飞）</div></div>
+  <div class="accom-day"><div class="d">Day 1–2 · 5.1–5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚<br>连住 2 晚 · 已订 ✅</div></div>
+  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯</div><div class="pr">Quest Mounts Bay Road · ¥310/人/晚<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人 · ¥400/人/晚（预估，待订）</div></div>
 </div>
 
 <div class="hotel-section-title rv">🌊 杰拉尔顿 · Cozy On Chapman（Day 1-2，2 晚）已订 ✅</div>
