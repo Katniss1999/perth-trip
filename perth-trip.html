@@ -390,7 +390,7 @@ a { color: var(--c-accent); text-decoration: none; }
 
 /* ===== ACCOMMODATION ===== */
 .accom-overview {
-  display: grid; grid-template-columns: repeat(5, 1fr); gap: 0;
+  display: grid; grid-template-columns: repeat(6, 1fr); gap: 0;
   border-radius: var(--radius-lg); overflow: hidden;
   margin-bottom: var(--space-group);
   border: 1px solid var(--c-border-2);
@@ -399,8 +399,8 @@ a { color: var(--c-accent); text-decoration: none; }
   background: var(--c-white); padding: 1.5rem; text-align: center;
   border-right: 1px solid var(--c-border-2);
 }
-/* Desktop 5-col: no bottom border (single row), remove right on last */
-.accom-day:nth-child(5n), .accom-day:last-child { border-right: none; }
+/* Desktop 6-col: no bottom border (single row), remove right on last */
+.accom-day:nth-child(6n), .accom-day:last-child { border-right: none; }
 .accom-day .d {
   font-size: 11px; font-weight: 700; color: var(--c-text-4);
   letter-spacing: .12em; text-transform: uppercase;
@@ -620,7 +620,7 @@ a { color: var(--c-accent); text-decoration: none; }
   .team-card:nth-child(2n+1) { border-right: 1px solid var(--c-border-2); }
   .team-card:last-child { grid-column: 1 / -1; border-right: none; border-bottom: none; }
   .cost-grid { grid-template-columns: 1fr; }
-  .accom-overview { grid-template-columns: repeat(2, 1fr); }
+  .accom-overview { grid-template-columns: repeat(3, 1fr); }
   .accom-day { border-bottom: 1px solid var(--c-border-2); }
   .accom-day:nth-child(2n) { border-right: none; }
   .accom-day:nth-child(2n+1) { border-right: 1px solid var(--c-border-2); }
@@ -707,8 +707,8 @@ a { color: var(--c-accent); text-decoration: none; }
       <div class="sh-line"></div>
     </div>
     <div class="team-grid rv-stagger">
-      <div class="team-card"><div class="label">抵达 · 5 月 1 日</div><div class="value">A 队 00:35</div><div class="value-sub">B 队 04:15</div><div class="note">凌晨分批落地珀斯</div></div>
-      <div class="team-card"><div class="label">返程 · 5 月 6 日</div><div class="value">A 队 01:35</div><div class="value-sub">B 队 20:50</div><div class="note">分批离开</div></div>
+      <div class="team-card"><div class="label">抵达 · 5 月 1 日</div><div class="value">B 队 03:25</div><div class="value-sub">A 队 05:05</div><div class="note">凌晨分批落地珀斯</div></div>
+      <div class="team-card"><div class="label">返程 · 5 月 6 日</div><div class="value">A 队 01:35</div><div class="value-sub">B 队 20:50</div><div class="note">A队凌晨红眼 / B队晚班机</div></div>
       <div class="team-card"><div class="label">气候</div><div class="value">20–22°C</div><div class="note">夜间 10°C · 日落 17:20</div></div>
       <div class="team-card"><div class="label">时差</div><div class="value">零时差</div><div class="note">与中国完全同步</div></div>
       <div class="team-card"><div class="label">季节</div><div class="value">南半球秋季</div><div class="note">气候舒适宜人</div></div>
@@ -722,24 +722,24 @@ a { color: var(--c-accent); text-decoration: none; }
     <div class="sh rv">
       <div class="sh-num">02</div>
       <h2 class="sh-title">交通方案</h2>
-      <p class="sh-sub">包车 2 天走北线 + 其余天公共交通与跟团</p>
+      <p class="sh-sub">包车 3 天深度北线 + 1 天天鹅河谷，其余天公共交通</p>
       <div class="sh-line"></div>
     </div>
     <div class="transport-block rv-left">
-      <h3>7 座包车 · 北线 2 日</h3>
-      <p>兰斯林 → 尖峰石阵 → 杰拉尔顿过夜 → 粉红湖 → 卡尔巴里 → 返珀斯</p>
+      <h3>7 座包车 · 北线 3 日 + 河谷 1 日（已订 ✅）</h3>
+      <p>D1-D3 珀斯→兰斯林→杰拉尔顿（住2晚）→粉红湖→卡尔巴里→朱莉恩湾→尖峰石阵→返珀斯<br>D5 珀斯→天鹅河谷一日游→返珀斯</p>
       <div class="t-numbers">
-        <div class="t-num"><div class="n">2</div><div class="u">包车天数</div></div>
+        <div class="t-num"><div class="n">4</div><div class="u">包车天数</div></div>
         <div class="t-num"><div class="n">7</div><div class="u">座车型</div></div>
-        <div class="t-num"><div class="n">1,400–2,000</div><div class="u">整车 AUD</div></div>
-        <div class="t-num"><div class="n">280–400</div><div class="u">人均 AUD</div></div>
+        <div class="t-num"><div class="n">¥18,000</div><div class="u">整车总价</div></div>
+        <div class="t-num"><div class="n">¥3,600</div><div class="u">人均</div></div>
       </div>
     </div>
     <div class="route-cards rv-stagger" style="margin-top:1.5rem">
-      <div class="route-card">粉红湖 + 卡尔巴里 + 尖峰石阵全在北线，<strong>2 天往返覆盖全部精华</strong></div>
+      <div class="route-card">北线 3 天深度游：兰斯林→杰拉尔顿住 2 晚→粉红湖→卡尔巴里→尖峰石阵，<strong>不走回头路</strong></div>
       <div class="route-card">罗特尼斯岛靠渡轮，<strong>不需要车</strong></div>
-      <div class="route-card">天鹅河谷有一日团（约 AUD 150/人），<strong>比包车划算</strong></div>
-      <div class="route-card">市区有免费 CAT 巴士 + 火车，<strong>无需自驾</strong></div>
+      <div class="route-card"><strong>¥18,000 全包</strong>（除景点门票外，含油费、司机食宿、过路费等）</div>
+      <div class="route-card">每天 <strong>08:30 出发</strong>，市区有免费 CAT 巴士 + 火车</div>
     </div>
   </div>
 </section>
@@ -763,7 +763,7 @@ a { color: var(--c-accent); text-decoration: none; }
     <div class="sh rv">
       <div class="sh-num">04</div>
       <h2 class="sh-title">住宿安排</h2>
-      <p class="sh-sub">珀斯市区连住 + 杰拉尔顿过夜一晚</p>
+      <p class="sh-sub">杰拉尔顿住 2 晚 + 珀斯住 2-3 晚，均已确认</p>
       <div class="sh-line"></div>
     </div>
     <div id="accom"></div>
@@ -776,7 +776,7 @@ a { color: var(--c-accent); text-decoration: none; }
     <div class="sh rv">
       <div class="sh-num">05</div>
       <h2 class="sh-title">费用汇总</h2>
-      <p class="sh-sub">透明预算，人均万元以下搞定西澳精华</p>
+      <p class="sh-sub">全部折算为人民币 · 人均 ¥7,000-9,000 搞定西澳精华</p>
       <div class="sh-line"></div>
     </div>
     <div id="cost-content"></div>
@@ -789,7 +789,7 @@ a { color: var(--c-accent); text-decoration: none; }
     <div class="sh rv">
       <div class="sh-num">06</div>
       <h2 class="sh-title">精华景点</h2>
-      <p class="sh-sub">13 个必游景点速览</p>
+      <p class="sh-sub">18 个必游景点速览</p>
       <div class="sh-line"></div>
     </div>
     <div id="attr"></div>
@@ -885,95 +885,117 @@ function tlItem(time, title, desc, subs, active) {
 
 const days = [
   {
-    num: '01', date: '5 月 1 日 · 周五', title: '抵达 + 珀斯市区 + 弗里曼特尔',
-    tags: [{t:'全员 5 人',c:'crew'},{t:'公共交通',c:'transport'}],
+    num: '01', date: '5 月 1 日 · 周五', title: '北线包车第 1 天：珀斯→兰斯林→杰拉尔顿',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车 Day 1',c:'transport'}],
     items: [
-      {time:'00:35',title:'A 队（2 人）先行落地珀斯机场'},
-      {time:'04:15',title:'B 队（3 人）落地，全员汇合'},
-      {time:'04:30',title:'打车到酒店寄存行李',desc:'Uber 约 AUD 30–50'},
-      {time:'05:00–09:30',title:'酒店附近休息 / 早餐'},
-      {time:'10:00–12:00',title:'国王公园 Kings Park',desc:'俯瞰天鹅河 + 城市天际线，免费入园',active:true},
-      {time:'12:00–13:00',title:'午餐 Elizabeth Quay 河畔'},
-      {time:'13:30–17:00',title:'弗里曼特尔 Fremantle',desc:'火车 30 分钟直达',active:true,
-        subs:['弗里曼特尔市场（周五开放）','渔人码头 — 必吃炸鱼薯条（推荐 Cicerello\'s）','卡布奇诺街 — 咖啡 + 街头艺人','圆屋 Round House — 西澳最古老建筑']},
-      {time:'17:00',title:'Bathers Beach 看日落'},
-      {time:'18:00',title:'火车返回珀斯 CBD'},
-      {time:'晚上',title:'北桥 Northbridge 晚餐',desc:'亚洲美食聚集区'},
+      {time:'03:25',title:'B 队（3 人）先行落地珀斯机场'},
+      {time:'05:05',title:'A 队（2 人）落地，全员汇合'},
+      {time:'05:15–07:00',title:'珀斯机场/市区早餐',desc:'机场 Dome Café 或市区早餐店，吃饱休整'},
+      {time:'07:00–08:15',title:'珀斯市区晨游（可选）',desc:'Elizabeth Quay 河畔 / 天鹅钟楼 / 国王公园日出'},
+      {time:'08:30',title:'包车出发！中文司导市区接人，7 座车北上',active:true},
+      {time:'10:00–11:00',title:'兰斯林白沙丘 Lancelin Sand Dunes',desc:'西澳最大白色沙丘，体验滑沙！清晨光线拍照绝美',active:true},
+      {time:'11:30–12:30',title:'龙虾工厂 Lobster Shack',desc:'参观+品尝新鲜龙虾（当午餐）',active:true},
+      {time:'13:00–16:30',title:'驱车北上杰拉尔顿',desc:'约 3.5 小时，途中休息'},
+      {time:'17:00–17:45',title:'翡翠海 Geraldton Emerald Sea',desc:'印度洋碧绿海水，杰拉尔顿标志海岸，赶上日落',active:true},
+      {time:'18:00–18:30',title:'怪树 Leaning Trees of Greenough',desc:'常年海风吹歪的桉树群，奇特景观'},
+      {time:'19:00',title:'抵达 Cozy On Chapman 入住'},
+      {time:'晚上',title:'杰拉尔顿晚餐或度假屋厨房自做'},
     ],
-    tip: {label:'交通费',text:'SmartRider 卡 + 火车，约 AUD 5–7/人往返'}
+    tip: {label:'住宿',text:'Cozy On Chapman · 独栋度假屋 · ¥400/人/晚（已订 ✅）'}
   },
   {
-    num: '02', date: '5 月 2 日 · 周六', title: '北线包车 Day 1：兰斯林→尖峰石阵→杰拉尔顿',
-    tags: [{t:'全员 5 人',c:'crew'},{t:'包车',c:'transport'}],
-    items: [
-      {time:'07:00',title:'中文司导酒店接人出发（7 座车）'},
-      {time:'09:00–10:00',title:'兰斯林白沙丘 Lancelin Sand Dunes',desc:'西澳最大白色沙丘，体验滑沙',active:true},
-      {time:'10:30–11:30',title:'龙虾工厂 Lobster Shack',desc:'参观 + 品尝新鲜龙虾午餐',active:true},
-      {time:'12:00–13:00',title:'尖峰石阵 The Pinnacles',desc:'南邦国家公园，数千座石灰岩柱，如外星球般壮观',active:true},
-      {time:'13:30',title:'途经朱里恩湾休息'},
-      {time:'14:00–17:30',title:'驱车北上杰拉尔顿（约 3 小时）'},
-      {time:'18:00',title:'抵达杰拉尔顿入住'},
-      {time:'晚上',title:'杰拉尔顿海鲜晚餐'},
-    ],
-    tip: {label:'住宿',text:'推荐 Best Western / Nesuto Geraldton · 司机住宿补贴约 AUD 100–150（5 人分摊）'}
-  },
-  {
-    num: '03', date: '5 月 3 日 · 周日', title: '北线包车 Day 2：粉红湖→卡尔巴里→返珀斯',
+    num: '02', date: '5 月 2 日 · 周六', title: '北线包车第 2 天：粉红湖→卡尔巴里→海岸悬崖',
     featured: true,
-    tags: [{t:'全员 5 人',c:'crew'},{t:'包车',c:'transport'},{t:'全程最精华',c:'highlight'}],
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车 Day 2',c:'transport'},{t:'全程最精华',c:'highlight'}],
     items: [
-      {time:'07:00',title:'酒店出发'},
-      {time:'09:00–09:45',title:'粉红湖 Hutt Lagoon',desc:'湖水因藻类呈粉红色，超级梦幻！停留 45 分钟拍照',active:true,
-        subs:['可选：小飞机空中巡游 AUD 260–330/人','穿白色衣服最出片！中午光线最好']},
-      {time:'10:30–12:30',title:'卡尔巴里国家公园',active:true,
-        subs:['<strong>自然之窗 Nature\'s Window</strong> — 西澳标志性地标','<strong>天空之桥 Skywalk</strong> — 悬空玻璃观景台']},
-      {time:'12:30–13:00',title:'海岸悬崖红崖区'},
-      {time:'13:00–13:30',title:'午餐（卡尔巴里小镇）'},
-      {time:'14:00–18:30',title:'返程珀斯（约 5 小时）'},
-      {time:'晚上',title:'庆祝晚餐！Elizabeth Quay 或北桥'},
-    ]
+      {time:'08:30',title:'从 Cozy On Chapman 出发'},
+      {time:'10:00–10:45',title:'粉红湖 Hutt Lagoon',desc:'湖水因藻类呈粉红/玫红色，超级梦幻！停留 45 分钟拍照',active:true,
+        subs:['可选：小飞机空中巡游 AUD 260–330/人（约 ¥1,235–1,570）','穿白色衣服最出片！中午光线最好']},
+      {time:'11:30–13:30',title:'卡尔巴里国家公园',active:true,
+        subs:['<strong>自然之窗 Nature\'s Window</strong> — 西澳标志性地标','<strong>天空之桥 Skywalk</strong> — 悬空玻璃观景台，俯瞰墨奇森河峡谷']},
+      {time:'13:30–14:30',title:'午餐（卡尔巴里小镇）'},
+      {time:'14:30–15:30',title:'卡尔巴里海岸悬崖',desc:'印度洋海岸线+红色断崖，Island Rock、Natural Bridge',active:true},
+      {time:'16:00–17:30',title:'返回杰拉尔顿（约 1.5 小时）'},
+      {time:'18:00',title:'回到 Cozy On Chapman'},
+      {time:'晚上',title:'杰拉尔顿晚餐，或度假屋厨房自做海鲜大餐 🦐'},
+    ],
+    tip: {label:'住宿',text:'Cozy On Chapman 连住第 2 晚 · ¥400/人/晚（已订 ✅）'}
+  },
+  {
+    num: '03', date: '5 月 3 日 · 周日', title: '北线包车第 3 天：杰拉尔顿→朱莉恩湾→尖峰石阵→珀斯',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车 Day 3',c:'transport'}],
+    items: [
+      {time:'08:30',title:'从 Cozy On Chapman 退房出发，沿印度洋大道南下'},
+      {time:'11:00–12:00',title:'朱莉恩湾 Jurien Bay',desc:'清澈碧蓝海湾，白色沙滩休息拍照',active:true},
+      {time:'12:30–14:00',title:'尖峰石阵 The Pinnacles',desc:'南邦国家公园，数千座石灰岩柱，如外星球般壮观',active:true},
+      {time:'14:00–14:30',title:'午餐（Cervantes 小镇或自带）'},
+      {time:'15:00–17:30',title:'返回珀斯（约 2.5 小时）'},
+      {time:'17:30',title:'送达 Quest Mounts Bay Road 入住'},
+      {time:'18:30–19:30',title:'Mounts Bay Road 河畔散步',desc:'沿天鹅河步道走到 Elizabeth Quay，夕阳+城市灯火'},
+      {time:'19:30',title:'庆祝晚餐！Elizabeth Quay 河畔西餐或北桥中餐'},
+    ],
+    tip: {label:'住宿',text:'Quest Mounts Bay Road · ¥310/人/晚（已订 ✅）'}
   },
   {
     num: '04', date: '5 月 4 日 · 周一', title: '罗特尼斯岛一日游',
-    tags: [{t:'全员 5 人',c:'crew'},{t:'渡轮自助游',c:'transport'}],
+    tags: [{t:'全员 5 人',c:'crew'},{t:'渡轮自助',c:'transport'}],
     items: [
-      {time:'07:15',title:'Rottnest Express 渡轮出发',desc:'约 75 分钟到岛'},
+      {time:'06:30',title:'从 Quest 出发，步行/公交前往 Barrack Street Jetty'},
+      {time:'07:15–07:30',title:'Rottnest Express 渡轮出发',desc:'约 75 分钟到岛'},
       {time:'08:45–15:30',title:'罗特尼斯岛全天游玩',active:true,
-        subs:['与 <strong>Quokka 短尾矮袋鼠</strong>合影 — 世界上最快乐的动物','租自行车环岛骑行（约 22km 环岛路）','<strong>The Basin</strong> — 岛上最美天然泳池沙滩','<strong>Pinky Beach</strong> — 梦幻粉色沙滩']},
-      {time:'15:30',title:'渡轮返程'},
+        subs:['与 <strong>Quokka 短尾矮袋鼠</strong>合影 — 世界上最快乐的动物','租自行车环岛骑行（约 22km 环岛路）','<strong>The Basin</strong> — 岛上最美天然泳池沙滩','<strong>Pinky Beach</strong> — 梦幻粉色沙滩','Wadjemup 灯塔 — 岛上最高点']},
+      {time:'15:30–16:00',title:'渡轮返程'},
+      {time:'17:15',title:'回到珀斯码头'},
+      {time:'17:30',title:'步行回 Quest Mounts Bay Road'},
       {time:'晚上',title:'全员聚餐'},
     ],
-    tip: {label:'费用',text:'往返 + 自行车约 AUD 100–130/人 · 提前预订 rottnestexpress.com.au'}
+    tip: {label:'费用',text:'往返+自行车约 AUD 110–130/人（约 ¥520–620）· 提前预订 rottnestexpress.com.au'}
   },
   {
-    num: '05', date: '5 月 5 日 · 周二', title: '天鹅河谷 + A 队深夜送机',
-    tags: [{t:'全员 5 人',c:'crew'},{t:'中文拼团',c:'transport'}],
+    num: '05', date: '5 月 5 日 · 周二', title: '天鹅河谷包车一日游 + 全员告别聚餐',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'包车 Day 4',c:'transport'}],
     items: [
-      {time:'08:00',title:'天鹅河谷一日游出发'},
-      {time:'09:00–10:30',title:'Caversham 野生动物园',desc:'喂袋鼠、抱考拉、看剪羊毛秀',active:true},
-      {time:'11:00–12:00',title:'Sandalford 酒庄品酒',active:true},
-      {time:'12:00–13:00',title:'巧克力 / 蜂蜜 / 牛轧糖工厂',desc:'免费试吃'},
-      {time:'17:00–18:00',title:'Murray Street Mall 购物扫货'},
-      {time:'18:30–20:30',title:'全员告别聚餐',active:true},
-      {time:'22:30',title:'A 队出发去机场'},
-      {time:'次日 01:35',title:'A 队起飞'},
+      {time:'08:30',title:'包车从 Quest 出发前往天鹅河谷'},
+      {time:'09:30–11:00',title:'Caversham 野生动物园',desc:'喂袋鼠、抱考拉、看剪羊毛秀',active:true},
+      {time:'11:30–12:30',title:'Sandalford 酒庄品酒',active:true},
+      {time:'12:30–13:30',title:'巧克力工厂 + 蜂蜜工厂 + 牛轧糖工厂',desc:'免费试吃！'},
+      {time:'13:30–14:30',title:'午餐'},
+      {time:'15:00–16:00',title:'咖啡工厂 / 自由购物'},
+      {time:'16:30',title:'返回珀斯市区'},
+      {time:'17:00–18:00',title:'Murray Street Mall / Hay Street Mall 扫货'},
+      {time:'18:30–20:00',title:'全员告别聚餐！',desc:'Elizabeth Quay 河畔西餐 或 北桥中餐',active:true},
     ],
-    tip: {label:'航班优化',text:'A 队凌晨飞，全天不赶路！一日团约 AUD 150–200/人（含门票 + 午餐）'}
+    split: true,
+    split_data: [
+      {time:'20:00–20:30',a:'🧳 回 Quest 取寄存行李',b:'🧳 回 Quest 休息（B队多住第3晚）'},
+      {time:'20:30–22:00',a:'🌃 Elizabeth Quay 夜景散步',b:'😴 早点休息，明天还有行程'},
+      {time:'22:00',a:'🚕 出发去珀斯机场',b:'—'},
+      {time:'次日 01:35',a:'✈️ A 队起飞',b:'—'},
+    ],
+    tip: {label:'住宿',text:'A 队退房行李寄存 Quest 前台，深夜取完去机场。B 队继续住 Quest 第 3 晚。'}
   },
   {
-    num: '06', date: '5 月 6 日 · 周三', title: 'B 队专属：市区深度 + 送机',
+    num: '06', date: '5 月 6 日 · 周三', title: 'B 队：弗里曼特尔 + 珀斯市区深度游',
     tags: [{t:'B 队 3 人',c:'highlight'},{t:'公共交通',c:'transport'}],
-    extra: true,
-    items_a: [
-      {time:'08:00',title:'Mary Street Bakery 精品早餐'},
-      {time:'09:30–11:30',title:'西澳博物馆 WA Museum Boola Bardip',desc:'2020 年新开，免费',active:true},
-      {time:'14:00–16:00',title:'科特斯洛海滩 Cottesloe Beach',desc:'珀斯最美城市海滩',active:true},
-      {time:'20:50',title:'B 队起飞'},
+    items: [
+      {time:'08:00',title:'Quest 酒店早餐 / 附近咖啡厅'},
+      {time:'08:30',title:'退房，行李寄存 Quest 前台'},
+      {time:'09:00',title:'珀斯站乘 Fremantle Line 火车',desc:'SmartRider 卡，约 30 分钟直达'},
+      {time:'09:30–10:15',title:'渔人码头 Fishing Boat Harbour',desc:'晨间咖啡+看渔船，海港氛围绝佳',active:true},
+      {time:'10:15–10:45',title:'弗里曼特尔监狱 Fremantle Prison',desc:'UNESCO 世界遗产，1850 年代石灰岩监狱（外观打卡）',active:true},
+      {time:'10:45–11:15',title:'High Street 漫步',desc:'维多利亚时代建筑群，咖啡馆和精品店'},
+      {time:'11:15–12:00',title:'Little Creatures Brewery',desc:'弗里曼特尔标志性精酿啤酒厂，港口边喝一杯',active:true},
+      {time:'12:00–13:00',title:'渔人码头午餐',desc:'Cicerello\'s 百年海鲜老店 / Kailis\'s，必点炸鱼薯条',active:true},
+      {time:'13:00–13:15',title:'Bathers Beach',desc:'弗里曼特尔唯一城市沙滩，拍照散步'},
+      {time:'13:30',title:'火车返回珀斯（30 分钟）'},
+      {time:'14:00–15:00',title:'珀斯市区深度游',desc:'London Court 都铎式走廊 + Hay Street Mall 最后扫货',active:true},
+      {time:'15:00–16:00',title:'国王公园 Kings Park',desc:'Botanic Garden + War Memorial 观景台俯瞰天鹅河全景',active:true},
+      {time:'16:00–16:30',title:'Fraser\'s 咖啡厅休息',desc:'国王公园山顶，享受最后的珀斯午后'},
+      {time:'16:30–17:00',title:'步行下山回 Quest 取行李'},
+      {time:'17:15',title:'出发去珀斯机场',desc:'提前 3 小时+，国际航班建议充裕时间'},
+      {time:'20:50',title:'B 队起飞！珀斯再见 👋',active:true},
     ],
-    items_b: [
-      {time:'09:00–14:00',title:'曼杜拉海豚游船',desc:'寻找野生瓶鼻海豚 + 巨人木雕',active:true},
-      {time:'20:50',title:'B 队起飞'},
-    ]
+    tip: {label:'注意',text:'5 月 6 日是周三，弗里曼特尔市场不开放（只开周五-日）。渔人码头、Little Creatures、High Street 每天营业。'}
   }
 ];
 
@@ -988,22 +1010,30 @@ days.forEach(d => {
   d.tags.forEach(t => daysHTML += '<span class="dtag dtag-' + t.c + '">' + t.t + '</span>');
   daysHTML += '</div></div>';
 
-  if (d.extra) {
-    daysHTML += '<h4 style="font-size:15px;margin:1.5rem 0 1rem;color:var(--c-accent);">方案 A：悠闲市区深度游（推荐）</h4>';
-    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
-    d.items_a.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
-    daysHTML += '</div>';
-    daysHTML += '<h4 style="font-size:15px;margin:2rem 0 1rem;color:var(--c-text-3);">方案 B：曼杜拉海豚游半日游</h4>';
-    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
-    d.items_b.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
-    daysHTML += '</div>';
-  } else {
-    daysHTML += '<div class="timeline"><div class="tl-line"></div>';
-    d.items.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
-    daysHTML += '</div>';
-    if (d.tip) {
-      daysHTML += '<div class="day-tip"><strong>' + d.tip.label + '：</strong><span>' + d.tip.text + '</span></div>';
-    }
+  daysHTML += '<div class="timeline"><div class="tl-line"></div>';
+  d.items.forEach(i => daysHTML += tlItem(i.time, i.title, i.desc, i.subs, i.active));
+  daysHTML += '</div>';
+
+  if (d.split && d.split_data) {
+    daysHTML += '<h4 style="font-size:14px;margin:1.5rem 0 1rem;color:var(--c-accent);font-weight:700;">聚餐后分流</h4>';
+    daysHTML += '<div style="overflow-x:auto"><table style="width:100%;font-size:13px;border-collapse:collapse">';
+    daysHTML += '<thead><tr style="border-bottom:2px solid var(--c-border-2)">';
+    daysHTML += '<th style="text-align:left;padding:.5rem .75rem;color:var(--c-text-4);font-size:11px;letter-spacing:.1em">时间</th>';
+    daysHTML += '<th style="text-align:left;padding:.5rem .75rem;color:var(--c-text-4);font-size:11px;letter-spacing:.1em">A 队（2 人）</th>';
+    daysHTML += '<th style="text-align:left;padding:.5rem .75rem;color:var(--c-text-4);font-size:11px;letter-spacing:.1em">B 队（3 人）</th>';
+    daysHTML += '</tr></thead><tbody>';
+    d.split_data.forEach(r => {
+      daysHTML += '<tr style="border-bottom:1px solid var(--c-border)">';
+      daysHTML += '<td style="padding:.5rem .75rem;color:var(--c-accent);font-weight:700;white-space:nowrap">' + r.time + '</td>';
+      daysHTML += '<td style="padding:.5rem .75rem;color:var(--c-text-2)">' + r.a + '</td>';
+      daysHTML += '<td style="padding:.5rem .75rem;color:var(--c-text-2)">' + r.b + '</td>';
+      daysHTML += '</tr>';
+    });
+    daysHTML += '</tbody></table></div>';
+  }
+
+  if (d.tip) {
+    daysHTML += '<div class="day-tip"><strong>' + d.tip.label + '：</strong><span>' + d.tip.text + '</span></div>';
   }
   daysHTML += '</div>';
 });
@@ -1014,87 +1044,90 @@ document.getElementById('days').innerHTML = daysHTML;
 <script>
 document.getElementById('accom').innerHTML = `
 <div class="accom-overview rv-stagger">
-  <div class="accom-day"><div class="d">Day 1 · 5.1</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
-  <div class="accom-day"><div class="d">Day 2 · 5.2</div><div class="loc">杰拉尔顿</div><div class="pr">AUD 120–180/晚</div></div>
-  <div class="accom-day"><div class="d">Day 3 · 5.3</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
-  <div class="accom-day"><div class="d">Day 4 · 5.4</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
-  <div class="accom-day"><div class="d">Day 5 · 5.5</div><div class="loc">珀斯市区</div><div class="pr">AUD 150–250/晚</div></div>
+  <div class="accom-day"><div class="d">Day 1 · 5.1</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚</div></div>
+  <div class="accom-day"><div class="d">Day 2 · 5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman 连住 · ¥400/人/晚</div></div>
+  <div class="accom-day"><div class="d">Day 3 · 5.3</div><div class="loc">🏙 珀斯</div><div class="pr">Quest Mounts Bay Road · ¥310/人/晚</div></div>
+  <div class="accom-day"><div class="d">Day 4 · 5.4</div><div class="loc">🏙 珀斯</div><div class="pr">Quest 连住 · ¥310/人/晚</div></div>
+  <div class="accom-day"><div class="d">Day 5 · 5.5</div><div class="loc">🏙 珀斯</div><div class="pr">B队 Quest 第3晚 · ¥400/人/晚（预估，待订）</div></div>
+  <div class="accom-day"><div class="d">Day 6 · 5.6</div><div class="loc">—</div><div class="pr">不住（B队当晚飞）</div></div>
 </div>
 
-<div class="info-box rv"><strong>省钱建议：</strong><span>珀斯市区建议 Day 1、3、4、5 连住同一家。Day 2 出发前大件行李寄存。A 队 Day 5 行李寄存前台，深夜取完直奔机场。</span></div>
-
-<div class="hotel-section-title rv">珀斯 Elizabeth Quay / CBD 核心区</div>
+<div class="hotel-section-title rv">🌊 杰拉尔顿 · Cozy On Chapman（Day 1-2，2 晚）已订 ✅</div>
 <div class="hotels rv-stagger">
-  <div class="hotel"><div class="name">DoubleTree by Hilton Perth Waterfront</div><div class="stars">★★★★</div><div class="price">AUD 180–250/晚</div><div class="desc">正对 Elizabeth Quay，河景房超美，离码头最近</div></div>
-  <div class="hotel"><div class="name">Adina Apartment Hotel Perth</div><div class="stars">★★★★</div><div class="price">AUD 160–220/晚</div><div class="desc">公寓式有厨房，5 人可订 2 间套房很划算</div></div>
-  <div class="hotel"><div class="name">Novotel Perth Langley</div><div class="stars">★★★★</div><div class="price">AUD 150–200/晚</div><div class="desc">CBD 核心，步行到火车站 5 分钟</div></div>
-  <div class="hotel"><div class="name">Pensione Hotel Perth</div><div class="stars">★★★</div><div class="price">AUD 100–150/晚</div><div class="desc">性价比之王，位置极佳</div></div>
+  <div class="hotel"><div class="name">地址</div><div class="desc">7/305 Chapman Road Unit 7, 杰拉尔顿</div></div>
+  <div class="hotel"><div class="name">评分 ⭐ 9.4/10</div><div class="desc">独栋度假屋 · 3 间卧室 + 2 间浴室（含浴缸）</div></div>
+  <div class="hotel"><div class="name">设施</div><div class="desc">齐全厨房、起居室、露台、花园、洗衣机、空调、免费停车</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">¥400/人/晚</div><div class="desc">5 人 × 2 晚 = ¥4,000</div></div>
 </div>
 
-<div class="hotel-section-title rv">杰拉尔顿住宿（Day 2 过夜）</div>
+<div class="hotel-section-title rv">🏙 珀斯 · Quest Mounts Bay Road（Day 3-5，2-3 晚）</div>
 <div class="hotels rv-stagger">
-  <div class="hotel"><div class="name">Nesuto Geraldton</div><div class="stars">★★★★</div><div class="price">AUD 140–180/晚</div><div class="desc">杰拉尔顿最好的酒店之一</div></div>
-  <div class="hotel"><div class="name">Best Western Hospitality Inn</div><div class="stars">★★★★</div><div class="price">AUD 120–160/晚</div><div class="desc">有泳池，靠近海边</div></div>
-  <div class="hotel"><div class="name">Ocean Centre Hotel</div><div class="stars">★★★</div><div class="price">AUD 90–130/晚</div><div class="desc">正对海滩，海景房性价比高</div></div>
+  <div class="hotel"><div class="name">地址</div><div class="desc">130 Mounts Bay Road, 珀斯 CBD</div></div>
+  <div class="hotel"><div class="name">评分 ⭐ 8.6/10</div><div class="desc">公寓式酒店 · 独立套房含厨房</div></div>
+  <div class="hotel"><div class="name">设施</div><div class="desc">厨房、洗衣设施、健身房、停车场</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">¥310/人/晚</div><div class="desc">D3-D4 全员 5 人（¥3,100 已订 ✅）· D5 B队 3 人（预估 ¥400/人/晚 = ¥1,200 待订）</div></div>
 </div>
 
-<div class="hotel-section-title rv">房间分配建议</div>
-<div class="room-options rv-stagger">
-  <div class="room-opt"><h4>经济型</h4><p>1 间三人间 + 1 间双人间</p><div class="price">AUD 50–70 <span class="price-unit">/人/晚</span></div></div>
-  <div class="room-opt rec"><h4>公寓型</h4><p>1 间两卧公寓 + 1 间单人间<br>有客厅厨房，可以一起做早餐</p><div class="price">AUD 60–84 <span class="price-unit">/人/晚</span></div></div>
-</div>
+<div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存 Quest 前台，深夜取完去机场。D6 B队退房后同样寄存，傍晚取完去机场。</span></div>
 `;
 </script>
 
 <!-- COST DATA -->
 <script>
 document.getElementById('cost-content').innerHTML = `
+<div class="info-box rv" style="margin-bottom:1.5rem"><strong>汇率参考：</strong><span>1 AUD ≈ ¥4.75（2026 年 4 月），以下 AUD 项目均已换算为人民币。</span></div>
 <div class="cost-grid rv-scale">
   <div class="cost-card">
-    <div class="cost-header a"><h3>A 队</h3><div class="sub">2 人 · 5 天行程</div></div>
+    <div class="cost-header a"><h3>A 队</h3><div class="sub">2 人 · 5 天行程（5.1-5.5，5.6 凌晨飞）</div></div>
     <div class="cost-body">
-      <div class="cost-row"><div class="item">包车 2 天（北线粉红湖）</div><div class="amount">280–400</div></div>
-      <div class="cost-row"><div class="item">罗特尼斯岛</div><div class="amount">110–130</div></div>
-      <div class="cost-row"><div class="item">天鹅河谷一日团</div><div class="amount">150–200</div></div>
-      <div class="cost-row"><div class="item">公共交通</div><div class="amount">30–50</div></div>
-      <div class="cost-row"><div class="item">机场往返</div><div class="amount">40–60</div></div>
-      <div class="cost-row"><div class="item">餐饮（5 天）</div><div class="amount">220–330</div></div>
-      <div class="cost-row"><div class="item">住宿（4 晚）</div><div class="amount">280–480</div></div>
-      <div class="cost-row"><div class="item">门票杂费</div><div class="amount">20–40</div></div>
+      <div class="cost-row"><div class="item">🚗 包车 4 天全包 ✅</div><div class="amount">¥3,600</div></div>
+      <div class="cost-row"><div class="item">🏠 住宿 — 杰拉尔顿 2 晚 ✅</div><div class="amount">¥800</div></div>
+      <div class="cost-row"><div class="item">🏠 住宿 — 珀斯 2 晚 ✅</div><div class="amount">¥620</div></div>
+      <div class="cost-row"><div class="item">⛴ 罗特尼斯岛（船+自行车）</div><div class="amount">¥520–620</div></div>
+      <div class="cost-row"><div class="item">🚌 公共交通</div><div class="amount">¥70–145</div></div>
+      <div class="cost-row"><div class="item">🚕 机场交通（深夜打车）</div><div class="amount">¥145–240</div></div>
+      <div class="cost-row"><div class="item">🍽 餐饮（5 天）</div><div class="amount">¥1,045–1,570</div></div>
+      <div class="cost-row"><div class="item">🎫 门票杂费（AUD 20–40）</div><div class="amount">¥95–190</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">AUD 1,130 – 1,690</div><div class="cny">约 ¥5,400 – ¥8,000</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥6,895 – 7,785</div><div class="cny">其中已订 ¥5,020（包车+住宿）</div></div></div>
   </div>
   <div class="cost-card">
-    <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程</div></div>
+    <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程（5.1-5.6，5.6 晚飞）</div></div>
     <div class="cost-body">
-      <div class="cost-row"><div class="item">A 队全部费用</div><div class="amount">1,130–1,690</div></div>
-      <div class="cost-row"><div class="item">Day 5 住宿</div><div class="amount">50–85</div></div>
-      <div class="cost-row"><div class="item">Day 6 住宿</div><div class="amount">50–85</div></div>
-      <div class="cost-row"><div class="item">Day 6 餐饮 + 交通</div><div class="amount">50–80</div></div>
-      <div class="cost-row"><div class="item">Day 6 活动</div><div class="amount">0–80</div></div>
+      <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">¥6,895–7,785</div></div>
+      <div class="cost-row"><div class="item">🏠 D5 Quest 第 3 晚（预估，待订）</div><div class="amount">¥400</div></div>
+      <div class="cost-row"><div class="item">🚆 D6 火车往返弗里曼特尔</div><div class="amount">¥40–60</div></div>
+      <div class="cost-row"><div class="item">🍽 D6 餐饮 + 咖啡</div><div class="amount">¥285–430</div></div>
+      <div class="cost-row"><div class="item">🚕 D6 机场交通</div><div class="amount">¥145–240</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">AUD 1,280 – 1,920</div><div class="cny">约 ¥6,100 – ¥9,100</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥7,765 – 8,915</div><div class="cny">比 A 队多约 ¥870–1,130</div></div></div>
   </div>
 </div>
+<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600/人 + 杰拉尔顿住宿 ¥800/人 + 珀斯住宿 ¥620/人 = <strong>¥5,020/人</strong>（全员）。B 队多住 1 晚珀斯 = 预估额外 ¥400/人。</span></div>
 `;
 </script>
 
 <!-- ATTRACTIONS DATA -->
 <script>
 const attrData = [
-  {n:'01',nm:'国王公园',en:'Kings Park',dy:'Day 1',r:'★★★★',d:'珀斯 Mount Eliza 山顶 400 公顷城市公园，俯瞰天鹅河和城市天际线。免费入园。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'02',nm:'弗里曼特尔',en:'Fremantle',dy:'Day 1',r:'★★★★',d:'维多利亚风格港口小城，周五市场热闹，渔人码头炸鱼薯条必吃。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'03',nm:'兰斯林沙丘',en:'Lancelin Sand Dunes',dy:'Day 2',r:'★★★★',d:'西澳最大白色沙丘群，纯白细沙闪烁如雪。租滑沙板从沙丘冲下！',a:true,b:true,c:'var(--c-sand)'},
-  {n:'04',nm:'尖峰石阵',en:'The Pinnacles',dy:'Day 2',r:'★★★★★',d:'数千根石灰岩柱从黄沙中拔地而起，宛如外星球表面。西澳标志景观。',a:true,b:true,c:'var(--c-sand)'},
-  {n:'05',nm:'龙虾工厂',en:'Lobster Shack',dy:'Day 2',r:'★★★',d:'Cervantes 小镇岩龙虾加工工厂，招牌半只烤龙虾 + 薯条，新鲜无敌。',a:true,b:true,c:'var(--c-sand)'},
-  {n:'06',nm:'粉红湖',en:'Hutt Lagoon',dy:'Day 3',r:'★★★★★',d:'世界最大粉红湖之一（14km），嗜盐藻类使湖水呈梦幻粉色。穿白衣最出片！',a:true,b:true,c:'var(--c-rose)'},
-  {n:'07',nm:'自然之窗',en:"Nature's Window",dy:'Day 3',r:'★★★★★',d:'天然红褐色砂岩拱窗，透过窗口见墨奇森河蜿蜒穿峡谷。西澳出镜率最高。',a:true,b:true,c:'var(--c-rose)'},
-  {n:'08',nm:'天空之桥',en:'Kalbarri Skywalk',dy:'Day 3',r:'★★★★',d:'悬空玻璃观景台，悬挑出峡谷边缘 100 米上方，360 度俯瞰红色峡谷。',a:true,b:true,c:'var(--c-rose)'},
-  {n:'09',nm:'罗特尼斯岛',en:'Rottnest Island',dy:'Day 4',r:'★★★★★',d:'A 级自然保护区海岛，Quokka 闻名全球。骑车环岛 22km，63 个白沙滩。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'10',nm:'Caversham 动物园',en:'Caversham Wildlife Park',dy:'Day 5',r:'★★★★',d:'亲手喂袋鼠、抱考拉拍照、看剪羊毛秀。200+ 种动物，互动性极强。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'11',nm:'天鹅河谷酒庄',en:'Swan Valley Wineries',dy:'Day 5',r:'★★★★',d:'澳洲最古老酒区之一（1829 年），品酒 + 巧克力 + 蜂蜜 + 牛轧糖免费试吃。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'12',nm:'西澳博物馆',en:'WA Museum Boola Bardip',dy:'Day 6',r:'★★★',d:'2020 年新开州立博物馆，西澳自然史 + 原住民文化 + 矿业历史。免费。',a:false,b:true,c:'var(--c-primary-muted)'},
-  {n:'13',nm:'科特斯洛海滩',en:'Cottesloe Beach',dy:'Day 6',r:'★★★★',d:'珀斯最美城市海滩，浅蓝海水 + 白沙 + Norfolk 松树，日落印度洋金光万丈。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'01',nm:'Elizabeth Quay 晨景',en:'Elizabeth Quay',dy:'Day 1',r:'★★★',d:'珀斯标志性滨河广场，清晨人少景美，天鹅河畔看城市苏醒。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'02',nm:'兰斯林沙丘',en:'Lancelin Sand Dunes',dy:'Day 1',r:'★★★★',d:'西澳最大白色沙丘群，纯白细沙闪烁如雪。租滑沙板从沙丘冲下！',a:true,b:true,c:'var(--c-accent)'},
+  {n:'03',nm:'龙虾工厂',en:'Lobster Shack, Cervantes',dy:'Day 1',r:'★★★',d:'Cervantes 小镇岩龙虾加工工厂，招牌半只烤龙虾 + 薯条，新鲜无敌。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'04',nm:'翡翠海',en:'Geraldton Emerald Sea',dy:'Day 1',r:'★★★★',d:'杰拉尔顿印度洋碧绿海水，日落时分尤其壮美。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'05',nm:'格里诺怪树',en:'Leaning Trees of Greenough',dy:'Day 1',r:'★★★',d:'被常年海风吹成倾斜姿态的桉树群，独特自然奇观。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'06',nm:'粉红湖',en:'Hutt Lagoon (Pink Lake)',dy:'Day 2',r:'★★★★★',d:'世界最大粉红湖之一（14km），嗜盐藻类使湖水呈梦幻粉色。穿白衣最出片！',a:true,b:true,c:'var(--c-rose)'},
+  {n:'07',nm:'自然之窗',en:"Nature's Window (Kalbarri NP)",dy:'Day 2',r:'★★★★★',d:'天然红褐色砂岩拱窗，透过窗口见墨奇森河蜿蜒穿峡谷。西澳出镜率最高。',a:true,b:true,c:'var(--c-rose)'},
+  {n:'08',nm:'天空之桥',en:'Kalbarri Skywalk',dy:'Day 2',r:'★★★★',d:'悬空玻璃观景台，悬挑出峡谷边缘 100 米上方，360 度俯瞰红色峡谷。',a:true,b:true,c:'var(--c-rose)'},
+  {n:'09',nm:'卡尔巴里海岸',en:'Kalbarri Coastal Cliffs',dy:'Day 2',r:'★★★★',d:'印度洋海岸悬崖，Island Rock 和 Natural Bridge 红色断崖配蓝海。',a:true,b:true,c:'var(--c-rose)'},
+  {n:'10',nm:'朱莉恩湾',en:'Jurien Bay',dy:'Day 3',r:'★★★',d:'清澈碧蓝的印度洋海湾，白色沙滩宁静祥和。',a:true,b:true,c:'var(--c-sand)'},
+  {n:'11',nm:'尖峰石阵',en:'The Pinnacles (Nambung NP)',dy:'Day 3',r:'★★★★★',d:'数千根石灰岩柱从黄沙中拔地而起，宛如外星球表面。西澳标志景观。',a:true,b:true,c:'var(--c-sand)'},
+  {n:'12',nm:'罗特尼斯岛',en:'Rottnest Island',dy:'Day 4',r:'★★★★★',d:'A 级自然保护区海岛，Quokka 闻名全球。骑车环岛 22km，63 个白沙滩。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'13',nm:'Caversham 动物园',en:'Caversham Wildlife Park',dy:'Day 5',r:'★★★★',d:'亲手喂袋鼠、抱考拉拍照、看剪羊毛秀。200+ 种动物，互动性极强。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'14',nm:'天鹅河谷酒庄',en:'Swan Valley Wineries (Sandalford)',dy:'Day 5',r:'★★★★',d:'澳洲最古老酒区之一，品酒 + 巧克力/蜂蜜/牛轧糖工厂免费试吃。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'15',nm:'弗里曼特尔渔人码头',en:'Fishing Boat Harbour, Fremantle',dy:'Day 6（B队）',r:'★★★★',d:'百年渔港，海鲜一条街，Cicerello\'s 炸鱼薯条是标配。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'16',nm:'Little Creatures',en:'Little Creatures Brewery',dy:'Day 6（B队）',r:'★★★★',d:'弗里曼特尔标志性精酿啤酒厂，港口边氛围绝佳。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'17',nm:'弗里曼特尔监狱',en:'Fremantle Prison (UNESCO)',dy:'Day 6（B队）',r:'★★★',d:'UNESCO 世界遗产，1850 年代囚犯建造的石灰岩监狱。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'18',nm:'国王公园深度游',en:'Kings Park & Botanic Garden',dy:'Day 6（B队）',r:'★★★★',d:'城市山顶公园，War Memorial 观景台俯瞰珀斯+天鹅河全景。',a:false,b:true,c:'var(--c-primary-muted)'},
 ];
 
 document.getElementById('attr').innerHTML = '<div class="attr-grid rv-stagger">' + attrData.map(a => `
@@ -1113,16 +1146,19 @@ document.getElementById('attr').innerHTML = '<div class="attr-grid rv-stagger">'
 <!-- TIPS DATA -->
 <script>
 const tips = [
-  {t:'零时差',d:'珀斯与中国没有时差，不用倒时差'},
-  {t:'穿衣指南',d:'白天短袖 + 薄外套，早晚加夹克 / 风衣，滑沙穿长裤'},
-  {t:'支付方式',d:'几乎全部可刷卡 / Apple Pay，不需现金'},
-  {t:'市区交通',d:'买 SmartRider 卡，免费 CAT 巴士（红蓝黄绿 4 线）覆盖所有市区景点'},
-  {t:'粉红湖拍照',d:'穿白色 / 浅色衣服最出片！中午光线最好'},
-  {t:'SIM 卡',d:'机场买 Optus 或 Telstra 旅游 SIM 卡，偏远地区 Telstra 信号更好'},
-  {t:'龙虾工厂',d:'可以自费加整只龙虾，非常新鲜'},
-  {t:'Quokka 合影',d:'不要主动触摸 / 喂食，罚款很重！等它自己靠近'},
-  {t:'住宿区域',d:'珀斯 CBD / Elizabeth Quay / 北桥，步行可达火车站和码头'},
-  {t:'提前预订',d:'包车、船票、一日团建议至少提前 2 周预订'},
+  {t:'⏰ 零时差',d:'珀斯与中国没有时差，不用倒时差'},
+  {t:'👕 穿衣指南',d:'白天短袖 + 薄外套，早晚加夹克/风衣，滑沙穿长裤'},
+  {t:'💳 支付方式',d:'几乎全部可刷卡/Apple Pay，不需现金'},
+  {t:'🚌 市区交通',d:'买 SmartRider 卡，免费 CAT 巴士（红蓝黄绿 4 线）覆盖所有市区景点'},
+  {t:'🩷 粉红湖拍照',d:'穿白色/浅色衣服最出片！中午光线最好'},
+  {t:'📱 SIM 卡',d:'机场买 Optus 或 Telstra 旅游 SIM 卡，偏远地区 Telstra 信号更好'},
+  {t:'🦞 龙虾工厂',d:'可以自费加整只龙虾，非常新鲜'},
+  {t:'🐹 Quokka 合影',d:'不要主动触摸/喂食，罚款很重！等它自己靠近'},
+  {t:'🍳 度假屋厨房',d:'Cozy On Chapman 有完整厨房，可去 Woolworths 买食材自己做，省钱又有趣'},
+  {t:'📅 提前预订',d:'包车、罗特尼斯岛船票建议至少提前 2 周预订'},
+  {t:'🏨 Quest 寄存',d:'D5 A 队退房行李寄存前台，深夜取完去机场。D6 B 队退房后同样寄存，傍晚取完去机场'},
+  {t:'⚓ 弗里曼特尔交通',d:'珀斯站坐 Fremantle Line 火车 30 分钟直达，SmartRider 卡刷卡即可，班次密集'},
+  {t:'🍺 Little Creatures',d:'不喝酒也值得去，有汽水和美食，港口边露台氛围超好'},
 ];
 
 document.getElementById('tips-content').innerHTML = '<div class="tips-grid rv-stagger">' + tips.map(t => `
