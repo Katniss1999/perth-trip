@@ -1208,13 +1208,30 @@ svg.leaflet-image-layer.leaflet-interactive path {
   /* ─── MOBILE ─── */
   .mobile-handle {
     display: none;
-    width: 36px;
-    height: 4px;
+    flex-direction: column;
+    align-items: center;
+    padding: 14px 0 10px;
+    flex-shrink: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-handle .handle-bar {
+    width: 48px;
+    height: 5px;
     border-radius: 100px;
     background: var(--text-faint);
-    margin: 10px auto 6px;
-    flex-shrink: 0;
     transition: background var(--transition-fast);
+  }
+  .mobile-handle .handle-hint {
+    margin-top: 6px;
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: .04em;
+    animation: handle-bounce 2.5s ease-in-out infinite;
+  }
+  @keyframes handle-bounce {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50% { transform: translateY(-3px); opacity: 1; }
   }
 
   @media (max-width: 768px) {
@@ -1253,7 +1270,8 @@ svg.leaflet-image-layer.leaflet-interactive path {
       transform: translateY(calc(100% - 48px));
     }
 
-    .mobile-handle { display: block; }
+    .mobile-handle { display: flex; }
+    .sidebar.drawer-expanded .handle-hint { display: none; }
 
     .day-filters {
       padding: 4px 14px 10px;
@@ -1304,7 +1322,7 @@ svg.leaflet-image-layer.leaflet-interactive path {
 
 <div class="main">
   <aside class="sidebar" id="sidebar">
-    <div class="mobile-handle" id="drawerHandle"></div>
+    <div class="mobile-handle" id="drawerHandle"><div class="handle-bar"></div><div class="handle-hint">↑ 上滑查看景点列表</div></div>
     <div class="day-filters" id="dayFilters"></div>
     <div class="spot-list" id="spotList"></div>
   </aside>
