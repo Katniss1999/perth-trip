@@ -1361,7 +1361,7 @@ var days = [
   { id: 1, label: 'D1', name: '北线·珀斯→兰斯林→杰拉尔顿', date: '5.1 周五' },
   { id: 2, label: 'D2', name: '北线·粉红湖→卡尔巴里→海岸悬崖', date: '5.2 周六' },
   { id: 3, label: 'D3', name: '北线·杰拉尔顿→朱莉恩湾→尖峰石阵→珀斯', date: '5.3 周日' },
-  { id: 4, label: 'D4', name: '罗特尼斯岛', date: '5.4 周一' },
+  { id: 4, label: 'D4', name: '罗特尼斯岛 + 弗里曼特尔夜游', date: '5.4 周一' },
   { id: 5, label: 'D5', name: '天鹅河谷 + 告别聚餐', date: '5.5 周二' },
   { id: 6, label: 'D6', name: 'B队 · 弗里曼特尔 + 珀斯深度游', date: '5.6 周三' }
 ];
@@ -1383,28 +1383,29 @@ var spots = [
   { day:3, seq:11, name:'朱莉恩湾',        en:'Jurien Bay',              lat:-30.3058, lng:115.0385, stars:3, desc:'清澈碧蓝海湾，白色沙滩' },
   { day:3, seq:12, name:'尖峰石阵',        en:'The Pinnacles',           lat:-30.5998, lng:115.1580, stars:5, desc:'南邦国家公园，数千座石灰岩柱如外星球般壮观' },
   { day:3, seq:13, name:'Elizabeth Quay',  en:'Elizabeth Quay',          lat:-31.9580, lng:115.8590, stars:4, desc:'河畔夕阳散步，庆祝晚餐' },
-  // D4: 罗特尼斯岛
-  { day:4, seq:14, name:'Barrack St 码头', en:'Barrack St Jetty',       lat:-31.9580, lng:115.8590, stars:3, desc:'渡轮出发码头' },
-  { day:4, seq:15, name:'罗特尼斯岛',       en:'Rottnest Island',         lat:-32.0067, lng:115.5180, stars:5, desc:'Quokka 短尾矮袋鼠之岛，骑车环岛' },
+  // D4: 罗特尼斯岛 + 弗里曼特尔夜游
+  { day:4, seq:14, name:'Barrack St 码头', en:'Barrack St Jetty',       lat:-31.9580, lng:115.8590, stars:3, desc:'08:15集合，08:45渡轮出发' },
+  { day:4, seq:15, name:'罗特尼斯岛',       en:'Rottnest Island',         lat:-32.0067, lng:115.5180, stars:5, desc:'Quokka 短尾矮袋鼠之岛，Hop On Hop Off 巴士环岛' },
+  { day:4, seq:16, name:'渔人码头',        en:'Fishing Boat Harbour',    lat:-32.0569, lng:115.7480, stars:4, desc:'17:00渡轮直达Fremantle，海鲜晚餐' },
+  { day:4, seq:17, name:'Little Creatures', en:'Little Creatures Brewery', lat:-32.0590, lng:115.7445, stars:4, desc:'港口边精酿啤酒厂' },
   // D5: 天鹅河谷+告别聚餐
-  { day:5, seq:16, name:'Caversham 动物园', en:'Caversham Wildlife Park', lat:-31.8500, lng:116.0353, stars:4, desc:'喂袋鼠、抱考拉、200+种动物' },
-  { day:5, seq:17, name:'Sandalford 酒庄', en:'Sandalford Winery',       lat:-31.8306, lng:116.0600, stars:4, desc:'最古老葡萄酒产区，品酒体验' },
-  { day:5, seq:18, name:'Murray St Mall',  en:'Murray Street Mall',      lat:-31.9530, lng:115.8600, stars:3, desc:'珀斯购物步行街，最后扫货' },
-  // D6: B队 弗里曼特尔+珀斯深度游
-  { day:6, seq:19, name:'渔人码头',        en:'Fishing Boat Harbour',    lat:-32.0569, lng:115.7480, stars:4, desc:'弗里曼特尔晨间咖啡+看渔船' },
-  { day:6, seq:20, name:'弗里曼特尔监狱',    en:'Fremantle Prison',        lat:-32.0556, lng:115.7534, stars:4, desc:'UNESCO世界遗产，1850年代石灰岩监狱' },
-  { day:6, seq:21, name:'Little Creatures', en:'Little Creatures Brewery', lat:-32.0590, lng:115.7445, stars:4, desc:'弗里曼特尔标志性精酿啤酒厂' },
-  { day:6, seq:22, name:'国王公园',        en:'Kings Park',              lat:-31.9629, lng:115.8325, stars:4, desc:'珀斯最大城市公园，俯瞰天鹅河与城市天际线' },
-  { day:6, seq:23, name:'科特斯洛海滩',      en:'Cottesloe Beach',         lat:-31.9940, lng:115.7520, stars:3, desc:'珀斯最美城市海滩，印度洋日落' }
+  { day:5, seq:18, name:'Caversham 动物园', en:'Caversham Wildlife Park', lat:-31.8500, lng:116.0353, stars:4, desc:'喂袋鼠、抱考拉、200+种动物' },
+  { day:5, seq:19, name:'Sandalford 酒庄', en:'Sandalford Winery',       lat:-31.8306, lng:116.0600, stars:4, desc:'最古老葡萄酒产区，品酒体验' },
+  { day:5, seq:20, name:'Murray St Mall',  en:'Murray Street Mall',      lat:-31.9530, lng:115.8600, stars:3, desc:'珀斯购物步行街，最后扫货' },
+  // D6: B队 弗里曼特尔历史深度+珀斯
+  { day:6, seq:21, name:'弗里曼特尔监狱',    en:'Fremantle Prison',        lat:-32.0556, lng:115.7534, stars:4, desc:'UNESCO世界遗产，Doing Time 导览' },
+  { day:6, seq:22, name:'弗里曼特尔圆屋',    en:'Round House',             lat:-32.0583, lng:115.7470, stars:3, desc:'西澳最古老建筑（1831年）' },
+  { day:6, seq:23, name:'国王公园',        en:'Kings Park',              lat:-31.9629, lng:115.8325, stars:4, desc:'珀斯最大城市公园，俯瞰天鹅河与城市天际线' },
+  { day:6, seq:24, name:'科特斯洛海滩',      en:'Cottesloe Beach',         lat:-31.9940, lng:115.7520, stars:3, desc:'珀斯最美城市海滩，印度洋日落' }
 ];
 
 var routes = {
   1: [[-31.9500,115.8600],[-31.0208,115.3309],[-30.4983,115.0668],[-28.9500,114.7421],[-28.7604,114.5979],[-28.7745,114.6150]],
   2: [[-28.7745,114.6150],[-28.1903,114.2291],[-27.7139,114.1652],[-27.6856,114.4636],[-27.6970,114.4810],[-27.6920,114.1510],[-28.7745,114.6150]],
   3: [[-28.7745,114.6150],[-30.3058,115.0385],[-30.5998,115.1580],[-31.9580,115.8590]],
-  4: [[-31.9580,115.8590],[-32.0067,115.5180],[-31.9580,115.8590]],
+  4: [[-31.9580,115.8590],[-32.0067,115.5180],[-32.0569,115.7480],[-32.0590,115.7445],[-31.9500,115.8600]],
   5: [[-31.9500,115.8600],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9530,115.8600]],
-  6: [[-31.9500,115.8600],[-32.0569,115.7480],[-32.0556,115.7534],[-32.0590,115.7445],[-31.9500,115.8600],[-31.9629,115.8325],[-31.9940,115.7520]]
+  6: [[-31.9500,115.8600],[-32.0556,115.7534],[-32.0583,115.7470],[-31.9500,115.8600],[-31.9629,115.8325],[-31.9940,115.7520]]
 };
 
 // ═══════════════════════════════════════

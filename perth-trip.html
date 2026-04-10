@@ -760,7 +760,7 @@ a { color: var(--c-accent); text-decoration: none; }
     <div class="sh rv">
       <div class="sh-num">04</div>
       <h2 class="sh-title">住宿安排</h2>
-      <p class="sh-sub">杰拉尔顿住 2 晚 + 珀斯住 2-3 晚，均已确认</p>
+      <p class="sh-sub">杰拉尔顿住 2 晚 + 珀斯 East Perth 住 2-3 晚，均已确认</p>
       <div class="sh-line"></div>
     </div>
     <div id="accom"></div>
@@ -927,32 +927,39 @@ const days = [
       {time:'12:30–14:00',title:'尖峰石阵 The Pinnacles',desc:'南邦国家公园，数千座石灰岩柱，如外星球般壮观',active:true},
       {time:'14:00–14:30',title:'午餐（Cervantes 小镇或自带）'},
       {time:'15:00–17:30',title:'返回珀斯（约 2.5 小时）'},
-      {time:'17:30',title:'送达 Quest Mounts Bay Road 入住'},
-      {time:'18:30–19:30',title:'Mounts Bay Road 河畔散步',desc:'沿天鹅河步道走到 Elizabeth Quay，夕阳+城市灯火'},
+      {time:'17:30',title:'送达 East Perth 公寓入住',desc:'190 Hay Street, East Perth · 2 卧室带泳池停车位'},
+      {time:'18:30–19:30',title:'Hay Street 周边散步',desc:'步行至 Claisebrook Cove 或 Elizabeth Quay（2km），夕阳+城市灯火'},
       {time:'19:30',title:'庆祝晚餐！Elizabeth Quay 河畔西餐或北桥中餐'},
     ],
-    tip: {label:'住宿',text:'Quest Mounts Bay Road · ¥310/人/晚（已订 ✅）'}
+    tip: {label:'住宿',text:'East Perth 2BR 公寓 · 190 Hay Street · 带泳池+停车位（已订 ✅）'}
   },
   {
-    num: '04', date: '5 月 4 日 · 周一', title: '罗特尼斯岛一日游',
-    tags: [{t:'全员 5 人',c:'crew'},{t:'渡轮自助',c:'transport'}],
+    num: '04', date: '5 月 4 日 · 周一', title: '罗特尼斯岛 + 弗里曼特尔夜游',
+    tags: [{t:'全员 5 人',c:'crew'},{t:'渡轮+岛上巴士',c:'transport'}],
     items: [
-      {time:'06:30',title:'从 Quest 出发，步行/公交前往 Barrack Street Jetty'},
-      {time:'07:15–07:30',title:'Rottnest Express 渡轮出发',desc:'约 75 分钟到岛'},
-      {time:'08:45–15:30',title:'罗特尼斯岛全天游玩',active:true,
-        subs:['与 <strong>Quokka 短尾矮袋鼠</strong>合影 — 世界上最快乐的动物','租自行车环岛骑行（约 22km 环岛路）','<strong>The Basin</strong> — 岛上最美天然泳池沙滩','<strong>Pinky Beach</strong> — 梦幻粉色沙滩','Wadjemup 灯塔 — 岛上最高点']},
-      {time:'15:30–16:00',title:'渡轮返程'},
-      {time:'17:15',title:'回到珀斯码头'},
-      {time:'17:30',title:'步行回 Quest Mounts Bay Road'},
-      {time:'晚上',title:'全员聚餐'},
+      {time:'07:30',title:'从住所出发，前往 Barrack Street Jetty',desc:'预留时间，08:15 前必须到码头'},
+      {time:'08:15',title:'Barrack Street Jetty 集合',desc:'登船截止为开船前 5 分钟，迟到不等！',active:true},
+      {time:'08:45',title:'渡轮出发！Perth → Rottnest Island（直达）',desc:'Rottnest Express，约 75 分钟到岛',active:true},
+      {time:'10:00',title:'抵达罗特尼斯岛',desc:'Island Explorer 环岛巴士已预订，随上随下'},
+      {time:'10:00–16:00',title:'罗特尼斯岛全天游玩（Hop On Hop Off 巴士）',active:true,
+        subs:['与 <strong>Quokka 短尾矮袋鼠</strong>合影 — 世界上最快乐的动物','<strong>The Basin</strong> — 岛上最美天然泳池沙滩','<strong>Pinky Beach</strong> — 梦幻粉色沙滩','Wadjemup 灯塔 — 岛上最高点','巴士 19 个站点随上随下，覆盖全岛精华']},
+      {time:'16:30',title:'提前到码头候船',desc:'17:00 开船，登船截止 16:55'},
+      {time:'17:00',title:'渡轮返程！Rottnest → B Shed Fremantle（直达）',active:true},
+      {time:'17:45',title:'抵达弗里曼特尔 B Shed 码头'},
+      {time:'18:00–18:45',title:'渔人码头 Fishing Boat Harbour',desc:'Cicerello\'s / Kailis\'s 海鲜晚餐，必点炸鱼薯条！',active:true},
+      {time:'19:00–19:30',title:'Little Creatures Brewery',desc:'弗里曼特尔标志精酿啤酒厂，港口边来一杯',active:true},
+      {time:'19:30–20:00',title:'Bathers Beach 日落散步',desc:'弗里曼特尔唯一城市沙滩，看印度洋落日'},
+      {time:'20:00–20:30',title:'High Street 漫步 + 咖啡',desc:'维多利亚时代建筑群，气氛悠闲'},
+      {time:'20:30',title:'Fremantle 站乘火车返回珀斯',desc:'Fremantle Line 约 30 分钟直达'},
+      {time:'21:00',title:'回到住所休息'},
     ],
-    tip: {label:'费用',text:'往返+自行车约 AUD 110–130/人（约 ¥520–620）· 提前预订 rottnestexpress.com.au'}
+    tip: {label:'费用',text:'船票（另购）+ Island Explorer 巴士 AUD 129.92/5人（已订 ✅，含 20% Hello Perth Map 折扣）'}
   },
   {
     num: '05', date: '5 月 5 日 · 周二', title: '天鹅河谷包车一日游 + 全员告别聚餐',
     tags: [{t:'全员 5 人',c:'crew'},{t:'包车 Day 4',c:'transport'}],
     items: [
-      {time:'08:30',title:'包车从 Quest 出发前往天鹅河谷'},
+      {time:'08:30',title:'包车从公寓出发前往天鹅河谷'},
       {time:'09:30–11:00',title:'Caversham 野生动物园',desc:'喂袋鼠、抱考拉、看剪羊毛秀',active:true},
       {time:'11:30–12:30',title:'Sandalford 酒庄品酒',active:true},
       {time:'12:30–13:30',title:'巧克力工厂 + 蜂蜜工厂 + 牛轧糖工厂',desc:'免费试吃！'},
@@ -964,35 +971,34 @@ const days = [
     ],
     split: true,
     split_data: [
-      {time:'20:00–20:30',a:'🧳 回 Quest 取寄存行李',b:'🧳 回 Quest 休息（B队多住第3晚）'},
+      {time:'20:00–20:30',a:'🧳 回公寓取寄存行李',b:'🧳 回公寓休息（B队多住第3晚）'},
       {time:'20:30–22:00',a:'🌃 Elizabeth Quay 夜景散步',b:'😴 早点休息，明天还有行程'},
       {time:'22:00',a:'🚕 出发去珀斯机场',b:'—'},
       {time:'次日 01:35',a:'✈️ A 队起飞',b:'—'},
     ],
-    tip: {label:'住宿',text:'A 队退房行李寄存 Quest 前台，深夜取完去机场。B 队继续住 Quest 第 3 晚。'}
+    tip: {label:'住宿',text:'A 队退房行李寄存公寓，深夜取完去机场。B 队继续住公寓第 3 晚。'}
   },
   {
     num: '06', date: '5 月 6 日 · 周三', title: 'B 队：弗里曼特尔 + 珀斯市区深度游',
     tags: [{t:'B 队 3 人',c:'highlight'},{t:'公共交通',c:'transport'}],
     items: [
-      {time:'08:00',title:'Quest 酒店早餐 / 附近咖啡厅'},
-      {time:'08:30',title:'退房，行李寄存 Quest 前台'},
+      {time:'08:00',title:'公寓早餐 / 附近咖啡厅'},
+      {time:'08:30',title:'退房，行李寄存公寓'},
       {time:'09:00',title:'珀斯站乘 Fremantle Line 火车',desc:'SmartRider 卡，约 30 分钟直达'},
-      {time:'09:30–10:15',title:'渔人码头 Fishing Boat Harbour',desc:'晨间咖啡+看渔船，海港氛围绝佳',active:true},
-      {time:'10:15–10:45',title:'弗里曼特尔监狱 Fremantle Prison',desc:'UNESCO 世界遗产，1850 年代石灰岩监狱（外观打卡）',active:true},
-      {time:'10:45–11:15',title:'High Street 漫步',desc:'维多利亚时代建筑群，咖啡馆和精品店'},
-      {time:'11:15–12:00',title:'Little Creatures Brewery',desc:'弗里曼特尔标志性精酿啤酒厂，港口边喝一杯',active:true},
-      {time:'12:00–13:00',title:'渔人码头午餐',desc:'Cicerello\'s 百年海鲜老店 / Kailis\'s，必点炸鱼薯条',active:true},
-      {time:'13:00–13:15',title:'Bathers Beach',desc:'弗里曼特尔唯一城市沙滩，拍照散步'},
+      {time:'09:30–10:15',title:'弗里曼特尔监狱 Fremantle Prison',desc:'UNESCO 世界遗产，参加 Doing Time 导览团深度体验（推荐！）',active:true},
+      {time:'10:15–10:45',title:'High Street 漫步',desc:'维多利亚时代建筑群，咖啡馆和精品店'},
+      {time:'10:45–11:30',title:'弗里曼特尔圆屋 Round House',desc:'西澳最古老建筑（1831年），免费参观+海岸观景',active:true},
+      {time:'11:30–12:30',title:'Bathers Beach 午餐',desc:'海滩边 Bathers Beach House 西餐，氛围一流',active:true},
+      {time:'12:30–13:00',title:'Monument Hill 战争纪念碑',desc:'弗里曼特尔制高点，俯瞰港口全景'},
       {time:'13:30',title:'火车返回珀斯（30 分钟）'},
       {time:'14:00–15:00',title:'珀斯市区深度游',desc:'London Court 都铎式走廊 + Hay Street Mall 最后扫货',active:true},
       {time:'15:00–16:00',title:'国王公园 Kings Park',desc:'Botanic Garden + War Memorial 观景台俯瞰天鹅河全景',active:true},
       {time:'16:00–16:30',title:'Fraser\'s 咖啡厅休息',desc:'国王公园山顶，享受最后的珀斯午后'},
-      {time:'16:30–17:00',title:'步行下山回 Quest 取行李'},
+      {time:'16:30–17:00',title:'回公寓取行李'},
       {time:'17:15',title:'出发去珀斯机场',desc:'提前 3 小时+，国际航班建议充裕时间'},
       {time:'20:50',title:'B 队起飞！珀斯再见 👋',active:true},
     ],
-    tip: {label:'注意',text:'5 月 6 日是周三，弗里曼特尔市场不开放（只开周五-日）。渔人码头、Little Creatures、High Street 每天营业。'}
+    tip: {label:'注意',text:'5 月 6 日是周三，弗里曼特尔市场不开放（只开周五-日）。渔人码头和 Little Creatures 已在 D4 晚上打卡，D6 重点体验监狱历史+圆屋+海滩。'}
   }
 ];
 
@@ -1042,7 +1048,7 @@ document.getElementById('days').innerHTML = daysHTML;
 document.getElementById('accom').innerHTML = `
 <div class="accom-overview rv-stagger">
   <div class="accom-day"><div class="d">Day 1–2 · 5.1–5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚<br>连住 2 晚 · 已订 ✅</div></div>
-  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯</div><div class="pr">Quest Mounts Bay Road · ¥310/人/晚<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人 · ¥400/人/晚（预估，待订）</div></div>
+  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯 East Perth</div><div class="pr">East Perth 2BR 公寓 · 带泳池+停车位<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人（待确认）</div></div>
 </div>
 
 <div class="hotel-section-title rv">🌊 杰拉尔顿 · Cozy On Chapman（Day 1-2，2 晚）已订 ✅</div>
@@ -1053,15 +1059,15 @@ document.getElementById('accom').innerHTML = `
   <div class="hotel"><div class="name">费用</div><div class="price">¥400/人/晚</div><div class="desc">5 人 × 2 晚 = ¥4,000</div></div>
 </div>
 
-<div class="hotel-section-title rv">🏙 珀斯 · Quest Mounts Bay Road（Day 3-5，2-3 晚）</div>
+<div class="hotel-section-title rv">🏙 珀斯 · East Perth 2BR 公寓（Day 3-5，2-3 晚）已订 ✅</div>
 <div class="hotels rv-stagger">
-  <div class="hotel"><div class="name">地址</div><div class="desc">130 Mounts Bay Road, 珀斯 CBD</div></div>
-  <div class="hotel"><div class="name">评分 ⭐ 8.6/10</div><div class="desc">公寓式酒店 · 独立套房含厨房</div></div>
-  <div class="hotel"><div class="name">设施</div><div class="desc">厨房、洗衣设施、健身房、停车场</div></div>
-  <div class="hotel"><div class="name">费用</div><div class="price">¥310/人/晚</div><div class="desc">D3-D4 全员 5 人（¥3,100 已订 ✅）· D5 B队 3 人（预估 ¥400/人/晚 = ¥1,200 待订）</div></div>
+  <div class="hotel"><div class="name">地址</div><div class="desc">190 Hay Street, East Perth 6004</div></div>
+  <div class="hotel"><div class="name">房型</div><div class="desc">现代 2 卧室公寓 · 带泳池 & 免费停车位</div></div>
+  <div class="hotel"><div class="name">设施</div><div class="desc">2 卧室、厨房、泳池、免费停车、空调</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">D3-D4 已订 ✅</div><div class="desc">D5 B队 3 人继续住（待确认）</div></div>
 </div>
 
-<div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存 Quest 前台，深夜取完去机场。D6 B队退房后同样寄存，傍晚取完去机场。</span></div>
+<div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存公寓，深夜取完去机场。D6 B队退房后同样寄存，傍晚取完去机场。</span></div>
 `;
 </script>
 
@@ -1075,28 +1081,29 @@ document.getElementById('cost-content').innerHTML = `
     <div class="cost-body">
       <div class="cost-row"><div class="item">🚗 包车 4 天全包 ✅</div><div class="amount">¥3,600</div></div>
       <div class="cost-row"><div class="item">🏠 住宿 — 杰拉尔顿 2 晚 ✅</div><div class="amount">¥800</div></div>
-      <div class="cost-row"><div class="item">🏠 住宿 — 珀斯 2 晚 ✅</div><div class="amount">¥620</div></div>
-      <div class="cost-row"><div class="item">⛴ 罗特尼斯岛（船+自行车）</div><div class="amount">¥520–620</div></div>
+      <div class="cost-row"><div class="item">🏠 住宿 — 珀斯 East Perth 2 晚 ✅</div><div class="amount">已订</div></div>
+      <div class="cost-row"><div class="item">⛴ 罗特尼斯岛船票</div><div class="amount">待定</div></div>
+      <div class="cost-row"><div class="item">🚌 岛上 Explorer 巴士 ✅</div><div class="amount">¥123</div></div>
       <div class="cost-row"><div class="item">🚌 公共交通</div><div class="amount">¥70–145</div></div>
       <div class="cost-row"><div class="item">🚕 机场交通（深夜打车）</div><div class="amount">¥145–240</div></div>
       <div class="cost-row"><div class="item">🍽 餐饮（5 天）</div><div class="amount">¥1,045–1,570</div></div>
-      <div class="cost-row"><div class="item">🎫 门票杂费（AUD 20–40）</div><div class="amount">¥95–190</div></div>
+      <div class="cost-row"><div class="item">🎫 门票杂费</div><div class="amount">¥95–190</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥6,895 – 7,785</div><div class="cny">其中已订 ¥5,020（包车+住宿）</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥5,878+ 待补船票和住宿</div><div class="cny">已订：包车+杰拉尔顿住宿+珀斯住宿+岛上巴士</div></div></div>
   </div>
   <div class="cost-card">
     <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程（5.1-5.6，5.6 晚飞）</div></div>
     <div class="cost-body">
-      <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">¥6,895–7,785</div></div>
-      <div class="cost-row"><div class="item">🏠 D5 Quest 第 3 晚（预估，待订）</div><div class="amount">¥400</div></div>
+      <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">同上</div></div>
+      <div class="cost-row"><div class="item">🏠 D5 珀斯公寓第 3 晚（待确认）</div><div class="amount">待定</div></div>
       <div class="cost-row"><div class="item">🚆 D6 火车往返弗里曼特尔</div><div class="amount">¥40–60</div></div>
       <div class="cost-row"><div class="item">🍽 D6 餐饮 + 咖啡</div><div class="amount">¥285–430</div></div>
       <div class="cost-row"><div class="item">🚕 D6 机场交通</div><div class="amount">¥145–240</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥7,765 – 8,915</div><div class="cny">比 A 队多约 ¥870–1,130</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">A 队费用 + ¥470–730</div><div class="cny">比 A 队多 D5 住宿 + D6 一天费用</div></div></div>
   </div>
 </div>
-<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600/人 + 杰拉尔顿住宿 ¥800/人 + 珀斯住宿 ¥620/人 = <strong>¥5,020/人</strong>（全员）。B 队多住 1 晚珀斯 = 预估额外 ¥400/人。</span></div>
+<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600/人 + 杰拉尔顿住宿 ¥800/人 + 珀斯 East Perth 公寓（已订）+ 岛上巴士 ¥123/人。船票待补充。</span></div>
 `;
 </script>
 
@@ -1114,12 +1121,12 @@ const attrData = [
   {n:'09',nm:'卡尔巴里海岸',en:'Kalbarri Coastal Cliffs',dy:'Day 2',r:'★★★★',d:'印度洋海岸悬崖，Island Rock 和 Natural Bridge 红色断崖配蓝海。',a:true,b:true,c:'var(--c-rose)'},
   {n:'10',nm:'朱莉恩湾',en:'Jurien Bay',dy:'Day 3',r:'★★★',d:'清澈碧蓝的印度洋海湾，白色沙滩宁静祥和。',a:true,b:true,c:'var(--c-sand)'},
   {n:'11',nm:'尖峰石阵',en:'The Pinnacles (Nambung NP)',dy:'Day 3',r:'★★★★★',d:'数千根石灰岩柱从黄沙中拔地而起，宛如外星球表面。西澳标志景观。',a:true,b:true,c:'var(--c-sand)'},
-  {n:'12',nm:'罗特尼斯岛',en:'Rottnest Island',dy:'Day 4',r:'★★★★★',d:'A 级自然保护区海岛，Quokka 闻名全球。骑车环岛 22km，63 个白沙滩。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'13',nm:'Caversham 动物园',en:'Caversham Wildlife Park',dy:'Day 5',r:'★★★★',d:'亲手喂袋鼠、抱考拉拍照、看剪羊毛秀。200+ 种动物，互动性极强。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'14',nm:'天鹅河谷酒庄',en:'Swan Valley Wineries (Sandalford)',dy:'Day 5',r:'★★★★',d:'澳洲最古老酒区之一，品酒 + 巧克力/蜂蜜/牛轧糖工厂免费试吃。',a:true,b:true,c:'var(--c-accent)'},
-  {n:'15',nm:'弗里曼特尔渔人码头',en:'Fishing Boat Harbour, Fremantle',dy:'Day 6（B队）',r:'★★★★',d:'百年渔港，海鲜一条街，Cicerello\'s 炸鱼薯条是标配。',a:false,b:true,c:'var(--c-primary-muted)'},
-  {n:'16',nm:'Little Creatures',en:'Little Creatures Brewery',dy:'Day 6（B队）',r:'★★★★',d:'弗里曼特尔标志性精酿啤酒厂，港口边氛围绝佳。',a:false,b:true,c:'var(--c-primary-muted)'},
-  {n:'17',nm:'弗里曼特尔监狱',en:'Fremantle Prison (UNESCO)',dy:'Day 6（B队）',r:'★★★',d:'UNESCO 世界遗产，1850 年代囚犯建造的石灰岩监狱。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'12',nm:'罗特尼斯岛',en:'Rottnest Island',dy:'Day 4',r:'★★★★★',d:'A 级自然保护区海岛，Quokka 闻名全球。环岛巴士 19 站 Hop On Hop Off，63 个白沙滩。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'13',nm:'弗里曼特尔夜游',en:'Fremantle Evening (Fishing Boat Harbour + Little Creatures)',dy:'Day 4 晚',r:'★★★★',d:'D4 渡轮直达弗里曼特尔！渔人码头海鲜晚餐 + Little Creatures 精酿 + Bathers Beach 日落。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'14',nm:'Caversham 动物园',en:'Caversham Wildlife Park',dy:'Day 5',r:'★★★★',d:'亲手喂袋鼠、抱考拉拍照、看剪羊毛秀。200+ 种动物，互动性极强。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'15',nm:'天鹅河谷酒庄',en:'Swan Valley Wineries (Sandalford)',dy:'Day 5',r:'★★★★',d:'澳洲最古老酒区之一，品酒 + 巧克力/蜂蜜/牛轧糖工厂免费试吃。',a:true,b:true,c:'var(--c-accent)'},
+  {n:'16',nm:'弗里曼特尔监狱',en:'Fremantle Prison (UNESCO)',dy:'Day 6（B队）',r:'★★★★',d:'UNESCO 世界遗产，1850 年代囚犯建造的石灰岩监狱。推荐 Doing Time 导览。',a:false,b:true,c:'var(--c-primary-muted)'},
+  {n:'17',nm:'弗里曼特尔圆屋',en:'Round House, Fremantle',dy:'Day 6（B队）',r:'★★★',d:'西澳最古老建筑（1831年），免费参观，海岸观景点。',a:false,b:true,c:'var(--c-primary-muted)'},
   {n:'18',nm:'国王公园深度游',en:'Kings Park & Botanic Garden',dy:'Day 6（B队）',r:'★★★★',d:'城市山顶公园，War Memorial 观景台俯瞰珀斯+天鹅河全景。',a:false,b:true,c:'var(--c-primary-muted)'},
 ];
 
@@ -1148,10 +1155,10 @@ const tips = [
   {t:'🦞 龙虾工厂',d:'可以自费加整只龙虾，非常新鲜'},
   {t:'🐹 Quokka 合影',d:'不要主动触摸/喂食，罚款很重！等它自己靠近'},
   {t:'🍳 度假屋厨房',d:'Cozy On Chapman 有完整厨房，可去 Woolworths 买食材自己做，省钱又有趣'},
-  {t:'📅 提前预订',d:'包车、罗特尼斯岛船票建议至少提前 2 周预订'},
-  {t:'🏨 Quest 寄存',d:'D5 A 队退房行李寄存前台，深夜取完去机场。D6 B 队退房后同样寄存，傍晚取完去机场'},
+  {t:'📅 提前预订',d:'包车（已订）、岛上 Explorer 巴士（已订）、罗特尼斯岛船票建议提前预订'},
+  {t:'🏨 行李寄存',d:'D5 A 队退房行李寄存公寓，深夜取完去机场。D6 B 队退房后同样寄存，傍晚取完去机场'},
   {t:'⚓ 弗里曼特尔交通',d:'珀斯站坐 Fremantle Line 火车 30 分钟直达，SmartRider 卡刷卡即可，班次密集'},
-  {t:'🍺 Little Creatures',d:'不喝酒也值得去，有汽水和美食，港口边露台氛围超好'},
+  {t:'🍺 Little Creatures',d:'D4 晚上渡轮到 Fremantle 直接打卡！不喝酒也值得去，有汽水和美食，港口边露台氛围超好'},
 ];
 
 document.getElementById('tips-content').innerHTML = '<div class="tips-grid rv-stagger">' + tips.map(t => `
