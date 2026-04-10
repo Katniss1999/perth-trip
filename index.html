@@ -976,7 +976,7 @@ const days = [
       {time:'22:00',a:'🚕 出发去珀斯机场',b:'—'},
       {time:'次日 01:35',a:'✈️ A 队起飞',b:'—'},
     ],
-    tip: {label:'住宿',text:'A 队退房行李寄存公寓，深夜取完去机场。B 队继续住公寓第 3 晚。'}
+    tip: {label:'住宿',text:'A 队退房行李寄存公寓，深夜取完去机场。B 队换住 West Perth Airbnb（Kings Park 旁，¥390/人/晚）。'}
   },
   {
     num: '06', date: '5 月 6 日 · 周三', title: 'B 队：弗里曼特尔 + 珀斯市区深度游',
@@ -1048,7 +1048,8 @@ document.getElementById('days').innerHTML = daysHTML;
 document.getElementById('accom').innerHTML = `
 <div class="accom-overview rv-stagger">
   <div class="accom-day"><div class="d">Day 1–2 · 5.1–5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚<br>连住 2 晚 · 已订 ✅</div></div>
-  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯 East Perth</div><div class="pr">East Perth 2BR 公寓 · ¥310/人/晚<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人 · ¥310/人/晚</div></div>
+  <div class="accom-day"><div class="d">Day 3–4 · 5.3–5.4</div><div class="loc">🏙 珀斯 East Perth</div><div class="pr">East Perth 2BR 公寓 · ¥310/人/晚<br>全员 5 人 · 已订 ✅</div></div>
+  <div class="accom-day"><div class="d">Day 5 · 5.5</div><div class="loc">🏙 珀斯 West Perth</div><div class="pr">Airbnb · Kings Park 旁 · ¥390/人/晚<br>B 队 3 人 · 已订 ✅</div></div>
 </div>
 
 <div class="hotel-section-title rv">🌊 杰拉尔顿 · Cozy On Chapman（Day 1-2，2 晚）已订 ✅</div>
@@ -1064,10 +1065,16 @@ document.getElementById('accom').innerHTML = `
   <div class="hotel"><div class="name">地址</div><div class="desc">190 Hay Street, East Perth 6004</div></div>
   <div class="hotel"><div class="name">房型</div><div class="desc">现代 2 卧室公寓 · 带泳池 & 免费停车位</div></div>
   <div class="hotel"><div class="name">设施</div><div class="desc">2 卧室、厨房、泳池、免费停车、空调</div></div>
-  <div class="hotel"><div class="name">费用</div><div class="price">¥310/人/晚</div><div class="desc">D3-D4 全员 5 人（¥3,100 已订 ✅）· D5 B队 3 人 = ¥930</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">¥310/人/晚</div><div class="desc">D3-D4 全员 5 人 = ¥3,100（已订 ✅）</div></div>
 </div>
 
-<div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存公寓，深夜取完去机场。D6 B队退房后同样寄存，傍晚取完去机场。</span></div>
+<div class="hotel-section-title rv">🏙 珀斯 West Perth · Airbnb（Day 5，B 队 1 晚）已订 ✅</div>
+<div class="hotel-list rv-stagger">
+  <div class="hotel"><div class="name">位置</div><div class="desc">West Perth · Kings Park 南侧，Mounts Bay Road 附近</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">¥390/人/晚</div><div class="desc">B 队 3 人 = ¥1,170（已订 ✅）</div></div>
+</div>
+
+<div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存 East Perth 公寓，深夜取完去机场。B队 D5 搬至 West Perth Airbnb，D6 退房后行李寄存，傍晚取完去机场。</span></div>
 `;
 </script>
 
@@ -1095,15 +1102,15 @@ document.getElementById('cost-content').innerHTML = `
     <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程（5.1-5.6，5.6 晚飞）</div></div>
     <div class="cost-body">
       <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">¥6,854–7,644</div></div>
-      <div class="cost-row"><div class="item">🏠 D5 珀斯公寓第 3 晚</div><div class="amount">¥310</div></div>
+      <div class="cost-row"><div class="item">🏠 D5 West Perth Airbnb</div><div class="amount">¥390</div></div>
       <div class="cost-row"><div class="item">🚆 D6 火车往返弗里曼特尔</div><div class="amount">¥40–60</div></div>
       <div class="cost-row"><div class="item">🍽 D6 餐饮 + 咖啡</div><div class="amount">¥285–430</div></div>
       <div class="cost-row"><div class="item">🚕 D6 机场交通</div><div class="amount">¥145–240</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥7,634 – 8,684</div><div class="cny">比 A 队多约 ¥780–1,040</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥7,714 – 8,764</div><div class="cny">比 A 队多约 ¥860–1,120</div></div></div>
   </div>
 </div>
-<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600 + 杰拉尔顿住宿 ¥800 + 珀斯住宿 ¥620 + 船票 ¥356 + 岛上巴士 ¥123 = <strong>¥5,499/人</strong>（全员已订 ✅）</span></div>
+<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600 + 杰拉尔顿住宿 ¥800 + 珀斯住宿 ¥620 + 船票 ¥356 + 岛上巴士 ¥123 = <strong>¥5,499/人</strong>（全员已订 ✅）<br>B 队额外：D5 West Perth Airbnb ¥390/人（已订 ✅）</span></div>
 `;
 </script>
 
@@ -1146,7 +1153,8 @@ document.getElementById('attr').innerHTML = '<div class="attr-grid rv-stagger">'
 <!-- TIPS DATA -->
 <script>
 const tips = [
-  {t:'👕 穿衣打包清单（精简版）',d:'<b>上衣 3 件</b>：速干T恤×2 + 薄长袖×1（轮换穿）<br><b>外套 2 件</b>：防风冲锋衣×1（罗岛/海边必备）+ 薄羽绒/抓绒×1（凌晨到达+夜间）<br><b>裤子 2 条</b>：速干长裤×1（滑沙/徒步）+ 休闲裤×1<br><b>鞋</b>：运动鞋×1 双（全程通用，滑沙也OK）<br><b>配件</b>：墨镜 + 防晒帽 + 薄围巾（防风多用）<br>💡 白天短袖，傍晚加外套，凌晨到达穿最厚那件'},
+  {t:'🌡️ 各地温度（5月初）',d:'<b>珀斯</b> 13–21°C · <b>杰拉尔顿</b> 16–24°C · <b>罗岛</b> 12–19°C（海风体感更低）<br>南半球秋季，早晚温差大，日落 17:20'},
+  {t:'👕 穿衣打包清单（精简版）',d:'<b>上衣 3 件</b>：速干T恤×2 + 薄长袖×1（轮换穿）<br><b>外套 2 件</b>：防风冲锋衣×1（罗岛/海边必备）+ 薄羽绒/抓绒×1（凌晨到达+夜间）<br><b>裤子 2 条</b>：速干长裤×1（滑沙/徒步）+ 休闲裤×1<br><b>配件</b>：墨镜 + 防晒帽 + 薄围巾（防风多用）<br>💡 白天短袖，傍晚加外套，凌晨到达穿最厚那件'},
   {t:'💳 支付方式',d:'几乎全部可刷卡/Apple Pay，不需现金'},
   {t:'🚌 市区交通',d:'买 SmartRider 卡，免费 CAT 巴士（红蓝黄绿 4 线）覆盖所有市区景点'},
   {t:'🩷 粉红湖拍照',d:'穿白色/浅色衣服最出片！中午光线最好'},
@@ -1155,7 +1163,7 @@ const tips = [
   {t:'🐹 Quokka 合影',d:'不要主动触摸/喂食，罚款很重！等它自己靠近'},
   {t:'🍳 度假屋厨房',d:'Cozy On Chapman 有完整厨房，可去 Woolworths 买食材自己做，省钱又有趣'},
   {t:'📅 提前预订',d:'包车（已订）、岛上 Explorer 巴士（已订）、罗特尼斯岛船票（已订）✅ 全部搞定！'},
-  {t:'🏨 行李寄存',d:'D5 A 队退房行李寄存公寓，深夜取完去机场。D6 B 队退房后同样寄存，傍晚取完去机场'},
+  {t:'🏨 行李寄存',d:'D5 A 队退房行李寄存 East Perth 公寓，深夜取完去机场。B 队搬至 West Perth Airbnb，D6 退房后寄存'},
   {t:'⚓ 弗里曼特尔交通',d:'珀斯站坐 Fremantle Line 火车 30 分钟直达，SmartRider 卡刷卡即可，班次密集'},
   {t:'🍺 Little Creatures',d:'D4 晚上渡轮到 Fremantle 直接打卡！不喝酒也值得去，有汽水和美食，港口边露台氛围超好'},
 ];
