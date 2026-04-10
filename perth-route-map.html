@@ -1390,25 +1390,29 @@ var spots = [
   { day:2, seq:8,  name:'天空之桥',        en:'Kalbarri Skywalk',        lat:-27.6970, lng:114.4810, stars:4, desc:'悬空玻璃观景台，百米高空俯瞰墨奇森河峡谷' },
   { day:2, seq:9,  name:'卡尔巴里小镇',     en:'Kalbarri Town',           lat:-27.7139, lng:114.1652, stars:3, desc:'午餐补给+海岸红崖观景' },
   { day:2, seq:10, name:'卡尔巴里海岸悬崖',   en:'Island Rock & Natural Bridge', lat:-27.6920, lng:114.1510, stars:4, desc:'印度洋海岸线+红色断崖' },
+  { day:2, seq:98, name:'🏠 杰拉尔顿住宿',  en:'Cozy On Chapman · ¥400/人/晚', lat:-28.7745, lng:114.6150, stars:0, desc:'D2 返回杰拉尔顿 · 第2晚', isAccom:true },
   // D3: 杰拉尔顿→朱莉恩湾→尖峰石阵→珀斯
   { day:3, seq:11, name:'朱莉恩湾',        en:'Jurien Bay',              lat:-30.3058, lng:115.0385, stars:3, desc:'清澈碧蓝海湾，白色沙滩' },
   { day:3, seq:12, name:'尖峰石阵',        en:'The Pinnacles',           lat:-30.5998, lng:115.1580, stars:5, desc:'南邦国家公园，数千座石灰岩柱如外星球般壮观' },
   { day:3, seq:13, name:'Elizabeth Quay',  en:'Elizabeth Quay',          lat:-31.9580, lng:115.8590, stars:4, desc:'河畔夕阳散步，庆祝晚餐' },
-  { day:3, seq:99, name:'🏠 East Perth 公寓', en:'190 Hay St · ¥310/人/晚',  lat:-31.9530, lng:115.8740, stars:0, desc:'2卧室公寓 · 泳池+停车位 · D3-D5 已订 ✅', isAccom:true },
+  { day:3, seq:99, name:'🏠 East Perth 公寓', en:'190 Hay St · ¥310/人/晚',  lat:-31.9530, lng:115.8740, stars:0, desc:'2卧室公寓 · 泳池+停车位 · D3-D4 全员已订 ✅', isAccom:true },
   // D4: 罗特尼斯岛 + 弗里曼特尔夜游
   { day:4, seq:14, name:'Barrack St 码头', en:'Barrack St Jetty',       lat:-31.9580, lng:115.8590, stars:3, desc:'08:15集合，08:45渡轮出发' },
   { day:4, seq:15, name:'罗特尼斯岛',       en:'Rottnest Island',         lat:-32.0067, lng:115.5180, stars:5, desc:'Quokka 短尾矮袋鼠之岛，Hop On Hop Off 巴士环岛' },
   { day:4, seq:16, name:'渔人码头',        en:'Fishing Boat Harbour',    lat:-32.0569, lng:115.7480, stars:4, desc:'17:00渡轮直达Fremantle，海鲜晚餐' },
   { day:4, seq:17, name:'Little Creatures', en:'Little Creatures Brewery', lat:-32.0590, lng:115.7445, stars:4, desc:'港口边精酿啤酒厂' },
+  { day:4, seq:97, name:'🏠 East Perth 公寓', en:'190 Hay St · ¥310/人/晚', lat:-31.9530, lng:115.8740, stars:0, desc:'D4 夜游后回住 · 火车回 Perth', isAccom:true },
   // D5: 天鹅河谷+告别聚餐
   { day:5, seq:18, name:'Caversham 动物园', en:'Caversham Wildlife Park', lat:-31.8500, lng:116.0353, stars:4, desc:'喂袋鼠、抱考拉、200+种动物' },
   { day:5, seq:19, name:'Sandalford 酒庄', en:'Sandalford Winery',       lat:-31.8306, lng:116.0600, stars:4, desc:'最古老葡萄酒产区，品酒体验' },
   { day:5, seq:20, name:'Murray St Mall',  en:'Murray Street Mall',      lat:-31.9530, lng:115.8600, stars:3, desc:'珀斯购物步行街，最后扫货' },
+  { day:5, seq:96, name:'🏠 West Perth Airbnb', en:'Kings Park 旁 · ¥390/人/晚', lat:-31.960, lng:115.842, stars:0, desc:'B队 D5 换住 · Mounts Bay Rd 附近 已订 ✅', isAccom:true },
   // D6: B队 弗里曼特尔历史深度+珀斯
   { day:6, seq:21, name:'弗里曼特尔监狱',    en:'Fremantle Prison',        lat:-32.0556, lng:115.7534, stars:4, desc:'UNESCO世界遗产，Doing Time 导览' },
   { day:6, seq:22, name:'弗里曼特尔圆屋',    en:'Round House',             lat:-32.0583, lng:115.7470, stars:3, desc:'西澳最古老建筑（1831年）' },
   { day:6, seq:23, name:'国王公园',        en:'Kings Park',              lat:-31.9629, lng:115.8325, stars:4, desc:'珀斯最大城市公园，俯瞰天鹅河与城市天际线' },
-  { day:6, seq:24, name:'科特斯洛海滩',      en:'Cottesloe Beach',         lat:-31.9940, lng:115.7520, stars:3, desc:'珀斯最美城市海滩，印度洋日落' }
+  { day:6, seq:24, name:'科特斯洛海滩',      en:'Cottesloe Beach',         lat:-31.9940, lng:115.7520, stars:3, desc:'珀斯最美城市海滩，印度洋日落' },
+  { day:6, seq:95, name:'🏠 West Perth Airbnb', en:'Kings Park 旁 · ¥390/人/晚', lat:-31.960, lng:115.842, stars:0, desc:'B队取行李 → 机场', isAccom:true }
 ];
 
 var routes = {
@@ -1416,8 +1420,8 @@ var routes = {
   2: [[-28.7745,114.6150],[-28.1903,114.2291],[-27.7139,114.1652],[-27.6856,114.4636],[-27.6970,114.4810],[-27.6920,114.1510],[-28.7745,114.6150]],
   3: [[-28.7745,114.6150],[-30.3058,115.0385],[-30.5998,115.1580],[-31.9530,115.8740]],
   4: [[-31.9530,115.8740],[-31.9580,115.8590],[-32.0067,115.5180],[-32.0569,115.7480],[-32.0590,115.7445],[-31.9530,115.8740]],
-  5: [[-31.9530,115.8740],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9530,115.8600]],
-  6: [[-31.9530,115.8740],[-32.0556,115.7534],[-32.0583,115.7470],[-31.9530,115.8740],[-31.9629,115.8325],[-31.9940,115.7520]]
+  5: [[-31.9530,115.8740],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9530,115.8600],[-31.960,115.842]],
+  6: [[-31.960,115.842],[-32.0556,115.7534],[-32.0583,115.7470],[-31.960,115.842],[-31.9629,115.8325],[-31.9940,115.7520]]
 };
 
 // ═══════════════════════════════════════
