@@ -953,7 +953,7 @@ const days = [
       {time:'20:30',title:'Fremantle 站乘火车返回珀斯',desc:'Fremantle Line 约 30 分钟直达'},
       {time:'21:00',title:'回到住所休息'},
     ],
-    tip: {label:'费用',text:'船票（另购）+ Island Explorer 巴士 AUD 129.92/5人（已订 ✅，含 20% Hello Perth Map 折扣）'}
+    tip: {label:'费用',text:'船票 AUD 375.25/5人（已订 ✅，含 Admission Fee，Telethon Saver 折扣 -$165）+ Island Explorer 巴士 AUD 129.92/5人（已订 ✅）'}
   },
   {
     num: '05', date: '5 月 5 日 · 周二', title: '天鹅河谷包车一日游 + 全员告别聚餐',
@@ -1048,7 +1048,7 @@ document.getElementById('days').innerHTML = daysHTML;
 document.getElementById('accom').innerHTML = `
 <div class="accom-overview rv-stagger">
   <div class="accom-day"><div class="d">Day 1–2 · 5.1–5.2</div><div class="loc">🌊 杰拉尔顿</div><div class="pr">Cozy On Chapman · ¥400/人/晚<br>连住 2 晚 · 已订 ✅</div></div>
-  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯 East Perth</div><div class="pr">East Perth 2BR 公寓 · 带泳池+停车位<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人（待确认）</div></div>
+  <div class="accom-day"><div class="d">Day 3–5 · 5.3–5.5</div><div class="loc">🏙 珀斯 East Perth</div><div class="pr">East Perth 2BR 公寓 · ¥310/人/晚<br>D3-D4 全员 5 人 · 已订 ✅<br>D5 B队 3 人 · ¥310/人/晚</div></div>
 </div>
 
 <div class="hotel-section-title rv">🌊 杰拉尔顿 · Cozy On Chapman（Day 1-2，2 晚）已订 ✅</div>
@@ -1064,7 +1064,7 @@ document.getElementById('accom').innerHTML = `
   <div class="hotel"><div class="name">地址</div><div class="desc">190 Hay Street, East Perth 6004</div></div>
   <div class="hotel"><div class="name">房型</div><div class="desc">现代 2 卧室公寓 · 带泳池 & 免费停车位</div></div>
   <div class="hotel"><div class="name">设施</div><div class="desc">2 卧室、厨房、泳池、免费停车、空调</div></div>
-  <div class="hotel"><div class="name">费用</div><div class="price">D3-D4 已订 ✅</div><div class="desc">D5 B队 3 人继续住（待确认）</div></div>
+  <div class="hotel"><div class="name">费用</div><div class="price">¥310/人/晚</div><div class="desc">D3-D4 全员 5 人（¥3,100 已订 ✅）· D5 B队 3 人 = ¥930</div></div>
 </div>
 
 <div class="info-box rv"><strong>行李安排：</strong><span>D5 A队退房后行李寄存公寓，深夜取完去机场。D6 B队退房后同样寄存，傍晚取完去机场。</span></div>
@@ -1081,29 +1081,29 @@ document.getElementById('cost-content').innerHTML = `
     <div class="cost-body">
       <div class="cost-row"><div class="item">🚗 包车 4 天全包 ✅</div><div class="amount">¥3,600</div></div>
       <div class="cost-row"><div class="item">🏠 住宿 — 杰拉尔顿 2 晚 ✅</div><div class="amount">¥800</div></div>
-      <div class="cost-row"><div class="item">🏠 住宿 — 珀斯 East Perth 2 晚 ✅</div><div class="amount">已订</div></div>
-      <div class="cost-row"><div class="item">⛴ 罗特尼斯岛船票</div><div class="amount">待定</div></div>
+      <div class="cost-row"><div class="item">🏠 住宿 — 珀斯 East Perth 2 晚 ✅</div><div class="amount">¥620</div></div>
+      <div class="cost-row"><div class="item">⛴ 罗特尼斯岛船票 ✅</div><div class="amount">¥356</div></div>
       <div class="cost-row"><div class="item">🚌 岛上 Explorer 巴士 ✅</div><div class="amount">¥123</div></div>
       <div class="cost-row"><div class="item">🚌 公共交通</div><div class="amount">¥70–145</div></div>
       <div class="cost-row"><div class="item">🚕 机场交通（深夜打车）</div><div class="amount">¥145–240</div></div>
       <div class="cost-row"><div class="item">🍽 餐饮（5 天）</div><div class="amount">¥1,045–1,570</div></div>
       <div class="cost-row"><div class="item">🎫 门票杂费</div><div class="amount">¥95–190</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥5,878+ 待补船票和住宿</div><div class="cny">已订：包车+杰拉尔顿住宿+珀斯住宿+岛上巴士</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥6,854 – 7,644</div><div class="cny">已订 ¥5,499（包车+住宿+船票+巴士）</div></div></div>
   </div>
   <div class="cost-card">
     <div class="cost-header b"><h3>B 队</h3><div class="sub">3 人 · 6 天行程（5.1-5.6，5.6 晚飞）</div></div>
     <div class="cost-body">
-      <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">同上</div></div>
-      <div class="cost-row"><div class="item">🏠 D5 珀斯公寓第 3 晚（待确认）</div><div class="amount">待定</div></div>
+      <div class="cost-row"><div class="item">📋 A 队全部费用</div><div class="amount">¥6,854–7,644</div></div>
+      <div class="cost-row"><div class="item">🏠 D5 珀斯公寓第 3 晚</div><div class="amount">¥310</div></div>
       <div class="cost-row"><div class="item">🚆 D6 火车往返弗里曼特尔</div><div class="amount">¥40–60</div></div>
       <div class="cost-row"><div class="item">🍽 D6 餐饮 + 咖啡</div><div class="amount">¥285–430</div></div>
       <div class="cost-row"><div class="item">🚕 D6 机场交通</div><div class="amount">¥145–240</div></div>
     </div>
-    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">A 队费用 + ¥470–730</div><div class="cny">比 A 队多 D5 住宿 + D6 一天费用</div></div></div>
+    <div class="cost-total"><div class="label">合计/人</div><div class="total-right"><div class="aud">¥7,634 – 8,684</div><div class="cny">比 A 队多约 ¥780–1,040</div></div></div>
   </div>
 </div>
-<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600/人 + 杰拉尔顿住宿 ¥800/人 + 珀斯 East Perth 公寓（已订）+ 岛上巴士 ¥123/人。船票待补充。</span></div>
+<div class="info-box rv" style="margin-top:1.5rem"><strong>已订费用小结：</strong><span>包车 ¥3,600 + 杰拉尔顿住宿 ¥800 + 珀斯住宿 ¥620 + 船票 ¥356 + 岛上巴士 ¥123 = <strong>¥5,499/人</strong>（全员已订 ✅）</span></div>
 `;
 </script>
 
