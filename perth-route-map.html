@@ -1141,6 +1141,17 @@ svg.leaflet-image-layer.leaflet-interactive path {
     0%   { box-shadow: var(--shadow-marker), 0 0 0 0 rgba(61,50,41,0.15); }
     100% { box-shadow: var(--shadow-marker), 0 0 0 20px rgba(61,50,41,0); }
   }
+  /* ─── ACCOMMODATION MARKER ─── */
+  .map-marker.accom-marker {
+    background: #2d2520 !important;
+    border: 2px solid #c9975b;
+    font-size: 14px;
+    box-shadow: var(--shadow-marker), 0 0 0 3px rgba(201,151,91,0.25);
+  }
+  .spot-num.accom-num {
+    font-size: 12px;
+    line-height: 1;
+  }
 
   /* ─── OVERVIEW CARD — warm glassmorphism ─── */
   .overview-card {
@@ -1372,7 +1383,7 @@ var spots = [
   { day:1, seq:2,  name:'龙虾工厂',        en:'Lobster Shack',           lat:-30.4983, lng:115.0668, stars:3, desc:'岩龙虾加工厂参观+品尝当午餐' },
   { day:1, seq:3,  name:'翡翠海',         en:'Geraldton Emerald Sea',   lat:-28.7604, lng:114.5979, stars:4, desc:'印度洋碧绿海水，杰拉尔顿标志海岸' },
   { day:1, seq:4,  name:'怪树',          en:'Leaning Trees of Greenough', lat:-28.9500, lng:114.7421, stars:3, desc:'常年海风吹歪的桉树群，奇特景观' },
-  { day:1, seq:5,  name:'杰拉尔顿',        en:'Geraldton',               lat:-28.7745, lng:114.6150, stars:3, desc:'北线过夜城市，Cozy On Chapman 住宿' },
+  { day:1, seq:5,  name:'🏠 杰拉尔顿住宿',  en:'Cozy On Chapman · ¥400/人/晚', lat:-28.7745, lng:114.6150, stars:0, desc:'7/305 Chapman Rd · 独栋3卧度假屋 · D1-D2 连住2晚 已订 ✅', isAccom:true },
   // D2: 粉红湖→卡尔巴里
   { day:2, seq:6,  name:'粉红湖',         en:'Hutt Lagoon',             lat:-28.1903, lng:114.2291, stars:5, desc:'世界最大粉红湖之一，梦幻粉红色' },
   { day:2, seq:7,  name:'自然之窗',        en:"Nature's Window",         lat:-27.6856, lng:114.4636, stars:5, desc:'天然砂岩拱窗，西澳出镜率最高' },
@@ -1383,6 +1394,7 @@ var spots = [
   { day:3, seq:11, name:'朱莉恩湾',        en:'Jurien Bay',              lat:-30.3058, lng:115.0385, stars:3, desc:'清澈碧蓝海湾，白色沙滩' },
   { day:3, seq:12, name:'尖峰石阵',        en:'The Pinnacles',           lat:-30.5998, lng:115.1580, stars:5, desc:'南邦国家公园，数千座石灰岩柱如外星球般壮观' },
   { day:3, seq:13, name:'Elizabeth Quay',  en:'Elizabeth Quay',          lat:-31.9580, lng:115.8590, stars:4, desc:'河畔夕阳散步，庆祝晚餐' },
+  { day:3, seq:99, name:'🏠 East Perth 公寓', en:'190 Hay St · ¥310/人/晚',  lat:-31.9530, lng:115.8740, stars:0, desc:'2卧室公寓 · 泳池+停车位 · D3-D5 已订 ✅', isAccom:true },
   // D4: 罗特尼斯岛 + 弗里曼特尔夜游
   { day:4, seq:14, name:'Barrack St 码头', en:'Barrack St Jetty',       lat:-31.9580, lng:115.8590, stars:3, desc:'08:15集合，08:45渡轮出发' },
   { day:4, seq:15, name:'罗特尼斯岛',       en:'Rottnest Island',         lat:-32.0067, lng:115.5180, stars:5, desc:'Quokka 短尾矮袋鼠之岛，Hop On Hop Off 巴士环岛' },
@@ -1402,10 +1414,10 @@ var spots = [
 var routes = {
   1: [[-31.9500,115.8600],[-31.0208,115.3309],[-30.4983,115.0668],[-28.9500,114.7421],[-28.7604,114.5979],[-28.7745,114.6150]],
   2: [[-28.7745,114.6150],[-28.1903,114.2291],[-27.7139,114.1652],[-27.6856,114.4636],[-27.6970,114.4810],[-27.6920,114.1510],[-28.7745,114.6150]],
-  3: [[-28.7745,114.6150],[-30.3058,115.0385],[-30.5998,115.1580],[-31.9580,115.8590]],
-  4: [[-31.9580,115.8590],[-32.0067,115.5180],[-32.0569,115.7480],[-32.0590,115.7445],[-31.9500,115.8600]],
-  5: [[-31.9500,115.8600],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9530,115.8600]],
-  6: [[-31.9500,115.8600],[-32.0556,115.7534],[-32.0583,115.7470],[-31.9500,115.8600],[-31.9629,115.8325],[-31.9940,115.7520]]
+  3: [[-28.7745,114.6150],[-30.3058,115.0385],[-30.5998,115.1580],[-31.9530,115.8740]],
+  4: [[-31.9530,115.8740],[-31.9580,115.8590],[-32.0067,115.5180],[-32.0569,115.7480],[-32.0590,115.7445],[-31.9530,115.8740]],
+  5: [[-31.9530,115.8740],[-31.8500,116.0353],[-31.8306,116.0600],[-31.9530,115.8600]],
+  6: [[-31.9530,115.8740],[-32.0556,115.7534],[-32.0583,115.7470],[-31.9530,115.8740],[-31.9629,115.8325],[-31.9940,115.7520]]
 };
 
 // ═══════════════════════════════════════
@@ -1503,9 +1515,11 @@ spots.forEach(function(s) {
   for (var i = 0; i < s.stars; i++) starStr += '\u2605';
   for (var j = s.stars; j < 5; j++) starStr += '\u2606';
 
+  var markerLabel = s.isAccom ? '\u{1F3E0}' : s.seq;
+  var markerBg = s.isAccom ? '#2d2520' : color;
   var icon = L.divIcon({
     className: '',
-    html: '<div class="map-marker" style="background:' + color + '">' + s.seq + '</div>',
+    html: '<div class="map-marker' + (s.isAccom ? ' accom-marker' : '') + '" style="background:' + markerBg + '">' + markerLabel + '</div>',
     iconSize: [30, 30],
     iconAnchor: [15, 15],
     popupAnchor: [0, -18]
@@ -1515,12 +1529,12 @@ spots.forEach(function(s) {
   marker.bindPopup(
     '<div class="popup-inner">' +
       '<div class="popup-header">' +
-        '<div class="popup-seq" style="background:' + color + '">' + s.seq + '</div>' +
+        '<div class="popup-seq" style="background:' + markerBg + '">' + markerLabel + '</div>' +
         '<div class="popup-day-badge" style="background:' + color + '">' + day.label + ' \u00b7 ' + day.date + '</div>' +
       '</div>' +
       '<div class="popup-name">' + s.name + '</div>' +
       '<div class="popup-en">' + s.en + '</div>' +
-      '<div class="popup-stars" style="color:' + color + '">' + starStr + '</div>' +
+      (s.isAccom ? '' : '<div class="popup-stars" style="color:' + color + '">' + starStr + '</div>') +
       '<div class="popup-desc">' + s.desc + '</div>' +
     '</div>',
     { className: 'light-popup', maxWidth: 300, closeButton: false }
@@ -1627,12 +1641,14 @@ function renderSpotList() {
       if (highlightedSeq === s.seq) {
         item.style.background = COLOR_BG[d.id];
       }
+      var numLabel = s.isAccom ? '\u{1F3E0}' : s.seq;
+      var numBg = s.isAccom ? '#2d2520' : color;
       item.innerHTML =
-        '<div class="spot-num" style="background:' + color + '">' + s.seq + '</div>' +
+        '<div class="spot-num' + (s.isAccom ? ' accom-num' : '') + '" style="background:' + numBg + '">' + numLabel + '</div>' +
         '<div class="spot-info">' +
           '<div class="spot-name">' + s.name + '</div>' +
           '<div class="spot-en">' + s.en + '</div>' +
-          '<div class="spot-meta"><span class="spot-stars" style="color:' + color + '">' + starStr + '</span></div>' +
+          (s.isAccom ? '' : '<div class="spot-meta"><span class="spot-stars" style="color:' + color + '">' + starStr + '</span></div>') +
           '<div class="spot-desc">' + s.desc + '</div>' +
         '</div>';
 
