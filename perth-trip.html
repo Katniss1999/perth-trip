@@ -232,18 +232,19 @@ a { color: var(--c-accent); text-decoration: none; }
 /* ===== TEAM COMPACT ===== */
 .sec-compact { padding: var(--space-section) 0 0; }
 .team-compact {
-  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
+  display: grid; grid-template-columns: 1fr 1fr;
+  background: var(--c-white); border-radius: var(--radius-lg);
+  border: 1px solid var(--c-border-2); overflow: hidden;
 }
 .tc-cell {
-  background: var(--c-white); border-radius: var(--radius-md);
-  border: 1px solid var(--c-border-2);
-  padding: 1.25rem 1.5rem;
-  transition: box-shadow .25s, transform .25s;
+  padding: 1.1rem 1.4rem;
+  border-bottom: 1px solid var(--c-border-2);
 }
-.tc-cell:hover { box-shadow: 0 4px 16px rgba(61,50,41,.07); transform: translateY(-1px); }
-.tc-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text-4); }
-.tc-val { font-size: 1.1rem; font-weight: 700; color: var(--c-text); margin-top: .35rem; line-height: 1.5; }
-.tc-note { font-size: 12px; color: var(--c-text-3); margin-top: .25rem; }
+.tc-cell:nth-child(odd) { border-right: 1px solid var(--c-border-2); }
+.tc-cell:nth-last-child(-n+2) { border-bottom: none; }
+.tc-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; color: var(--c-text-4); }
+.tc-val { font-size: 1.05rem; font-weight: 700; color: var(--c-text); margin-top: .25rem; line-height: 1.45; }
+.tc-note { font-size: 12px; color: var(--c-text-3); margin-top: .2rem; }
 
 /* ===== DAY CARDS ===== */
 .day { margin-bottom: 0; padding: var(--space-element) 0 var(--space-group) 0; border-bottom: 1px solid var(--c-border); position: relative; }
@@ -576,11 +577,9 @@ a { color: var(--c-accent); text-decoration: none; }
 }
 @media (max-width: 600px) {
   :root { --space-section: 72px; --space-group: 40px; }
-  .sec-compact { padding: var(--space-section) 0 0; }
-  .team-compact { gap: .6rem; }
-  .tc-cell { padding: .85rem 1rem; }
+  .tc-cell { padding: .75rem .9rem; }
   .tc-label { font-size: 10px; }
-  .tc-val { font-size: .95rem; }
+  .tc-val { font-size: .9rem; }
   .tc-note { font-size: 10px; }
   .hero { min-height: 90vh; }
   .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
