@@ -230,21 +230,20 @@ a { color: var(--c-accent); text-decoration: none; }
 }
 
 /* ===== TEAM COMPACT ===== */
-.sec-compact { padding: 2rem 0 0; }
+.sec-compact { padding: var(--space-section) 0 0; }
 .team-compact {
-  background: var(--c-white); border-radius: var(--radius-lg);
-  border: 1px solid var(--c-border-2); overflow: hidden;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
 }
-.tc-row { display: grid; grid-template-columns: repeat(3, 1fr); }
-.tc-row + .tc-row { border-top: 1px solid var(--c-border-2); }
 .tc-cell {
-  padding: 1rem 1.25rem;
-  border-right: 1px solid var(--c-border-2);
+  background: var(--c-white); border-radius: var(--radius-md);
+  border: 1px solid var(--c-border-2);
+  padding: 1.25rem 1.5rem;
+  transition: box-shadow .25s, transform .25s;
 }
-.tc-cell:last-child { border-right: none; }
-.tc-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; color: var(--c-text-4); }
-.tc-val { font-size: 14px; font-weight: 700; color: var(--c-text); margin-top: .2rem; }
-.tc-note { font-size: 12px; color: var(--c-text-3); margin-top: .15rem; }
+.tc-cell:hover { box-shadow: 0 4px 16px rgba(61,50,41,.07); transform: translateY(-1px); }
+.tc-label { font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--c-text-4); }
+.tc-val { font-size: 1.1rem; font-weight: 700; color: var(--c-text); margin-top: .35rem; line-height: 1.5; }
+.tc-note { font-size: 12px; color: var(--c-text-3); margin-top: .25rem; }
 
 /* ===== DAY CARDS ===== */
 .day { margin-bottom: 0; padding: var(--space-element) 0 var(--space-group) 0; border-bottom: 1px solid var(--c-border); position: relative; }
@@ -577,11 +576,11 @@ a { color: var(--c-accent); text-decoration: none; }
 }
 @media (max-width: 600px) {
   :root { --space-section: 72px; --space-group: 40px; }
-  .sec-compact { padding: 1rem 0 0; }
-  .tc-row { grid-template-columns: 1fr 1fr 1fr; }
-  .tc-cell { padding: .6rem .7rem; }
+  .sec-compact { padding: var(--space-section) 0 0; }
+  .team-compact { gap: .6rem; }
+  .tc-cell { padding: .85rem 1rem; }
   .tc-label { font-size: 10px; }
-  .tc-val { font-size: 12px; }
+  .tc-val { font-size: .95rem; }
   .tc-note { font-size: 10px; }
   .hero { min-height: 90vh; }
   .hero-title { font-size: clamp(2.2rem, 10vw, 3.5rem); }
@@ -648,17 +647,13 @@ a { color: var(--c-accent); text-decoration: none; }
 <!-- TEAM — compact one-screen overview -->
 <section class="sec sec-compact" id="team">
   <div class="container">
-    <div class="team-compact rv">
-      <div class="tc-row">
-        <div class="tc-cell"><div class="tc-label">✈️ 抵达 5.1</div><div class="tc-val">B队 03:25 · A队 05:05</div></div>
-        <div class="tc-cell"><div class="tc-label">✈️ 返程 5.6</div><div class="tc-val">A队 01:35 · B队 20:50</div></div>
-        <div class="tc-cell"><div class="tc-label">🚗 包车</div><div class="tc-val">4天 · 7座 · ¥3,600/人</div></div>
-      </div>
-      <div class="tc-row">
-        <div class="tc-cell"><div class="tc-label">珀斯</div><div class="tc-val">13–21°C</div><div class="tc-note">🌅 06:49 · 🌇 17:38</div></div>
-        <div class="tc-cell"><div class="tc-label">杰拉尔顿</div><div class="tc-val">16–24°C</div><div class="tc-note">🌅 06:37 · 🌇 17:27</div></div>
-        <div class="tc-cell"><div class="tc-label">罗岛</div><div class="tc-val">12–19°C</div><div class="tc-note">海风体感低 · 注意防风</div></div>
-      </div>
+    <div class="team-compact rv-stagger">
+      <div class="tc-cell"><div class="tc-label">✈️ 抵达 5.1</div><div class="tc-val">B队 03:25<br>A队 05:05</div></div>
+      <div class="tc-cell"><div class="tc-label">✈️ 返程 5.6</div><div class="tc-val">A队 01:35<br>B队 20:50</div></div>
+      <div class="tc-cell"><div class="tc-label">🚗 包车</div><div class="tc-val">4天 · 7座<br>¥3,600/人</div></div>
+      <div class="tc-cell"><div class="tc-label">🌡 珀斯</div><div class="tc-val">13–21°C</div><div class="tc-note">日出 06:49 · 日落 17:38</div></div>
+      <div class="tc-cell"><div class="tc-label">🌡 杰拉尔顿</div><div class="tc-val">16–24°C</div><div class="tc-note">日出 06:37 · 日落 17:27</div></div>
+      <div class="tc-cell"><div class="tc-label">🌡 罗岛</div><div class="tc-val">12–19°C</div><div class="tc-note">海风体感低 · 注意防风</div></div>
     </div>
   </div>
 </section>
