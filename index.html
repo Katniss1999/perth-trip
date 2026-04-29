@@ -138,6 +138,7 @@ a { color: var(--c-accent); text-decoration: none; }
   border-color: rgba(255,255,255,.6); background: rgba(255,255,255,.1);
 }
 .nav-links .nav-map-link::after { display: none; }
+.nav-links li:has(.nav-map-link) + li:has(.nav-map-link) { margin-left: -1.2rem; }
 .nav.scrolled .nav-links .nav-map-link {
   border-color: var(--c-accent); color: var(--c-accent);
 }
@@ -622,6 +623,7 @@ a { color: var(--c-accent); text-decoration: none; }
     <li><a href="#attractions">景点</a></li>
     <li><a href="#tips">贴士</a></li>
     <li><a href="perth-route-map.html" class="nav-map-link">路线图 ↗</a></li>
+    <li><a href="perth-trip-print.html" class="nav-map-link">打印手册 ↗</a></li>
   </ul>
 </nav>
 
